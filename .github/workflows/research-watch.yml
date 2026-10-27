@@ -1,0 +1,17 @@
+name: Research sources availability
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '24 8 * * 1'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Check source availability
+        run: python scripts/source_watch.py
