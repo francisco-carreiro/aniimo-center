@@ -71,7 +71,7 @@ export const BUILDS = {
 // Collections are personal; never prefill them from example screenshots.
 export const INITIAL_COLLECTION = {};
 export const STAT_NAMES = ['ATK','REGEN','BREAK','HP','P.DEF','M.DEF'];
-export const DEFAULT_PROFILE = {owned:true,level:1,cp:0,potential:'Unknown',star:0,spent:0,budget:0,awaken:{ATK:0,REGEN:0,BREAK:0,HP:0,'P.DEF':0,'M.DEF':0},held:'',notes:''};
+export const DEFAULT_PROFILE = {owned:true,level:1,cp:0,potential:'Unknown',star:0,spent:0,budget:0,awaken:{ATK:0,REGEN:0,BREAK:0,HP:0,'P.DEF':0,'M.DEF':0},held:'',notes:'',form:'Basic'};
 export function getBuild(a) { const d=BUILDS[a.name]; const r=ROLE_PRIORITIES[a.role]||ROLE_PRIORITIES.Support; return d || {quality:'Role template · not individually verified',item:'Check held-item database',altItem:'—',skills:[],personality:'Not verified',stats:r.priority,third:'Only after verifying the individual kit.',notes:r.explain+' Specific item, skill and personality recommendations are intentionally not invented.',sources:['guide-stats'],form:'Confirm in-game',rotation:'Choose skills according to element synergy and role.'}; }
 
 export const ITEMS = [
