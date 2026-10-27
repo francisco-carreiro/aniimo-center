@@ -1,15 +1,16 @@
 # ANIIMO CENTER ⚡
 
-**A private, responsive Aniimo optimization hub — ready for Netlify or any static web host.**
+**A responsive, all-element Aniimo optimization hub — ready for Netlify or any static web host.**
 
 - 9 sourced elemental team presets with lineups, tactics and substitutions.
 - 44 Aniimo from featured team rosters (this is a **starter subset**, not the whole game roster).
 - 11 improved individual build profiles; remaining entries offer explicitly labeled **role templates**, not invented BIS claims.
 - 15 held items with documented effects and contextual role suggestions.
-- Dedicated **Upgrade roadmap** with role-level awakening priorities, potential breakpoints, Level 65 Star-Up gate and personal budget tracking.
+- Dedicated **Upgrade roadmap** that starts with a blank selector and supports any Aniimo, role-level awakening priorities, potential breakpoints, and personal budget tracking.
 - Custom squad planner with a **transparent role/ownership checklist** (not simulated DPS).
 - Personal collection, levels, CP, star progression, awaken stats, held items and notes.
-- Fulmintis preloaded from the owner's 27 Oct 2026 screenshots (Level 60, CP 3388, Perfect, ATK and REGEN 20, 22/43).
+- Starts with **no assumed owned Aniimo or screenshot-derived profile**; add only the units you own.
+- Universal home dashboard: all nine elements, featured diverse teams, and a five-step optimization guide.
 - JSON export/import, saved in the device's `localStorage` with no accounts or backend.
 - Desktop and phone layouts; reduced-motion styling for accessibility.
 - Research source registry with publication/review dates.
@@ -45,8 +46,10 @@ Open `http://localhost:8000` in a browser. Or, using VS Code, right-click `index
 
 - The dataset is in [`assets/data.js`](./assets/data.js). **Snapshot reviewed 2026-10-27**; it is not a live gameplay API or an exhaustive encyclopedia.
 - Team recommendations are attributed to GameWith (updated 2026-10-14); players disagree on optimal endgame squads.
-- Fulmintis individual recommendations distinguish the in-game Ferocious Fang recommendation from the theorycrafted crit-focused Heartseeker Pendant.
+- Fulmintis remains **one ordinary build entry** alongside the rest; its individual recommendations distinguish the in-game Ferocious Fang recommendation from the theorycrafted crit-focused Heartseeker Pendant.
+- The app removes the **exact unmodified v1 sample Fulmintis record** on upgrade, while preserving actual saved edits and other Aniimo in local storage. New profiles start with zero *recorded* awakening points, which means **not yet entered**, not that the game starts at zero.
 - Generic role-level build templates are marked as **not individually verified**.
+- Level gates and Star Up material costs vary by your game status; the roadmap asks you to verify these instead of inferring universal values from example screenshots.
 - The 0–100 team planner score is intentionally only a role/ownership coverage checklist. Do **not** treat it as a DPS, matchmaking or boss-win prediction.
 - Game statistics, stars, attributes and skills can change. Before spending rare materials, confirm any irreversible changes in the current game client.
 - `scripts/source_watch.py` and the `.github/workflows/research-watch.yml` workflow can check whether source URLs are accessible. They **do not auto-update the build database** and do not claim change detection for gameplay data.

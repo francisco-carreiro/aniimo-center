@@ -1,7 +1,7 @@
 // ANIIMO CENTER / curated game-guide snapshot. Last reviewed: 2026-10-27.
 // Each team is attributed to its published source. These are editorial recommendations,
 // NOT proven globally optimal compositions or live game API results.
-const SOURCES = [
+export const SOURCES = [
  {id:'gamewith',name:'GameWith · Best team comps',url:'https://gamewith.ai/aniimo/en/articles/best-team-comps',date:'2026-10-14',category:'Nine elemental teams',note:'Editorial team compositions, tactics and substitutions.'},
  {id:'guide-stats',name:'Aniimo Guide · Awakening tests',url:'https://aniimoguide.com/news/aniimo-best-stats-every-role-capability-awakening',date:'2026-10-16',category:'Stats & breakpoints',note:'Creator tests and game-data interpretation; balance can change.'},
  {id:'guide-fulmintis',name:'Aniimo Guide · In-game Fulmintis build',url:'https://aniimoguide.com/aniidex/fulmintis',date:'2026-09-14',category:'Fulmintis official recommendations',note:'Game-derived ATK then REGEN priorities; Ferocious Fang.'},
@@ -11,7 +11,7 @@ const SOURCES = [
  {id:'game-items',name:'GameWith · Held items',url:'https://gamewith.ai/aniimo/en/held-items',date:'2026-10-27',category:'Equipment lookup',note:'Reference for held-item availability; verify current effects in game.'},
  {id:'aniimoverse',name:'AniimoVerse · Build catalog',url:'https://www.aniimoverse.com/guides/builds',date:'2026-10-01',category:'Community build library',note:'Alternative builds and rotation ideas.'}
 ];
-const ELEMENTS = [
+export const ELEMENTS = [
  {id:'Lightning',symbol:'ϟ',tone:'#b59bff',sub:'Electric',targets:['Water']},
  {id:'Fire',symbol:'♨',tone:'#ff956f',sub:'Flame',targets:['Ice']},
  {id:'Water',symbol:'◈',tone:'#67beff',sub:'Tide',targets:['Fire']},
@@ -24,7 +24,7 @@ const ELEMENTS = [
 ];
 // Names are sourced from published team rosters. Role is contextual to these lineups;
 // variants/forms may change role. Form names are stored in team slots.
-const TEAMS = [
+export const TEAMS = [
  {element:'Lightning',name:'Storm Circuit',tag:'SUSTAINED DPS',rank:'Community pick',source:'gamewith',lineup:[['Fulmintis','DPS','Basic'],['Dazmand','Support','Basic'],['Luminelle','Heal','Basic'],['Besauce','Regen','Basic']],alternatives:[{out:'Dazmand',in:'Turbo',form:'Rainstorm',why:'Better survivability; lower BREAK pace.'},{out:'Luminelle',in:'Blazen',form:'Basic',why:'More dedicated BREAK; less healing.'}],rotation:['Apply Dazmand BREAK pressure','Use Luminelle support and healing','Keep Fulmintis active during the damage window','Swap to Besauce only when energy is low'],summary:'A low-energy support engine maximizes Fulmintis field time.',tip:'Crit frequency and energy uptime matter more than raw CP.',strength:['High DPS uptime','Lightning amplification','Energy support'],risk:'Shared elemental weaknesses; consider defensive swap against hard counters.'},
  {element:'Fire',name:'Ember Protocol',tag:'BURST / BREAK',rank:'Community pick',source:'gamewith',lineup:[['Scorchhowl','DPS','Prismana'],['Magmarex','Break','Basic'],['Turbo','Heal','Rainstorm'],['Besauce','Regen','Basic']],alternatives:[{out:'Magmarex',in:'Squashel',form:'Basic',why:'Alternative fire BREAK option.'}],rotation:['Open with Magmarex Lava Breath briefly','Apply fire debuff and BREAK','Use Turbo for sustain','Release Scorchhowl fully charged burst'],summary:'A strong BREAK opener creates a window for charged Fire damage.',tip:'Magmarex Lava Breath consumes energy during its channel.',strength:['High burst','Fire resistance shred','Reliable energy'],risk:'Energy management during breaker channel.'},
  {element:'Water',name:'Tidal Engine',tag:'ENERGY LOOP',rank:'Community pick',source:'gamewith',lineup:[['Sherro','DPS','Basic'],['Piopiota','Support','Basic'],['Panpanta','Break','Prismana'],['Erlath','Regen','Basic']],alternatives:[{out:'Panpanta',in:'Glacy',form:'Prismana',why:'Safer healing / damage-buff route.'}],rotation:['Create puddles with Piopiota','Apply water debuff and BREAK with Panpanta','Cycle water skills to feed Erlath bubbles','Return energy and deal damage with Sherro'],summary:'Water skills chain into one another and sustain the rotation.',tip:'Swap Panpanta for Glacy if survival is limiting the clear.',strength:['Energy economy','Element synergy','Consistent debuff'],risk:'Requires smooth water-skill sequencing.'},
@@ -45,17 +45,17 @@ const aliases = {
  'Stellarys':['Dark','DPS'],'Turbo':['Wind','Heal'],'Rookey':['Dark','Break'],'Hexxin':['Dark','Regen'],'Dreaple':['Dark','Support'], 'Fragrancier':['Dark','Support'],
  'Gracewing':['Wind','Heal'],'Shrubclaw':['Rock','Break'],'Coraliz':['Rock','Regen']
 };
-const ANIIMO = Object.entries(aliases).map(([name,[element,role]],i)=>({id:name.toLowerCase(),name,element,role,monogram:name.slice(0,2).toUpperCase(),index:i+1}));
-const getAniimo = name => ANIIMO.find(a=>a.name===name);
-const getElement = name => ELEMENTS.find(e=>e.id===name) || ELEMENTS[0];
-const ROLE_PRIORITIES = {
+export const ANIIMO = Object.entries(aliases).map(([name,[element,role]],i)=>({id:name.toLowerCase(),name,element,role,monogram:name.slice(0,2).toUpperCase(),index:i+1}));
+export const getAniimo = name => ANIIMO.find(a=>a.name===name);
+export const getElement = name => ELEMENTS.find(e=>e.id===name) || ELEMENTS[0];
+export const ROLE_PRIORITIES = {
  DPS:{priority:['ATK','REGEN'],avoid:'BREAK on a pure DPS is not automatically worth the investment.',explain:'Attack scales your damage; energy regeneration supports rotation uptime.'},
  Break:{priority:['BREAK','REGEN'],avoid:'Do not assume ATK improves a dedicated breaker in the current balance.',explain:'BREAK first, then energy support. Test against current patches.'},
  Regen:{priority:['REGEN'],avoid:'Raw ATK often has lower value.',explain:'Most regeneration skills use the REGEN stat; exceptions exist.'},
  Heal:{priority:['HP'],avoid:'Do not prioritize BREAK without a specific reason.',explain:'Heal output commonly scales with HP; some Aniimo have exceptions.'},
  Support:{priority:['Trait scaling → usually ATK'],avoid:'Damage-oriented priorities may not improve a support buff.',explain:'Read the actual skill/trait scaling before allocating.'}
 };
-const BUILDS = {
+export const BUILDS = {
  Fulmintis:{quality:'Detailed · source-backed',item:'Heartseeker Pendant',altItem:'Ferocious Fang',skills:['Lightning Blade Impact','Lightning Rush'],innate:'Thunder Lance',personality:'ENTP',stats:['ATK','REGEN'],third:'Hold for encounter testing; BREAK is disputed for pure DPS.',notes:'Crits help feed the energy loop. Heartseeker Pendant is a theorycrafted crit-synergy pick; the game lists Ferocious Fang as its suggested item.',sources:['lum-fulmintis','guide-fulmintis','guide-stats'],form:'Basic or Prismana',benchmark:'Level 60, Perfect, ATK 20 / REGEN 20',rotation:'Apply team buffs → use Lightning Blade Impact and Lightning Rush → refresh energy only as needed.'},
  Stellarys:{quality:'Community-tested',item:'Heartseeker Pendant',altItem:'Verify in-game',skills:[],personality:'Not verified',stats:['ATK','REGEN'],third:'Avoid BREAK until role testing supports it.',notes:'Community endgame composition uses Stellarys with Heartseeker; exact active skills require verification.',sources:['endgame','guide-stats'],form:'Basic',rotation:'Shred/buff → BREAK → burst on Stellarys.'},
  Scorchhowl:{quality:'Community-tested',item:'Ferocious Fang',altItem:'Verify in-game',skills:[],personality:'Not verified',stats:['ATK','REGEN'],third:'Reserve until a specific encounter is chosen.',notes:'Kneil’s Fire squad uses Ferocious Fang. Prismana Scorchhowl is the carry in the GameWith team.',sources:['endgame','gamewith'],form:'Prismana',rotation:'Magmarex debuff and BREAK → fully charged Fire burst.'},
@@ -68,14 +68,13 @@ const BUILDS = {
  Thornblade:{quality:'Team-verified',item:'Verify in-game',altItem:'—',skills:['Thorny Rain'],personality:'Not verified',stats:['ATK','REGEN'],third:'Consider survival only if needed.',notes:'Contracted core skill enables Thorny Rain → Sword Dance → normals.',sources:['gamewith','aniimoverse'],form:'Prismana',rotation:'Support buffs → Thorny Rain → Sword Dance → normal combo.'},
  Gracewing:{quality:'Role-tested',item:'Verify in-game',altItem:'—',skills:[],personality:'Not verified',stats:['HP'],third:'Only invest elsewhere with skill-specific proof.',notes:'Healer whose trait and skills scale with HP in the cited role analysis.',sources:['guide-stats','metabot'],form:'Basic',rotation:'Heal during high incoming damage.'}
 };
-const INITIAL_COLLECTION = {
- Fulmintis:{owned:true,level:60,cp:3388,potential:'Perfect',star:6,spent:22,budget:43,awaken:{ATK:20,REGEN:20,HP:5,BREAK:5,'P.DEF':5,'M.DEF':5},held:'',notes:'Imported from screenshots (27 Oct 2026).'}
-};
-const STAT_NAMES = ['ATK','REGEN','BREAK','HP','P.DEF','M.DEF'];
-const DEFAULT_PROFILE = {owned:true,level:1,cp:0,potential:'Unknown',star:0,spent:0,budget:5,awaken:{ATK:5,REGEN:5,BREAK:5,HP:5,'P.DEF':5,'M.DEF':5},held:'',notes:''};
-function getBuild(a) { const d=BUILDS[a.name]; const r=ROLE_PRIORITIES[a.role]||ROLE_PRIORITIES.Support; return d || {quality:'Role template · not individually verified',item:'Check held-item database',altItem:'—',skills:[],personality:'Not verified',stats:r.priority,third:'Only after verifying the individual kit.',notes:r.explain+' Specific item, skill and personality recommendations are intentionally not invented.',sources:['guide-stats'],form:'Confirm in-game',rotation:'Choose skills according to element synergy and role.'}; }
+// Collections are personal; never prefill them from example screenshots.
+export const INITIAL_COLLECTION = {};
+export const STAT_NAMES = ['ATK','REGEN','BREAK','HP','P.DEF','M.DEF'];
+export const DEFAULT_PROFILE = {owned:true,level:1,cp:0,potential:'Unknown',star:0,spent:0,budget:0,awaken:{ATK:0,REGEN:0,BREAK:0,HP:0,'P.DEF':0,'M.DEF':0},held:'',notes:''};
+export function getBuild(a) { const d=BUILDS[a.name]; const r=ROLE_PRIORITIES[a.role]||ROLE_PRIORITIES.Support; return d || {quality:'Role template · not individually verified',item:'Check held-item database',altItem:'—',skills:[],personality:'Not verified',stats:r.priority,third:'Only after verifying the individual kit.',notes:r.explain+' Specific item, skill and personality recommendations are intentionally not invented.',sources:['guide-stats'],form:'Confirm in-game',rotation:'Choose skills according to element synergy and role.'}; }
 
-const ITEMS = [
+export const ITEMS = [
  {name:'Heartseeker Pendant',main:'Damage Amp',effect:'On critical hits, chance of an additional small hit.',focus:'Crit-focused DPS',recommend:'Fulmintis (crit-synergy guide)',source:'game-items'},
  {name:'Ferocious Fang',main:'Damage Amp',effect:'Additional ATK per level; offensive scaling.',focus:'ATK-scaling DPS / buffs',recommend:'Fulmintis (in-game recommendation)',source:'game-items'},
  {name:'Gargantuan Horn',main:'BREAK',effect:'Additional BREAK per level.',focus:'Dedicated breaker',recommend:'Role candidate; check skills',source:'game-items'},
@@ -93,5 +92,3 @@ const ITEMS = [
  {name:'Heritage Amulet',main:'HP',effect:'Provides a small shield after taking repeated hits.',focus:'Defensive sustain',recommend:'Situational utility',source:'game-items'}
 ];
 
-
-export {SOURCES,ELEMENTS,TEAMS,ANIIMO,BUILDS,INITIAL_COLLECTION,STAT_NAMES,DEFAULT_PROFILE,ROLE_PRIORITIES,ITEMS,getAniimo,getElement,getBuild};
