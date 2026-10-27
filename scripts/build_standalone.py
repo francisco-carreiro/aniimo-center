@@ -1,15 +1,15 @@
-"""Build the self-contained ANIIMO CENTER HTML from local static assets."""
+#!/usr/bin/env python3
+"""Create a portable file that can run via file:// without ES module imports."""
 from pathlib import Path
-import re
-ROOT=Path(__file__).resolve().parent.parent
-css=(ROOT/'assets/style.css').read_text(encoding='utf-8')
-data=(ROOT/'assets/data.js').read_text(encoding='utf-8')
-app=(ROOT/'assets/app.js').read_text(encoding='utf-8')
-data=re.sub(r'\nexport \{[^}]+\};\s*$', '', data)
-app=re.sub(r'^import \{[^}]+\} from [\'\"]\./data\.js[\'\"];?\s*', '', app)
-index=(ROOT/'index.html').read_text(encoding='utf-8')
-index=re.sub(r'<link rel="stylesheet" href="\./assets/style\.css">', '<style>'+css+'</style>', index)
-index=re.sub(r'<script type="module" src="\./assets/app\.js"></script>', '<script>'+data+'\n'+app+'</script>',index)
-index=re.sub(r'<link rel="icon"[^>]+>', '', index)
-(ROOT/'ANIIMO-CENTER-standalone.html').write_text(index,encoding='utf-8')
-print('Generated standalone HTML')
+root = Path(__file__).resolve().parents[1]
+css = (root/'assets/style.css').read_text(encoding='utf-8')
+data = (root/'assets/data.js').read_text(encoding='utf-8')
+app = (root/'assets/app.js').read_text(encoding='utf-8')
+for label in ('export const ', 'export function '):
+    data = data.replace(label, label.replace('export ', ''))
+app = app[app.index('const STORAGE='):]
+app = app.replace('</script>', '<\\/script>')
+page = '''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080e1a"><title>ANIIMO CENTER — Portable Edition</title><style>'''+css+'''</style></head><body><div id="app"></div><script>'''+data+'\n'+app+'''</script></body></html>'''
+out = root/'ANIIMO-CENTER-standalone.html'
+out.write_text(page, encoding='utf-8')
+print('Created', out, len(page), 'characters')

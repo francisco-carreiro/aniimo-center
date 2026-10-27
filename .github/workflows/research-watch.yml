@@ -1,17 +1,27 @@
-name: Research sources availability
+name: ANIIMO CENTER — Research Source Watch
 on:
   workflow_dispatch:
   schedule:
-    - cron: '24 8 * * 1'
+    - cron: '17 8 * * 1'
 permissions:
   contents: read
 jobs:
-  check:
+  source-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
-      - name: Check source availability
+          python-version: '3.12'
+      - name: Run read-only source availability checks
         run: python scripts/source_watch.py
+      - name: Add report to workflow summary
+        if: always()
+        run: cat docs/source-watch-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Archive dated source check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aniimo-source-watch
+          path: docs/source-watch-report.md
+          retention-days: 30

@@ -47,9 +47,8 @@ Open `http://localhost:8000` in a browser. Or, using VS Code, right-click `index
 - The dataset is in [`assets/data.js`](./assets/data.js). **Snapshot reviewed 2026-10-27**; it is not a live gameplay API or an exhaustive encyclopedia.
 - Team recommendations are attributed to GameWith (updated 2026-10-14); players disagree on optimal endgame squads.
 - Fulmintis remains **one ordinary build entry** alongside the rest; its individual recommendations distinguish the in-game Ferocious Fang recommendation from the theorycrafted crit-focused Heartseeker Pendant.
-- The app removes the **exact unmodified v1 sample Fulmintis record** on upgrade, while preserving actual saved edits and other Aniimo in local storage. New profiles start with zero *recorded* awakening points, which means **not yet entered**, not that the game starts at zero.
+- The app removes the **exact unmodified v1 sample Fulmintis record** on upgrade, while preserving actual saved edits and other Aniimo in local storage.
 - Generic role-level build templates are marked as **not individually verified**.
-- Level gates and Star Up material costs vary by your game status; the roadmap asks you to verify these instead of inferring universal values from example screenshots.
 - The 0–100 team planner score is intentionally only a role/ownership coverage checklist. Do **not** treat it as a DPS, matchmaking or boss-win prediction.
 - Game statistics, stars, attributes and skills can change. Before spending rare materials, confirm any irreversible changes in the current game client.
 - `scripts/source_watch.py` and the `.github/workflows/research-watch.yml` workflow can check whether source URLs are accessible. They **do not auto-update the build database** and do not claim change detection for gameplay data.

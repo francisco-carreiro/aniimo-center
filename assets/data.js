@@ -91,4 +91,3 @@ export const ITEMS = [
  {name:'Lightning Needle',main:'HP',effect:'Deals periodic Lightning damage around the wearer.',focus:'Close-range pressure',recommend:'Situational utility',source:'game-items'},
  {name:'Heritage Amulet',main:'HP',effect:'Provides a small shield after taking repeated hits.',focus:'Defensive sustain',recommend:'Situational utility',source:'game-items'}
 ];
-
