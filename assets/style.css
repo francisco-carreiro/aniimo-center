@@ -1035,3 +1035,115 @@ body .wb-growth-list b{color:#37877e}
 @media(max-width:620px){body .wb-growth-head label{width:100%;min-width:0}body .wb-growth-profile{padding:19px;gap:9px;flex-direction:column;text-align:center}body .wb-growth-art .avatar.xl{width:135px;height:135px}body .wb-growth-profile .wb-tags{justify-content:center}}
 /* Avoid painting offscreen card backgrounds until their section approaches viewport. */
 body .wb-owned-card,body .wb-suggestion-grid>article{content-visibility:auto;contain-intrinsic-size:auto 190px}
+
+/* ── v1.7 The Battle Journal: light field-notebook aesthetic ────────────── */
+body .horizon-nav{overflow-x:auto;scrollbar-width:none;justify-content:flex-start;flex:1 1 auto}
+body .horizon-nav::-webkit-scrollbar{display:none}
+body .horizon-link{flex-shrink:0}
+body .wb-battle-intro{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 245px;align-items:center;gap:25px;padding:clamp(24px,4vw,54px);border:1px solid #c6e4df;border-radius:30px;background:radial-gradient(ellipse at 91% 7%,#c3f2e7,transparent 42%),radial-gradient(ellipse at 4% 85%,#f9dbe5,transparent 46%),linear-gradient(125deg,#fffefa,#f1fcfc);box-shadow:0 13px 50px #548b8417;color:#4d7787}
+body .wb-battle-intro h2{font-size:clamp(29px,3.8vw,53px);line-height:1.09;letter-spacing:-.045em;margin:12px 0 15px;color:#2d5e75;font-weight:900}
+body .wb-battle-intro h2 em{color:#e48a9e;font-style:normal}
+body .wb-battle-intro p{max-width:640px;font-size:14px;line-height:1.7;color:#65899a}
+body .wb-battle-mode{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+body .wb-battle-mode button{border:1px solid #b8dfd7;color:#467a7d;background:#ffffffb5;border-radius:99px;padding:11px 18px;font:inherit;font-weight:800;font-size:12px;cursor:pointer;transition:transform .2s,background .2s}
+body .wb-battle-mode button:hover{transform:translateY(-2px)}
+body .wb-battle-mode button.active{border-color:#4ca99c;background:#e0f5e9;color:#327c73;box-shadow:inset 0 0 0 1px #73c4b8}
+body .wb-battle-tally{padding:25px;border-radius:24px;background:#ffffffd9;border:1px solid #bcded9;text-align:center;box-shadow:0 8px 22px #709e9a15}
+body .wb-battle-tally strong{display:block;font-size:48px;letter-spacing:-.07em;color:#369e94;line-height:1}
+body .wb-battle-tally strong span{font-size:24px;color:#71959f;font-weight:700}
+body .wb-battle-tally small{display:block;font-weight:850;letter-spacing:.09em;font-size:10px;margin:9px 0;color:#5a8a8b}
+body .wb-progress-track{height:9px;background:#d9eee8;border-radius:99px;overflow:hidden;margin:14px 0}
+body .wb-progress-track i{display:block;height:100%;background:linear-gradient(90deg,#64cfad,#e5a5cf);border-radius:99px;transition:width .3s ease}
+body .wb-battle-tally p{font-size:11px!important;margin:0;color:#64858c}
+body .wb-battle-controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:25px 0 12px;padding:15px;border:1px solid #d0e9e4;border-radius:21px;background:#ffffffbd}
+body .wb-battle-controls label{display:flex;flex-direction:column;gap:6px;min-width:135px;font-size:10px;font-weight:900;letter-spacing:.07em;color:#568b8d}
+body .wb-battle-controls select,body .wb-battle-controls input{background:#f9fffd;border:1px solid #c8e4de;border-radius:12px;color:#355f72;min-height:43px;padding:9px 12px;outline-offset:2px;font:inherit;font-size:13px}
+body .wb-battle-controls .wb-boss-search{flex:1;display:flex;flex-direction:row;align-items:center;gap:10px;background:#f9fffd;border:1px solid #c8e4de;border-radius:12px;padding:0 12px;min-height:43px;min-width:240px}
+body .wb-battle-controls .wb-boss-search input{flex:1;border:0;background:transparent;padding:8px 0;min-width:0;outline:none}
+body .wb-battle-controls .btn{min-height:43px;white-space:nowrap}
+body .wb-battle-controls .wb-battle-active{background:#ddf5e8;color:#347b74}
+body .wb-battle-caption{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 4px 12px;color:#728e9b;font-size:11px;font-weight:700}
+body .wb-boss-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:24px}
+body .wb-boss-card{position:relative;min-width:0;min-height:274px;text-align:left;display:flex;flex-direction:column;align-items:stretch;padding:14px;background:linear-gradient(160deg,color-mix(in srgb,var(--boss-hue) 15%,#fff),#fffefa 80%);border:1px solid color-mix(in srgb,var(--boss-hue) 24%,#d0e4e2);border-radius:20px;cursor:pointer;color:#336478;box-shadow:0 6px 19px #477c7b0d;transition:transform .22s,border-color .22s,box-shadow .22s}
+body .wb-boss-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px #628d8420}
+body .wb-boss-card.selected{border:2px solid #54bba9;box-shadow:0 0 0 3px #a8e2d24d}
+body .wb-boss-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:5px;flex-wrap:wrap;color:#64938e;letter-spacing:.07em;font-weight:900;font-size:9px}
+body .wb-boss-status{font-size:8px;color:#7b9299;background:#ffffff8c;border:1px solid #d3e9e5;padding:4px 7px;border-radius:99px}
+body .wb-boss-status.cleared{color:#248873;background:#dbf7e8;border-color:#b3e8d1}
+body .wb-boss-status.attempted{color:#b4823b;background:#fff6da;border-color:#eadab5}
+body .wb-boss-image{height:130px;display:grid;place-items:center;overflow:hidden;isolation:isolate;position:relative}
+body .wb-boss-image:before{content:"";position:absolute;width:105px;height:105px;border:1px solid color-mix(in srgb,var(--boss-hue) 27%,#d9e9e4);background:radial-gradient(circle,color-mix(in srgb,var(--boss-hue) 16%,#fff) 0,transparent 70%);border-radius:50%;z-index:-1}
+body .wb-boss-image .avatar.xl{width:145px;height:134px;border:0!important;background:transparent!important;box-shadow:none!important}
+body .wb-boss-image .avatar img{object-fit:contain;width:100%;height:100%}
+body .wb-boss-rune{font-size:70px;font-weight:800;opacity:.34;color:var(--boss-hue)}
+body .wb-boss-card>strong{font-size:17px;letter-spacing:-.025em;font-weight:900;overflow-wrap:anywhere}
+body .wb-boss-card>small{color:#738f9c;font-size:10px;line-height:1.5;margin:3px 0 8px}
+body .wb-boss-elements{display:flex;gap:4px;flex-wrap:wrap;margin-top:auto}
+body .wb-boss-counters{display:flex;flex-direction:column;gap:4px;color:#849aaa;font-size:9px;font-weight:850;letter-spacing:.045em;padding-top:11px}
+body .wb-boss-counters b{font-size:11px;letter-spacing:0;color:#368e87;font-weight:800}
+body .wb-battle-detail{border-radius:28px;border:1px solid #d2e5dd;background:#fafffc;overflow:hidden;margin:28px 0;scroll-margin-top:90px;box-shadow:0 14px 40px #628b8b16}
+body .wb-battle-detail-hero{display:grid;grid-template-columns:220px 1fr;align-items:center;gap:25px;background:linear-gradient(120deg,color-mix(in srgb,var(--boss-hue) 19%,#fff),#fafffc);padding:24px clamp(22px,4vw,45px);border-bottom:1px solid #d8e9e5}
+body .wb-battle-portrait{height:210px;display:grid;place-items:center;border-radius:25px;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--boss-hue) 16%,#fff),#ffffff9e 70%);border:1px solid color-mix(in srgb,var(--boss-hue) 30%,#e0e8e3)}
+body .wb-battle-portrait .avatar.xl{height:210px;width:200px;background:transparent!important;border:0!important;box-shadow:none!important}
+body .wb-battle-portrait img{width:100%;height:100%;object-fit:contain}
+body .wb-battle-detail-hero h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.055em;margin:7px 0;color:#376c7c}
+body .wb-battle-detail-hero p{font-size:13px;color:#62878e;line-height:1.6;margin:8px 0}
+body .wb-battle-detail-hero .wb-boss-gate{font-weight:700;color:#457d7a}
+body .wb-battle-detail .wb-location{font-size:12px;color:#a17863}
+body .wb-battle-matchbar{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:18px 30px;background:#eaf8f3}
+body .wb-battle-matchbar div{min-width:0}
+body .wb-battle-matchbar small{display:block;color:#6c9698;font-size:10px;font-weight:850;letter-spacing:.07em;margin-bottom:5px}
+body .wb-battle-matchbar strong{color:#338776;font-weight:850;font-size:14px;line-height:1.6}
+body .wb-battle-columns{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:23px}
+body .wb-battle-paper{background:#fff!important;border:1px solid #d6e9e3!important;color:#4b7885!important;box-shadow:none!important;padding:22px!important;border-radius:20px!important}
+body .wb-battle-paper h3{margin:7px 0 14px;color:#386779;font-size:21px;letter-spacing:-.025em}
+body .wb-battle-paper ul{padding-left:20px;margin:0}
+body .wb-battle-paper li{margin:9px 0;line-height:1.6;font-size:13px;color:#5f8491}
+body .wb-boss-status-actions{display:flex;gap:7px;flex-wrap:wrap}
+body .wb-progress-button{border:1px solid #d5e7dd;background:#f5fbf8;border-radius:11px;color:#5a8085;padding:10px;font-weight:800;font-size:11px;cursor:pointer}
+body .wb-progress-button.active{background:#c9f2e0;border-color:#78cfb6;color:#237e74}
+body .wb-boss-notes{display:grid;gap:7px;margin:17px 0 10px;color:#6a9090;font-size:10px;letter-spacing:.05em;font-weight:800}
+body .wb-boss-notes textarea{width:100%;resize:vertical;min-height:76px;background:#fbfffd;border:1px solid #cfe9e0;padding:11px;border-radius:12px;color:#396674;line-height:1.4;font:inherit;font-size:12px;letter-spacing:0;box-sizing:border-box}
+body .wb-subtle,body .wb-boss-help{color:#789295;font-size:12px;line-height:1.6}
+body .wb-boss-help{padding:14px;border:1px dashed #b4d9d0;border-radius:13px;background:#f3fbf9;margin:12px 0}
+body .wb-battle-section-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+body .wb-battle-section-heading p{font-size:12px;color:#718c96}
+body .wb-battle-detail>.wb-battle-paper{margin:0 23px 23px}
+body .wb-battle-counters-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:17px 0}
+body .wb-battle-candidate{display:flex;align-items:center;gap:4px;flex-direction:column;text-align:center;border-radius:17px;padding:12px 5px;background:#f3fbf9;border:1px solid #d2e9e2;min-width:0}
+body .wb-battle-candidate>div{height:76px}
+body .wb-battle-candidate .avatar.lg{width:80px;height:76px;background:transparent!important;border:0!important;box-shadow:none!important}
+body .wb-battle-candidate strong{color:#38657b;font-size:12px;overflow-wrap:anywhere}
+body .wb-battle-candidate small{color:#8096a0;font-size:10px}
+body .wb-battle-candidate>span{font-size:10px;font-weight:850;color:#338e81}
+body .wb-battle-candidate>b{font-size:9px;color:#9a9eaf;letter-spacing:.04em}
+body .wb-battle-squad{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.5fr);gap:16px;align-items:center;margin-top:22px;border-top:1px solid #e2f0e9;padding-top:20px}
+body .wb-battle-squad h3{font-size:21px;margin:7px 0}
+body .wb-battle-squad p{font-size:11px;color:#768f9a;line-height:1.65}
+body .wb-battle-squad-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+body .wb-battle-squad-grid>div{display:flex;align-items:center;flex-direction:column;text-align:center;gap:2px;background:#f4fbf7;border:1px solid #d7ebe2;border-radius:13px;padding:9px 4px;min-width:0}
+body .wb-battle-squad-grid span{font-size:9px;color:#7b9a9e}
+body .wb-battle-squad-grid .avatar.md{width:64px;height:65px;background:transparent!important;border:0!important;box-shadow:none!important}
+body .wb-battle-squad-grid b{font-size:10px;color:#3b7284;overflow-wrap:anywhere}
+body .wb-battle-squad-grid small{font-size:9px;color:#839cab}
+body .wb-battle-squad>.btn{grid-column:1/-1;justify-self:start}
+body .wb-battle-squad>.wb-boss-help{grid-column:1/-1;margin:0}
+body .wb-battle-welcome{padding:clamp(35px,5vw,80px);border:1px dashed #c6e0d7;border-radius:26px;background:#f8fffc;text-align:center;color:#76959d;margin:25px 0}
+body .wb-battle-welcome span{font-size:38px;color:#df9bac}
+body .wb-battle-welcome h2{margin:8px 0;color:#466f7d;font-size:26px}
+body .wb-battle-welcome p{font-size:13px}
+body .wb-battle-footnote{font-size:11px;color:#7e9398;text-align:center;padding:17px;margin:20px 0}
+@media(max-width:1320px){body .wb-boss-grid{grid-template-columns:repeat(4,minmax(0,1fr))}body .wb-battle-counters-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:980px){body .wb-boss-grid{grid-template-columns:repeat(3,minmax(0,1fr))}body .wb-battle-squad{grid-template-columns:1fr}}
+@media(max-width:770px){body .wb-battle-intro{grid-template-columns:1fr}body .wb-battle-tally{max-width:340px}body .wb-boss-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body .wb-battle-detail-hero{grid-template-columns:130px 1fr;gap:15px}body .wb-battle-portrait{height:145px}body .wb-battle-portrait .avatar.xl{height:140px;width:135px}body .wb-battle-columns{grid-template-columns:1fr;margin:13px}body .wb-battle-detail>.wb-battle-paper{margin:13px}body .wb-battle-matchbar{padding:16px}}
+@media(max-width:480px){body .wb-battle-intro{padding:23px;border-radius:23px}body .wb-battle-controls{padding:11px}body .wb-battle-controls label{flex:1;min-width:130px}body .wb-battle-controls .wb-boss-search{min-width:100%;width:100%}body .wb-boss-grid{gap:8px}body .wb-boss-card{min-height:240px;padding:10px;border-radius:16px}body .wb-boss-image{height:108px}body .wb-boss-image .avatar.xl{height:109px;width:111px}body .wb-boss-card>strong{font-size:15px}body .wb-boss-card>small{font-size:9px}body .wb-battle-detail-hero{padding:15px;grid-template-columns:95px 1fr;gap:10px}body .wb-battle-detail-hero h2{font-size:27px}body .wb-battle-portrait{height:113px;border-radius:15px}body .wb-battle-portrait .avatar.xl{height:112px;width:95px}body .wb-battle-matchbar{grid-template-columns:1fr;gap:10px}body .wb-battle-paper{padding:14px!important}body .wb-battle-counters-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body .wb-battle-squad-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body .wb-boss-status-actions button{flex:1}body .wb-battle-detail{border-radius:17px}}
+@media(prefers-reduced-motion:reduce){body .wb-boss-card,body .wb-battle-mode button,body .wb-progress-track i{transition:none!important}}
+/* The offline catalog carries no artwork; avoid stacking initials on top of the rune. */
+body .wb-boss-image .avatar:not(.has-art) .avatar-initial,
+body .wb-battle-portrait .avatar:not(.has-art) .avatar-initial,
+body .wb-battle-candidate .avatar:not(.has-art) .avatar-initial,
+body .wb-battle-squad-grid .avatar:not(.has-art) .avatar-initial{display:none!important}
+body .wb-boss-image .avatar:not(.has-art) .avatar-rune,
+body .wb-battle-portrait .avatar:not(.has-art) .avatar-rune{color:var(--unit-color);font-size:72px;opacity:.36;filter:none}
+body .wb-battle-candidate .avatar:not(.has-art) .avatar-rune,
+body .wb-battle-squad-grid .avatar:not(.has-art) .avatar-rune{color:var(--unit-color);font-size:48px;opacity:.35;filter:none}

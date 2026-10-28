@@ -105,3 +105,34 @@ Build and team references include [GameWith](https://gamewith.ai/aniimo/en), [An
 ---
 
 **Nota (PT-PT):** O Wildbook não exige conta nem subscrição. A coleção fica guardada no navegador e pode ser transferida com exportação/importação JSON. Os dados de referência e as recomendações não substituem a verificação dentro do jogo.
+
+## 🌿 v1.7 — Battle Companion (28 October 2026)
+
+- **World Boss Journal:** 17 Alpha and 3 Omega encounter entries, with region, types, reliable access notes and personal status (not started / attempted / cleared), plus up to 350 characters of personal notes per encounter.
+- **Boss Rush:** Seven separate challenge entries, tracked independently from the world-map Alphas. The seven are community-documented Level 60 encounters; live challenge balance and rewards may vary.
+- **Matchup and party preparation:** Select an encounter to view a transparent 9-element matchup ranking, optional collection-only counters and a suggested four-member squad. Team drafts prioritize documented role coverage and elemental attack types. They **do not** simulate actual damage, predict success, or model encounter-specific modifiers.
+- **Expanded build library:** Seventeen additional editorial Basic-form skill/held-item profiles (28 total with the prior 11), with confidence labels and no false best-in-slot claims. Form-specific alternate variants continue to receive role-oriented suggestions when a unique guide is not available.
+- **Private encounter journal:** Encounter progress is stored under `aniimo-wildbook:battles:v1`; your companion records remain under `aniimo-wildbook:v2`. No accounts or telemetry. New v2 JSON exports include optional `encounters`; older v1/v2 exports still import. Importing an older backup without an `encounters` field does not erase existing boss progress.
+- **Fallback:** When external Aniimo form data is unavailable, the encounter registry still works offline. Unknown form typing is *not* represented as a known counter.
+
+### Research sources used for v1.7
+
+The application uses a documented **20 world-boss** model (17 Alpha + 3 Omega). Other databases count 21 individual records when the Young/Elderly Omega Sherro variants are modeled separately. These are **not** silently added as unverified fourth Omega world bosses.
+
+- [Aniimo.Guide — In-game text boss directory](https://aniimo.guide/en/world/bosses) (reviewed 2026-09-17).
+- [Aniimo.run — World boss index](https://aniimo.run/database/bosses) (consulted 2026-10-28).
+- [Aniilog — Seven Boss Rush encounters](https://aniilog.gg/bosses/) (data from 2026-09-23).
+- [Aniimo.Guide — Alpha Geoclaw mechanics](https://aniimo.guide/en/world/bosses/alpha-geoclaw).
+- [Daily Aniimo — community boss counters](https://dailyaniimo.com/guides/boss-tier-list) (updated 2026-10-13).
+- [AllThingsHow — editorial loadouts](https://allthings.how/aniimo-builds-best-skills-held-items-and-stat-priorities-for-every-aniimo/) (2026-09-25).
+
+The catalog's existing independent provider is described in the earlier **Sources and rights (maintainers)** section. Visitor-facing screens do not expose provider status or raw implementation details. These sources may contain stale or conflicting entries; inspect current in-game facts before spending rare resources.
+
+### New tests
+
+```bash
+node --test tests/*.test.mjs
+python scripts/build_standalone.py
+```
+
+The Battle Companion has unit tests for encounter count, separate Rush entries, dual-element calculations, copy-aware counters, journal sanitation, JSON backup compatibility, and incomplete-offline fallbacks.

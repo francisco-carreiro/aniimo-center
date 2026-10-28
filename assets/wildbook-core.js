@@ -63,7 +63,7 @@ export function parseBackup(json){const b=typeof json==='string'?JSON.parse(json
  if(b.format==='aniimo-center'&&b.version===1&&b.collection&&typeof b.collection==='object')return migrateLegacyCollection(b.collection);
  throw Error('Unsupported backup. Choose a Wildbook v2 or original Center v1 JSON.');
 }
-export function exportBackup(instances){return {format:'aniimo-wildbook',version:2,exportedAt:new Date().toISOString(),instances:normalizeInstances(instances)};}
+export function exportBackup(instances,encounters={}){return {format:'aniimo-wildbook',version:2,exportedAt:new Date().toISOString(),instances:normalizeInstances(instances),encounters};}
 export function collectionMirror(instances){const result={};for(const unit of instances){if(!result[unit.species])result[unit.species]={...unit,owned:true};}return result;}
 export function bestRole(form,species){return form?.roles?.[0]||species?.role||'Support';}
 export function offenseElements(form){const fromSkills=(form?.skills||[]).filter(s=>Number(s.power)>0).flatMap(s=>s.element||[]);
