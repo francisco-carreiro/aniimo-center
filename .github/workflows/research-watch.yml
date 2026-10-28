@@ -1,4 +1,4 @@
-name: ANIIMO CENTER — Research Source Watch
+name: Aniimo Wildbook — Source Health Check
 on:
   workflow_dispatch:
   schedule:
@@ -22,6 +22,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: aniimo-source-watch
+          name: wildbook-source-watch
           path: docs/source-watch-report.md
           retention-days: 30

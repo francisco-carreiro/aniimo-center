@@ -1,7 +1,10 @@
-# ANIIMO CENTER — project notice
+# Aniimo Wildbook — project notice
 
-The original app code and abstract UI art are supplied for personal modification and reuse.
-Game names, concepts and trademarks belong to their respective owners. This is an
-independent fan project, not endorsed by the Aniimo developer or publisher.
-Third-party guides are linked and summarized with attribution; check each publisher's
-terms before redistributing their content or images.
+Aniimo Wildbook is an independent, unofficial fan-made companion. It is not
+affiliated with or endorsed by Pawprint Studio or FunPlus. Aniimo, Idyll, the
+creature names, and game artwork belong to their respective rights holders.
+
+The original application code and custom abstract UI elements may be adapted
+for personal projects, subject to third-party rights. The game artwork is
+loaded from external image locations at runtime rather than bundled locally.
+Use original and third-party reference content in accordance with its terms.

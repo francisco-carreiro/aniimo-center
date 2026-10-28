@@ -18,7 +18,7 @@ REPORT = ROOT / 'docs' / 'source-watch-report.md'
 
 
 def check(url):
-    request = urllib.request.Request(url, headers={'User-Agent': 'AniimoCenterSourceWatch/1.0 (+personal fan project; manual review)', 'Accept': 'text/html'})
+    request = urllib.request.Request(url, headers={'User-Agent': 'AniimoWildbookSourceWatch/1.0 (+personal fan project; manual review)', 'Accept': 'text/html'})
     try:
         with urllib.request.urlopen(request, timeout=12) as response:
             body = response.read(100_000)
@@ -31,7 +31,7 @@ def check(url):
 
 def main():
     now = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
-    lines = ['# ANIIMO CENTER — source availability watch', '', f'Checked: {now}', '',
+    lines = ['# Aniimo Wildbook — source availability watch', '', f'Checked: {now}', '',
              'Read-only link availability check. **It does not verify recommendations or automatically update builds.**', '',
              '| Source | Snapshot review | HTTP status | Last-Modified | Page title / error |',
              '|---|---|---:|---|---|']
