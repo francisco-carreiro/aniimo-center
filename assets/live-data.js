@@ -99,6 +99,10 @@ function saveCache(items) {
 export async function loadPublicCatalog({refresh=false,timeout=15000}={}) {
   const cached=readCache();
   if(!refresh && cached && Date.now()-cached.time<CACHE_TTL_MS) return {items:cached.items,mode:'cached',cachedAt:cached.time};
+  // A previously installed PWA should open immediately while truly offline.
+  if(typeof navigator!=='undefined' && navigator.onLine===false){
+    return cached?{items:cached.items,mode:'offline',cachedAt:cached.time}:{items:[],mode:'unavailable',error:'Offline'};
+  }
   const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),timeout);
   try {
     const response=await fetch(ANIIMO_PUBLIC_API,{mode:'cors',cache:'no-cache',signal:abort.signal,credentials:'omit',headers:{Accept:'application/json'}});

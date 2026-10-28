@@ -1,0 +1,40 @@
+{
+  "id": "/",
+  "name": "Aniimo Wildbook — Your Guide to Idyll",
+  "short_name": "Wildbook",
+  "description": "Explore Aniimo forms, plan teams and record your adventures through Idyll — no account required.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": [
+    "standalone"
+  ],
+  "background_color": "#f4faf8",
+  "theme_color": "#e8f7f4",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": [
+    "games",
+    "entertainment",
+    "utilities"
+  ]
+}

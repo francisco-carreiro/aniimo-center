@@ -1252,3 +1252,18 @@ body .wb-explore-bosses p{color:#ad958e;font-size:11px;margin:0}
 body .wb-explore-bosslinks{display:flex;flex-wrap:wrap;gap:8px}
 body .wb-explore-bosslinks button{border:1px solid #eecdc2;background:#fffefa;padding:10px 13px;border-radius:12px;color:#a97e77;font:800 11px Nunito,sans-serif;display:flex;gap:9px;align-items:center;cursor:pointer}
 body .wb-explore-bosslinks button:hover{background:#fff1eb}
+
+/* v2.0: accessibility, installability and small-screen polish */
+.skip-link{position:fixed;top:10px;left:10px;z-index:100000;padding:12px 18px;border-radius:14px;background:#153a35;color:#fff;transform:translateY(-160%);transition:transform .15s}
+.skip-link:focus{transform:translateY(0)}
+.wb-install{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.85);color:#275b53;border:1px solid #81b4aa66;font-weight:800;font-size:11px;white-space:nowrap}
+.wb-install:hover{background:#e8fff6}
+.wb-install[hidden],.wb-network[hidden]{display:none!important}
+.wb-network{display:inline-flex;align-items:center;gap:5px;font-size:11px;white-space:nowrap;color:#924e33;background:#fff4e5;border:1px solid #ddbba1;padding:7px 10px;border-radius:20px}
+.wb-update{position:fixed;z-index:200000;bottom:24px;left:50%;transform:translateX(-50%);background:#203a38;color:#fff;box-shadow:0 12px 40px #142a2a40;padding:12px 16px;border-radius:17px;display:flex;align-items:center;gap:14px;max-width:calc(100vw - 24px);font-size:13px}
+.wb-update button{background:#d5f8e6;border:0;border-radius:10px;padding:8px 12px;color:#164038;font-weight:800;white-space:nowrap}
+.wb-update #wb-update-later{background:transparent;color:#fff;font-size:22px;padding:1px 8px}
+.build-sheet:focus{outline:none}
+#main h1:focus{outline:none}
+@media(max-width:740px){.wb-install{padding:9px}.wb-install span{display:none}.wb-network{font-size:10px;padding:6px}.wb-update{width:calc(100vw - 30px);bottom:14px;gap:8px;flex-wrap:wrap;justify-content:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){.skip-link{transition:none}.wb-install,.wb-update{transition:none}}

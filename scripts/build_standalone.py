@@ -3,7 +3,7 @@
 from pathlib import Path
 import re
 root=Path(__file__).resolve().parents[1]
-css=(root/'assets/style.css').read_text(encoding='utf-8')
+css=(root/'assets/style.min.css').read_text(encoding='utf-8')
 modules=['data.js','live-data.js','wildbook-core.js','battle-data.js','battle-core.js','explorer-core.js']
 chunks=[]
 for name in modules:

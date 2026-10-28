@@ -7,6 +7,24 @@
 
 > Independent fan project. Not affiliated with or endorsed by Aniimo, Pawprint Studio, or FunPlus.
 
+## 🌟 v2.0 — Field-ready PWA (28 October 2026)
+
+Wildbook now supports **installation to the home screen** and can open saved application pages offline after its first successful online visit. The service worker caches only local static code and a fallback encyclopedia. It never stores personal collection records, third-party images, or data-provider responses in Cache Storage. Existing localStorage collection, battle and Explorer keys are unchanged.
+
+The Install action appears in the header on supported browsers; otherwise the browser menu may offer **Add to Home Screen**. Users receive a nonintrusive update notice when a new service worker is waiting, instead of an unexpected session reload. When offline, the app uses its curated fallback and any previously cached catalog data; **complete creature artwork and new updates still require connectivity**.
+
+Accessiblity improvements include a skip-to-content link, keyboard-operable dialogs with a focus trap and Escape support, focus returned after closing, and live status announcements. The source stylesheet is retained for editing, while the deployment uses a reproducible compact stylesheet. A GitHub Actions quality gate runs regression tests and checks generated files on pull requests and main.
+
+**Build commands:**
+
+```bash
+python scripts/optimize_css.py
+python scripts/build_standalone.py
+node --test tests/*.test.mjs
+```
+
+**Production verification:** Service workers require HTTPS or an allowed localhost origin, and cannot be end-to-end tested through a browser harness that blocks localhost. After Netlify deployment, follow [v2.0 release notes](RELEASE-NOTES-v2.0.md) to confirm installation, offline navigation, and update activation. This is a static PWA—not a full offline mirror of third-party media.
+
 ## ✨ What you can do
 
 - **Aniidex:** Browse available Aniimo, forms, elements, artwork, traits, skills, base attributes, habitats, evolution references, and form-to-form differences.
@@ -75,6 +93,7 @@ node --check assets/live-data.js
 node --check assets/wildbook-core.js
 node --check assets/explorer-core.js
 node --test tests/*.test.mjs
+python scripts/optimize_css.py
 python -m py_compile scripts/build_standalone.py scripts/source_watch.py
 python scripts/build_standalone.py
 ```
@@ -86,7 +105,10 @@ Browser previews may need internet access for live artwork; a blocked upstream s
 | File | Purpose |
 |---|---|
 | `index.html` | Browser entry point |
-| `assets/style.css` | Idyll-inspired responsive theme |
+| `assets/style.css` | Editable Idyll-inspired responsive theme |
+| `assets/style.min.css` | Generated production stylesheet |
+| `service-worker.js` / `manifest.webmanifest` | PWA application shell and install metadata |
+| `.github/workflows/quality.yml` | Automated regression gate |
 | `assets/app.js` | UI, navigation, build tools, local collection |
 | `assets/data.js` | Curated elemental teams, held items, offline catalog, references |
 | `assets/live-data.js` | External catalog adapter and 12-hour cache |
