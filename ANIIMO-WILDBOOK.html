@@ -1147,6 +1147,111 @@ body .wb-boss-image .avatar:not(.has-art) .avatar-rune,
 body .wb-battle-portrait .avatar:not(.has-art) .avatar-rune{color:var(--unit-color);font-size:72px;opacity:.36;filter:none}
 body .wb-battle-candidate .avatar:not(.has-art) .avatar-rune,
 body .wb-battle-squad-grid .avatar:not(.has-art) .avatar-rune{color:var(--unit-color);font-size:48px;opacity:.35;filter:none}
+
+/* ============== v1.8 · Explorer · Idyll field journal ============== */
+body .wb-explore-hero{position:relative;overflow:hidden;min-height:242px;border-radius:30px;border:1px solid #cae9de;background:linear-gradient(114deg,#e8f8ec 0%,#e0f9f5 57%,#f5ecff 100%);padding:clamp(25px,4vw,52px);margin:22px 0 19px;color:#356e71;display:flex;align-items:center}
+body .wb-explore-hero>div:first-child{position:relative;z-index:1;max-width:635px}
+body .wb-explore-hero h2{font-family:Outfit,inherit;font-size:clamp(31px,4.5vw,55px);font-weight:800;letter-spacing:-.055em;line-height:1.02;margin:10px 0;color:#367c79}
+body .wb-explore-hero p{color:#6c9497;font-weight:650;line-height:1.75;max-width:555px;font-size:13px;margin:13px 0 21px}
+body .wb-explore-hero-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+body .wb-explore-hero-actions span{font-weight:700;font-size:10px;color:#79a09e}
+body .wb-explore-hero-bloom{position:absolute;right:3%;top:-105px;font-size:350px;line-height:1;color:#a7e9cb8c;filter:drop-shadow(0 30px 22px #4aa79915);transform:rotate(-20deg);pointer-events:none}
+body .wb-explore-hero-bloom span{position:absolute;left:0;top:170px;font-size:130px;color:#f5cae2}
+body .wb-explore-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0 28px}
+body .wb-explore-metrics>div{background:#fffefa;border:1px solid #d2ebe5;padding:21px 22px;border-radius:19px;min-width:0;box-shadow:0 10px 25px #719b9810}
+body .wb-explore-metrics strong{display:block;font:850 34px/1 Outfit, sans-serif;color:#3b8f85;letter-spacing:-.06em}
+body .wb-explore-metrics span{display:block;font-size:10px;color:#74969b;font-weight:800;letter-spacing:.07em;text-transform:uppercase;margin-top:7px}
+body .wb-explore-layout{display:grid;grid-template-columns:minmax(238px,.77fr) minmax(0,2.05fr);gap:23px;align-items:start;margin-bottom:30px}
+body .wb-explore-sidebar{background:#fffefa;border:1px solid #d9ece6;border-radius:23px;padding:21px;min-width:0}
+body .wb-explore-side-head{padding:6px 7px 16px}
+body .wb-explore-side-head h3{color:#3d727b;font-size:22px;font-weight:850;letter-spacing:-.04em;margin:8px 0}
+body .wb-explore-side-head p{color:#809da4;font-size:11px;margin:5px 0}
+body .wb-explore-region-list{display:grid;gap:6px;max-height:740px;overflow-y:auto;scrollbar-color:#badcd2 transparent;scrollbar-width:thin;padding-right:3px}
+body .wb-explore-region{min-width:0;border:1px solid transparent;background:transparent;display:grid;grid-template-columns:35px minmax(0,1fr) 16px;gap:10px;align-items:center;text-align:left;padding:12px 10px;border-radius:14px;cursor:pointer;color:#4c7f83;font:inherit;transition:background .18s,transform .18s,border-color .18s}
+body .wb-explore-region:hover{background:#eff9f3;transform:translateX(2px)}
+body .wb-explore-region.active{border-color:#8dd5c0;background:linear-gradient(100deg,#e1f8eb,#f3fffa);box-shadow:0 3px 12px #8ec5b022}
+body .wb-explore-region-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:#e9f5f1;color:#59a7a0;font-size:19px}
+body .wb-explore-region strong{display:block;font-size:12px;font-weight:850;line-height:1.3;overflow-wrap:anywhere}
+body .wb-explore-region small{display:block;color:#89a4a5;font-size:10px;margin-top:3px;font-weight:700}
+body .wb-region-arrow{opacity:.5}
+body .wb-explore-main{min-width:0}
+body .wb-explore-selected{position:relative;overflow:hidden;padding:clamp(24px,3vw,33px);border-radius:23px;border:1px solid #cce9e1;background:linear-gradient(126deg,#f9fffa,#f0f9fc 70%,#f9f3ff);box-shadow:0 11px 29px #81a8a518}
+body .wb-explore-selected:after{content:'✿';pointer-events:none;position:absolute;right:-38px;top:-83px;font-size:240px;color:#c5eada62;line-height:1}
+body .wb-explore-region-top,body .wb-explore-region-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;position:relative;z-index:1}
+body .wb-explore-badge,body .wb-explore-visited-label{font-size:10px;font-weight:850;letter-spacing:.085em;color:#548e89}
+body .wb-explore-visited-label{color:#a1a0a0;white-space:nowrap}
+body .wb-explore-region-heading{align-items:center;margin:24px 0 23px}
+body .wb-explore-region-heading h2{font-size:clamp(30px,3.5vw,46px);letter-spacing:-.05em;color:#427d85;margin:0 0 5px}
+body .wb-explore-region-heading p{font-size:13px;color:#77a0a4;margin:0 0 8px}
+body .wb-explore-limited{display:block;max-width:510px;color:#849da1;font-size:11px;line-height:1.6}
+body .wb-explore-region-heading .btn{flex-shrink:0}
+body .wb-explore-progress{position:relative;z-index:1;max-width:650px}
+body .wb-explore-progress>div:first-child{font-weight:850;color:#477c84;font-size:13px}
+body .wb-explore-progress>div:first-child b{font-size:17px;color:#38a08b}
+body .wb-explore-progress>div:first-child span{color:#8ca3a5;font-weight:650}
+body .wb-explore-progress .wb-progress-track{height:11px;margin:10px 0 7px;background:#d6ede7}
+body .wb-explore-progress small{color:#73969a;font-size:11px;font-weight:650}
+body .wb-explore-search{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:19px 0}
+body .wb-explore-search-box{display:flex;align-items:center;gap:10px;min-height:44px;border:1px solid #cde6de;border-radius:13px;background:#fffefa;padding:0 12px;flex:1;min-width:180px;color:#7da69f}
+body .wb-explore-search-box input{font:inherit;font-size:12px;outline:none;border:0;background:none;min-width:0;width:100%;color:#376d7b}
+body .wb-explore-status-filter{display:flex;align-items:center;gap:7px;color:#7da09f;font-size:9px;font-weight:900;letter-spacing:.08em}
+body .wb-explore-status-filter select{height:44px;border-radius:12px;border:1px solid #cce5e0;color:#477d82;padding:0 11px;background:#fffefa;font:inherit;font-size:12px;font-weight:750}
+body .wb-explore-only{display:flex;align-items:center;gap:5px;color:#5f8b88;font-size:11px;font-weight:750;cursor:pointer}
+body .wb-explore-only input{accent-color:#4aab9b;width:15px;height:15px}
+body .wb-explore-discoveries-heading{display:flex;align-items:center;gap:10px;justify-content:space-between;margin:22px 2px 14px;flex-wrap:wrap}
+body .wb-explore-discoveries-heading h3{font-size:19px;letter-spacing:-.035em;color:#3e7780;margin:0}
+body .wb-explore-discoveries-heading h3 small{font-size:11px;color:#91a2a5;margin-left:6px;letter-spacing:0}
+body .wb-caution{font-size:10px;color:#a9825c;border:1px solid #eed9c1;background:#fff4e7;padding:7px 10px;border-radius:20px;font-weight:750}
+body .wb-explore-creature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+body .wb-explore-creature{min-width:0;display:grid;grid-template-columns:88px minmax(0,1fr);column-gap:12px;row-gap:12px;align-items:center;padding:14px;background:#fffefa;border:1px solid #daeae7;border-radius:18px;transition:box-shadow .2s,transform .2s}
+body .wb-explore-creature:hover{transform:translateY(-2px);box-shadow:0 12px 23px #689f8e17}
+body .wb-explore-art{width:88px;height:98px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--explore-element) 26%,#d4e8e2);border-radius:17px;background:radial-gradient(ellipse at 50% 40%,color-mix(in srgb,var(--explore-element) 12%,#fff),#f7fbfa);padding:3px;cursor:pointer;min-width:0;overflow:hidden}
+body .wb-explore-art .avatar.lg{width:87px;height:95px;border:0!important;background:none!important;box-shadow:none!important}
+body .wb-explore-art img{width:100%;height:100%;object-fit:contain}
+body .wb-explore-creature-info{min-width:0}
+body .wb-explore-source{font-size:8px;font-weight:950;color:#90a6a0;letter-spacing:.08em}
+body .wb-explore-creature h4{font:850 16px/1.25 Outfit, sans-serif;letter-spacing:-.025em;margin:7px 0 3px;color:#406f7c;overflow-wrap:anywhere}
+body .wb-explore-creature p{margin:0 0 7px;font-size:11px;color:#809ba0}
+body .wb-explore-tags{display:flex;flex-wrap:wrap;gap:4px}
+body .wb-explore-actions{grid-column:1/-1;display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:space-between;border-top:1px solid #e8f2ec;padding-top:11px}
+body .wb-explore-status-actions{display:flex;gap:5px}
+body .wb-explore-status-actions button,body .wb-explore-pin{cursor:pointer;font:800 10px/1.3 Nunito,sans-serif;padding:8px 11px;border:1px solid #cee4dc;border-radius:10px;background:#f7fcf8;color:#678e90;transition:background .17s,border-color .17s}
+body .wb-explore-status-actions button.active{background:#d6f4e5;border-color:#77c9ad;color:#2e8170}
+body .wb-explore-pin{background:#fff7f9;border-color:#f1dae2;color:#b18097}
+body .wb-explore-pin.active{background:#ffe6ed;border-color:#f2b3c7;color:#af627e}
+body .wb-explore-notes{display:grid;gap:10px;margin-top:24px;border:1px solid #d3e8e2;border-radius:22px;background:#f8fffb;padding:23px}
+body .wb-explore-notes h3{margin:4px 0 5px;color:#397c7c;font-size:21px;letter-spacing:-.035em}
+body .wb-explore-notes p{margin:0;color:#849ca4;font-size:11px}
+body .wb-explore-notes textarea{font:inherit;font-size:12px;color:#4b7a7e;border:1px solid #c8e4db;background:#fff;border-radius:13px;padding:14px;line-height:1.5;min-height:88px;resize:vertical;width:100%;box-sizing:border-box}
+body .wb-explore-notes .btn{justify-self:start}
+body .wb-explore-itinerary{background:linear-gradient(160deg,#eef9ff,#f5f6ff);border:1px solid #d7e8e8;padding:clamp(23px,3vw,32px);border-radius:25px;margin:20px 0}
+body .wb-explore-itinerary-title{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:16px}
+body .wb-explore-itinerary h2{font-size:clamp(24px,3vw,35px);letter-spacing:-.04em;color:#397d83;margin:6px 0}
+body .wb-explore-itinerary h2 em{color:#65b69f}
+body .wb-explore-itinerary p{margin:4px 0;font-size:12px;color:#7898a3}
+body .wb-explore-count{font-size:10px;font-weight:900;color:#5f9fa0;border:1px solid #acd7d0;background:#f8fffc;border-radius:20px;padding:10px;white-space:nowrap}
+body .wb-explore-route-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+body .wb-explore-route{display:flex;flex-direction:column;text-align:left;gap:10px;min-width:0;border-radius:17px;padding:17px;background:#ffffffd9;border:1px solid #d2e6e8;color:#4c848a;cursor:pointer;font:inherit;transition:transform .2s}
+body .wb-explore-route:hover{transform:translateY(-3px)}
+body .wb-explore-route span{font-size:11px;font-weight:850}
+body .wb-explore-route strong{color:#3d7d86;font-size:19px;letter-spacing:-.04em}
+body .wb-explore-route small{min-height:38px;line-height:1.5;font-size:10px;color:#7a969e}
+body .wb-explore-route b{font-size:10px;color:#4eab9e;display:flex;align-items:center;gap:7px}
+body .wb-explore-no-route,body .wb-explore-empty{padding:28px;border-radius:17px;background:#fff9fd;border:1px dashed #e1d5e4;color:#829aa2;text-align:center;font-size:12px;line-height:1.65}
+body .wb-explore-empty{grid-column:1/-1}
+body .wb-explore-disclaimer{font-size:11px!important;color:#83a09f!important;line-height:1.7!important;margin:17px 3px 35px!important}
+@media(max-width:1100px){body .wb-explore-creature-list{grid-template-columns:1fr}body .wb-explore-route-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){body .wb-explore-layout{grid-template-columns:1fr;gap:16px}body .wb-explore-sidebar{padding:15px}body .wb-explore-region-list{display:flex;overflow-x:auto;max-height:none;gap:7px;padding-bottom:9px;scroll-snap-type:x proximity}body .wb-explore-region{flex:0 0 185px;scroll-snap-align:start}body .wb-explore-region-icon{width:32px;height:32px}body .wb-explore-sidebar .wb-explore-side-head{padding:6px 6px 12px}body .wb-explore-metrics{gap:8px}body .wb-explore-metrics>div{padding:15px 12px}body .wb-explore-metrics strong{font-size:26px}body .wb-explore-metrics span{font-size:8px;letter-spacing:0}body .wb-explore-hero-bloom{font-size:250px;top:-55px;right:-45px;opacity:.52}body .wb-explore-region-heading{align-items:flex-start;flex-direction:column}body .wb-explore-region-heading .btn{min-height:39px}body .wb-explore-search{align-items:stretch}body .wb-explore-creature-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:570px){body .wb-explore-hero{padding:27px 22px;min-height:240px}body .wb-explore-hero>div:first-child{max-width:100%}body .wb-explore-hero h2{max-width:290px;font-size:36px}body .wb-explore-hero p{max-width:290px}body .wb-explore-hero-bloom{right:-70px;top:-30px;font-size:200px;opacity:.34}body .wb-explore-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}body .wb-explore-creature-list{grid-template-columns:1fr}body .wb-explore-route-grid{grid-template-columns:1fr}body .wb-explore-itinerary-title{flex-wrap:wrap}body .wb-explore-region-top{flex-wrap:wrap}body .wb-explore-selected{padding:20px}body .wb-explore-region-heading h2{font-size:32px}body .wb-explore-search-box{flex:1 1 100%;min-width:0}body .wb-explore-creature{grid-template-columns:80px minmax(0,1fr)}body .wb-explore-art{height:90px;width:80px}body .wb-explore-art .avatar.lg{height:86px;width:77px}}
+@media(prefers-reduced-motion:reduce){body .wb-explore-region,body .wb-explore-creature,body .wb-explore-route{transition:none!important}}
+body .wb-explore-missing-art{font-size:45px;color:#a9d7c8;line-height:1}
+body .wb-explore-art:disabled{cursor:default}
+body .wb-explore-bosses{background:linear-gradient(115deg,#fff7f2,#fff9fc);border:1px solid #efdcd7;border-radius:21px;margin:22px 0;padding:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+body .wb-explore-bosses h3{font-size:21px;letter-spacing:-.03em;color:#a57a74;margin:7px 0}
+body .wb-explore-bosses p{color:#ad958e;font-size:11px;margin:0}
+body .wb-explore-bosslinks{display:flex;flex-wrap:wrap;gap:8px}
+body .wb-explore-bosslinks button{border:1px solid #eecdc2;background:#fffefa;padding:10px 13px;border-radius:12px;color:#a97e77;font:800 11px Nunito,sans-serif;display:flex;gap:9px;align-items:center;cursor:pointer}
+body .wb-explore-bosslinks button:hover{background:#fff1eb}
 </style></head><body><div id="app"></div><script>// ANIIMO CENTER / curated game-guide snapshot. Last reviewed: 2026-10-27.
 // Each team is attributed to its published source. These are editorial recommendations,
 // NOT proven globally optimal compositions or live game API results.
@@ -1642,10 +1747,119 @@ function draftBossSquad(boss,speciesList,instances=[],{ownedOnly=false}={}){
  return {picks,warnings,ownedOnly};
 }
 
+/** Aniimo Wildbook Explorer: pure habitat indexing and local-only journal model.
+ * Official habitat strings are taken from individual catalog forms. The smaller
+ * offline leads are explicitly provisional; neither source supplies coordinates.
+ */
+const STARTER_REGIONS = [
+  {name:'Nimbus Fields',icon:'☁',subtitle:'A first page in your travel journal',leads:['Emberpup','Flameruff','Celestis','Chirpi','Skippy','Pranky','Nimbi','Turbo','Hummin','Budclaw','Sparki','Flutternym']},
+  {name:'The Argent Strait',icon:'⛵',subtitle:'Coastal trail',leads:[]},
+  {name:'Forest of Falling Stars',icon:'✦',subtitle:'Woodland trail',leads:[]},
+  {name:'Sea of Flowers',icon:'✿',subtitle:'Bloom-filled trail',leads:['Skippy','Pranky']},
+  {name:'Beast Fang Ridge',icon:'♢',subtitle:'Rocky trail',leads:['Emberpup','Flameruff','Scorchhowl','Chirpi','Budclaw','Sparki','Flamerion','Bonesky','Fenrier','Glynsera']},
+  {name:'The Mistwoods',icon:'❋',subtitle:'Misty woodland trail',leads:[]},
+  {name:'Blitzwood',icon:'ϟ',subtitle:'Stormy woodland trail',leads:['Chirpi','Hummin','Sparki','Flutternym','Bolty','Blazen','Squarrel','Squashel']},
+  {name:'Echoback Landing',icon:'◈',subtitle:'Waterside trail',leads:['Emberpup','Flameruff','Celestis','Susuta','Popota','Panpanta','Shelly','Sheldon']},
+  {name:'Berylline Causeway',icon:'⬡',subtitle:'Highland trail',leads:['Budclaw','Shrubclaw','Wisptis','Ignitis','Baleetle','Waleetle','Bouldus']},
+  {name:'Driftwise Meadow',icon:'❄',subtitle:'Meadow trail',leads:['Bonesky','Fenrier','Fentuft','Fenmane']},
+  {name:'Rosetower Woods',icon:'❀',subtitle:'Rosewood trail',leads:[]},
+  {name:'Russet Highlands',icon:'♧',subtitle:'Highland trail',leads:[]},
+  {name:'Zephyrus Landbridge',icon:'↝',subtitle:'Windward trail',leads:[]},
+  {name:'Tideblossom Coast',icon:'≈',subtitle:'Seaside trail',leads:[]},
+];
+const normalizeText = value => String(value??'').trim().slice(0,180);
+const regionId = name => normalizeText(name).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/^(the)\s+/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,100);
+const regionAliases = {'mistwoods':'mistwoods','berylline-vale':'berylline-causeway'};
+const canonicalRegionId = name => regionAliases[regionId(name)] || regionId(name);
+const discoveryKey = (species,form='Basic') => `${regionId(species)}::${regionId(form||'Basic')}`;
+const knownStatus = ['seen','caught'];
+function safeObject(x){return x&&typeof x==='object'&&!Array.isArray(x)?x:{}}
+function safeKey(k){return typeof k==='string' && /^[a-z0-9-]{1,100}(::[a-z0-9-]{1,100})?$/.test(k)}
+function normalizeExplorerProgress(raw){
+ const data=safeObject(raw),visited={},discoveries={},wishlist=[];
+ for(const [id,record] of Object.entries(safeObject(data.visited)).slice(0,200)){
+  if(!safeKey(id)||id.includes('::'))continue;
+  const item=safeObject(record);
+  if(item.visited||typeof item.notes==='string')visited[id]={visited:!!item.visited,notes:String(item.notes??'').slice(0,350)};
+ }
+ for(const [id,status] of Object.entries(safeObject(data.discoveries)).slice(0,1200)){
+  if(safeKey(id)&&id.includes('::')&&knownStatus.includes(status))discoveries[id]=status;
+ }
+ if(Array.isArray(data.wishlist))for(const id of data.wishlist.slice(0,300)){
+  if(safeKey(id)&&id.includes('::')&&!wishlist.includes(id))wishlist.push(id);
+ }
+ return {version:1,visited,discoveries,wishlist};
+}
+/** Build a directory using the exact form habitat data when present.  The starter
+ * entries are used only for regions with no live documented matches. */
+function buildHabitatIndex(catalogItems=[],starters=STARTER_REGIONS,speciesIndex=[]){
+ const regions=new Map();
+ const register=(name,starter)=>{
+  const id=canonicalRegionId(name);
+  if(!id)return null;
+  if(!regions.has(id))regions.set(id,{id,name:starter?.name||normalizeText(name),icon:starter?.icon||'✿',subtitle:starter?.subtitle||'New surroundings to explore',leads:[],source:'unlisted'});
+  return regions.get(id);
+ };
+ for(const starter of starters)register(starter.name,starter);
+ const seenKeys=new Set();
+ for(const animal of Array.isArray(catalogItems)?catalogItems:[]){
+  const species=normalizeText(animal?.name);
+  if(!species||!Array.isArray(animal.forms))continue;
+  for(const form of animal.forms){
+   const name=normalizeText(form?.name||'Basic');
+   for(const habitat of Array.isArray(form?.habitats)?form.habitats:[]){
+    const region=register(habitat);if(!region)continue;
+    const key=discoveryKey(species,name),rkey=region.id+'|'+key;
+    if(seenKeys.has(rkey))continue;seenKeys.add(rkey);
+    region.leads.push({key,species,form:name,elements:(form.elements||[]).slice(0,2),image:form.image||animal.image||'',source:'catalog'});
+    region.source='catalog';
+   }
+  }
+ }
+ const byName=new Map((Array.isArray(speciesIndex)?speciesIndex:[]).map(x=>[String(x.name||'').toLowerCase(),x]));
+ for(const starter of starters){
+  const region=register(starter.name,starter);if(!region||region.leads.length)continue;
+  for(const species of starter.leads||[]){
+   const unit=byName.get(species.toLowerCase());
+   const label=unit?.name||species;
+   const key=discoveryKey(label,'Basic');
+   if(region.leads.some(x=>x.key===key))continue;
+   region.leads.push({key,species:label,form:'Basic',elements:[unit?.element].filter(Boolean),image:unit?.image||'',source:'starter'});
+   region.source='starter';
+  }
+ }
+ return [...regions.values()].map(region=>({...region,leads:region.leads.sort((a,b)=>a.species.localeCompare(b.species)||a.form.localeCompare(b.form))}))
+   .sort((a,b)=>{
+    const ai=starters.findIndex(x=>canonicalRegionId(x.name)===a.id),bi=starters.findIndex(x=>canonicalRegionId(x.name)===b.id);
+    return (ai<0?1000:ai)-(bi<0?1000:bi)||a.name.localeCompare(b.name);
+   });
+}
+function regionStats(region,progress,ownedInstances=[]){
+ const p=normalizeExplorerProgress(progress),leads=region?.leads||[];
+ const speciesCount=new Set(leads.map(x=>x.species)).size;
+ const caught=leads.filter(x=>p.discoveries[x.key]==='caught'||ownedInstances.some(u=>discoveryKey(u.species,u.form)===x.key)).length;
+ const seen=leads.filter(x=>p.discoveries[x.key]||ownedInstances.some(u=>discoveryKey(u.species,u.form)===x.key)).length;
+ const planned=leads.filter(x=>p.wishlist.includes(x.key)).length;
+ return {total:leads.length,species:speciesCount,caught,seen,planned,percent:leads.length?Math.round(caught/leads.length*100):0,visited:!!p.visited[region?.id]?.visited};
+}
+function planExpedition(regions,progress,ownedInstances=[],limit=5){
+ const p=normalizeExplorerProgress(progress),results=[];
+ for(const region of regions){
+  const pending=(region.leads||[]).filter(x=>p.wishlist.includes(x.key)&&p.discoveries[x.key]!=='caught'&&!ownedInstances.some(u=>discoveryKey(u.species,u.form)===x.key));
+  if(pending.length)results.push({id:region.id,name:region.name,icon:region.icon,pending,visited:!!p.visited[region.id]?.visited});
+ }
+ return results.sort((a,b)=>b.pending.length-a.pending.length||a.name.localeCompare(b.name)).slice(0,limit);
+}
+
 Object.assign(BUILDS,ADDITIONAL_BUILDS);
 const STORAGE='aniimo-center:v1';
 const STORAGE_V2='aniimo-wildbook:v2';
 const BATTLE_KEY='aniimo-wildbook:battles:v1';
+const EXPLORER_KEY='aniimo-wildbook:explorer:v1';
+const explorerUI={region:'nimbus-fields',query:'',show:'All',onlyNeeded:false};
+let explorerProgress=normalizeExplorerProgress({});
+try{explorerProgress=normalizeExplorerProgress(JSON.parse(localStorage.getItem(EXPLORER_KEY)||'{}'));}catch{}
+function saveExplorerProgress(){explorerProgress=normalizeExplorerProgress(explorerProgress);try{localStorage.setItem(EXPLORER_KEY,JSON.stringify(explorerProgress))}catch{flash('Could not save your exploration journal. Export a backup.','warn')}}
 const battleUI={mode:'world',kind:'All',element:'All',query:'',openOnly:false,ownedOnly:true,selected:''};
 let battleProgress={};
 try{battleProgress=normalizeBattleProgress(JSON.parse(localStorage.getItem(BATTLE_KEY)||'{}'));}catch{}
@@ -1712,12 +1926,12 @@ function elBadge(name,small=false){let e=getElement(name);return `<span class="e
 function avatar(a,size='md',formName=''){if(!a)return '<span class="avatar md">?</span>';let e=getElement(a.element);let picked=a.official?.forms.find(f=>f.name.toLowerCase()===String(formName).toLowerCase()||f.name.toLowerCase().startsWith(String(formName).toLowerCase())&&formName);const img=picked?.image||a.image||'';return `<span class="avatar ${size} ${img?'has-art':''}" style="--unit-color:${e.tone};--unit-symbol:'${e.symbol}'"><span class="avatar-halo"></span><span class="avatar-rune">${safe(e.symbol)}</span><span class="avatar-initial">${safe(a.monogram)}</span>${img?`<img src="${safe(img)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="" onerror="this.style.display='none'">`:''}</span>`}
 function unitCard(name,role,form,opts={}){const a=getAniimo(name)||{name,element:'Lightning',monogram:name.slice(0,2).toUpperCase(),role:role||'Support'};return `<button class="unit-card ${opts.compact?'compact':''}" data-open="${safe(name)}" aria-label="Open ${safe(name)} build"><div class="unit-visual">${avatar(a,opts.compact?'sm':'md',form)}<span class="unit-owned ${owned(name)?'yes':''}" title="${owned(name)?'Owned':'Not in collection'}">${owned(name)?icon('check',12):icon('plus',12)}</span></div><span class="unit-name">${safe(name)}</span><span class="unit-role">${safe(role||a.role)}${form&&form!=='Basic'?` · ${safe(form)}`:''}</span></button>`}
 const button=(title,nav,cls='btn secondary',suffix='arrow')=>`<button class="${cls}" data-nav="${nav}">${title} ${icon(suffix,16)}</button>`;
-function header(){const featureNav=[['overview','Home'],['aniidex','Aniidex'],['teams','Teams'],['battles','Battles'],['items','Equipment'],['progression','Growth'],['workshop','Build workshop'],['matchups','Matchups'],['planner','Team builder']];const tab=(id,label)=>`<button class="horizon-link ${state.nav===id?'active':''}" data-nav="${id}">${safe(label)}</button>`;return `<div class="app-shell experience-shell"><div class="main-area"><header class="topbar"><div class="topbar-inner"><button class="brand horizon-brand" data-nav="overview" aria-label="Aniimo Wildbook home"><span class="brand-mark"><span class="brand-bolt">✿</span></span><span class="brand-copy"><strong>aniimo<span>wildbook</span></strong><small>YOUR GUIDE TO IDYLL</small></span></button><nav class="horizon-nav" aria-label="Explore the Wildbook">${featureNav.map(([id,label])=>tab(id,label)).join('')}</nav><div class="top-actions"><button class="collection-shortcut ${state.nav==='collection'?'active':''}" data-nav="collection">${icon('heart',17)}<span>My companions</span><b>${countOwned()}</b></button><button class="menu-trigger" data-toggle="menu" aria-label="Open navigation" aria-expanded="false">${icon('menu',23)}</button></div></div></header><nav class="mobile-drawer" aria-label="Mobile navigation"><div class="mobile-drawer-head"><strong>WHERE TO NEXT?</strong><button class="close-btn" data-toggle="menu" aria-label="Close navigation">${icon('x',21)}</button></div>${[...featureNav,['collection','My companions']].map(([id,label])=>`<button class="drawer-link ${state.nav===id?'active':''}" data-nav="${id}">${safe(label)} ${icon('arrow',17)}</button>`).join('')}<div class="drawer-caption">✦ Every companion has a story</div></nav><div id="mobile-overlay" data-toggle="menu"></div><main id="main" tabindex="-1">`}
+function header(){const featureNav=[['overview','Home'],['aniidex','Aniidex'],['explorer','Explorer'],['teams','Teams'],['battles','Battles'],['items','Equipment'],['progression','Growth'],['workshop','Build workshop'],['matchups','Matchups'],['planner','Team builder']];const tab=(id,label)=>`<button class="horizon-link ${state.nav===id?'active':''}" data-nav="${id}">${safe(label)}</button>`;return `<div class="app-shell experience-shell"><div class="main-area"><header class="topbar"><div class="topbar-inner"><button class="brand horizon-brand" data-nav="overview" aria-label="Aniimo Wildbook home"><span class="brand-mark"><span class="brand-bolt">✿</span></span><span class="brand-copy"><strong>aniimo<span>wildbook</span></strong><small>YOUR GUIDE TO IDYLL</small></span></button><nav class="horizon-nav" aria-label="Explore the Wildbook">${featureNav.map(([id,label])=>tab(id,label)).join('')}</nav><div class="top-actions"><button class="collection-shortcut ${state.nav==='collection'?'active':''}" data-nav="collection">${icon('heart',17)}<span>My companions</span><b>${countOwned()}</b></button><button class="menu-trigger" data-toggle="menu" aria-label="Open navigation" aria-expanded="false">${icon('menu',23)}</button></div></div></header><nav class="mobile-drawer" aria-label="Mobile navigation"><div class="mobile-drawer-head"><strong>WHERE TO NEXT?</strong><button class="close-btn" data-toggle="menu" aria-label="Close navigation">${icon('x',21)}</button></div>${[...featureNav,['collection','My companions']].map(([id,label])=>`<button class="drawer-link ${state.nav===id?'active':''}" data-nav="${id}">${safe(label)} ${icon('arrow',17)}</button>`).join('')}<div class="drawer-caption">✦ Every companion has a story</div></nav><div id="mobile-overlay" data-toggle="menu"></div><main id="main" tabindex="-1">`}
 function footer(){return `</main><footer class="page-footer"><span class="footer-brand">✿ aniimo wildbook <small>A LITTLE WORLD OF COMPANIONS</small></span><span>Made for Pathfinders · Independent fan-made field guide · No account required</span><span class="footer-sprig" aria-hidden="true">✿ ✧ ❀</span></footer></div></div>`}
 function title(label,heading,desc,actions=''){return `<div class="page-heading"><div><div class="eyebrow"><span class="microline"></span>${label}</div><h1>${heading}</h1><p>${desc}</p></div><div class="heading-actions">${actions}</div></div>`}
 function statusRow(label,val,sub){return `<div class="metric"><div class="metric-label">${label}</div><div class="metric-value">${val}</div><div class="metric-sub">${sub}</div></div>`}
 function teamPreview(team){const e=getElement(team.element);return `<div class="team-preview" style="--team-tone:${e.tone}"><div class="team-preview-head"><div>${elBadge(team.element)}<h3>${safe(team.name)}</h3></div><span class="badge thin">${safe(team.tag)}</span></div><p>${safe(team.summary)}</p><div class="preview-units">${team.lineup.map(([name,role])=>{const a=getAniimo(name);return `<button class="preview-unit" data-open="${safe(name)}" title="${safe(name)} — ${safe(role)}">${avatar(a,'sm')}<span>${safe(name)}</span></button>`}).join('')}</div><button class="text-action" data-team="${safe(team.element)}">View composition ${icon('arrow',15)}</button></div>`}
-function overview(){const researched=Object.keys(BUILDS).length;const picks=['Fire','Grass','Water'].map(id=>TEAMS.find(t=>t.element===id)).filter(Boolean);const features=[['workshop','01 / CRAFT','Build workshop','Make form-aware builds, compare held items and record your own copies.','spark'],['battles','02 / BATTLE','World boss companion','Study Alpha and Omega encounters, track your clears, and plan the next fight.','target'],['matchups','03 / COUNTER','Elemental matchups','Plan attacks and defenses across all nine elements and dual forms.','target'],['aniidex','04 / DISCOVER','Meet the entire Aniidex','Browse species, regional forms, Prismanas, skills and official artwork.','book'],['teams','05 / STRATEGIZE','Find your perfect team','Explore all nine elemental compositions and tactical alternatives.','team'],['progression','06 / EVOLVE','Grow with purpose','Plan held items, awakening priorities and Star Up investments.','spark']];const heroes=[['Glacy','Water','01'],['Stellarys','Dark','02'],['Scorchhowl','Fire','03']];return `<section class="cinematic-hero"><div class="hero-ambient" aria-hidden="true"></div><div class="hero-copy"><span class="cinema-eyebrow"><i></i> WELCOME TO YOUR NEXT ADVENTURE <span class="eyebrow-line"></span> EST. 2026</span><h1>Every little<br><span>wonder</span><br>is worth<br>discovering.</h1><p>Meet enchanting companions, discover their many forms, and find your own path through the world of Idyll.</p><div class="hero-buttons"><button class="btn primary" data-nav="aniidex">Meet the Aniimo ${icon('arrow',18)}</button><button class="btn outline" data-nav="teams">Build your team ${icon('arrow',18)}</button></div><div class="hero-footnote"><span class="signal-dot"></span><span>${catalog.mode==='live'?'New discoveries await':'Made for exploring · No account needed'}</span><span class="footnote-divider"></span><span>For curious Pathfinders</span></div></div><div class="hero-stage"><div class="stage-ring ring-one"></div><div class="stage-ring ring-two"></div><div class="stage-sigil" aria-hidden="true">ϟ</div>${heroes.map(([name,element,num],i)=>{const a=getAniimo(name);return `<button class="stage-creature figure-${i+1}" data-open="${safe(name)}" style="--figure-tone:${getElement(element).tone}" aria-label="Explore ${safe(name)}"><span class="stage-art">${avatar(a,'xl')}</span><span class="stage-label"><small>WILDBOOK / ${num}</small><b>${safe(name)}</b>${elBadge(element,true)}</span></button>`}).join('')}<div class="stage-coordinate">THE WILDBOOK / FIELD NOTES — 001</div></div><div class="hero-bottom-line"><span>TURN THE PAGE</span><span class="scroll-mark">↓</span><span>A WORLD OF POSSIBILITIES</span></div></section><section class="stats-ribbon" aria-label="Aniimo Wildbook coverage"><div><strong>${catalog.items.length||ANIIMO.length}<span>+</span></strong><small>ANIIMO INDEXED</small></div><div><strong>${TEAMS.length.toString().padStart(2,'0')}</strong><small>ELEMENTAL PATHS</small></div><div><strong>${ITEMS.length.toString().padStart(2,'0')}</strong><small>HELD ITEMS</small></div><div><strong>${researched.toString().padStart(2,'0')}</strong><small>BUILD GUIDES</small></div><button class="ribbon-link" data-nav="aniidex">MEET YOUR COMPANIONS ${icon('arrow',17)}</button></section><section class="experience-section"><div class="experience-heading"><div><span class="section-kicker">START YOUR JOURNEY</span><h2>One world. <em>Endless possibilities.</em></h2><p>From your very first companion to an endgame squad, find inspiration for every step.</p></div><span class="section-index">01 — 06</span></div><div class="feature-paths">${features.map(([id,number,heading,desc,ic])=>`<button class="feature-path" data-nav="${id}"><span class="path-top"><span>${number}</span>${icon(ic,25)}</span><span class="path-content"><strong>${heading}</strong><small>${desc}</small></span><span class="path-link">EXPLORE ${icon('arrow',17)}</span></button>`).join('')}</div></section><section class="experience-section elements-section"><div class="experience-heading"><div><span class="section-kicker">NINE ELEMENTAL PATHS</span><h2>Nine paths to <em>power.</em></h2><p>Choose an element to uncover its lineup, combat philosophy and alternatives.</p></div>${button('Browse all compositions','teams','btn outline')}</div><div class="element-gallery">${ELEMENTS.map(e=>`<button class="element-portrait" data-team="${safe(e.id)}" style="--tile:${e.tone}"><span class="element-portrait-glow"></span><span class="element-big-symbol">${e.symbol}</span><span class="element-details"><strong>${safe(e.id)}</strong><small>EXPLORE ELEMENT ${icon('arrow',14)}</small></span></button>`).join('')}</div></section><section class="experience-section spotlight-section"><div class="experience-heading"><div><span class="section-kicker">STRATEGY SPOTLIGHT</span><h2>Squads worth <em>discovering.</em></h2><p>Explore team combinations, swap companions, and find a strategy that fits your journey.</p></div>${button('Open team lab','teams','btn outline')}</div><div class="spotlight-grid">${picks.map(teamPreview).join('')}</div></section><section class="experience-cta"><div><span class="section-kicker">YOUR ADVENTURE, YOUR WAY</span><h2>Make every upgrade <em>count.</em></h2><p>Track your collection on this device. No account needed — your progress stays with you.</p></div><div><button class="btn primary" data-nav="collection">Open my collection ${icon('arrow',17)}</button><button class="btn outline" data-nav="planner">Build a team ${icon('arrow',17)}</button></div></section>`}
+function overview(){const researched=Object.keys(BUILDS).length;const picks=['Fire','Grass','Water'].map(id=>TEAMS.find(t=>t.element===id)).filter(Boolean);const features=[['workshop','01 / CRAFT','Build workshop','Make form-aware builds, compare held items and record your own copies.','spark'],['explorer','02 / EXPLORE','Explore the regions','Browse documented habitats, keep field notes and track the creatures you seek.','book'],['battles','03 / BATTLE','World boss companion','Study Alpha and Omega encounters, track your clears, and plan the next fight.','target'],['matchups','04 / COUNTER','Elemental matchups','Plan attacks and defenses across all nine elements and dual forms.','target'],['aniidex','05 / DISCOVER','Meet the entire Aniidex','Browse species, regional forms, Prismanas, skills and official artwork.','book'],['teams','06 / STRATEGIZE','Find your perfect team','Explore all nine elemental compositions and tactical alternatives.','team'],['progression','07 / EVOLVE','Grow with purpose','Plan held items, awakening priorities and Star Up investments.','spark']];const heroes=[['Glacy','Water','01'],['Stellarys','Dark','02'],['Scorchhowl','Fire','03']];return `<section class="cinematic-hero"><div class="hero-ambient" aria-hidden="true"></div><div class="hero-copy"><span class="cinema-eyebrow"><i></i> WELCOME TO YOUR NEXT ADVENTURE <span class="eyebrow-line"></span> EST. 2026</span><h1>Every little<br><span>wonder</span><br>is worth<br>discovering.</h1><p>Meet enchanting companions, discover their many forms, and find your own path through the world of Idyll.</p><div class="hero-buttons"><button class="btn primary" data-nav="aniidex">Meet the Aniimo ${icon('arrow',18)}</button><button class="btn outline" data-nav="teams">Build your team ${icon('arrow',18)}</button></div><div class="hero-footnote"><span class="signal-dot"></span><span>${catalog.mode==='live'?'New discoveries await':'Made for exploring · No account needed'}</span><span class="footnote-divider"></span><span>For curious Pathfinders</span></div></div><div class="hero-stage"><div class="stage-ring ring-one"></div><div class="stage-ring ring-two"></div><div class="stage-sigil" aria-hidden="true">ϟ</div>${heroes.map(([name,element,num],i)=>{const a=getAniimo(name);return `<button class="stage-creature figure-${i+1}" data-open="${safe(name)}" style="--figure-tone:${getElement(element).tone}" aria-label="Explore ${safe(name)}"><span class="stage-art">${avatar(a,'xl')}</span><span class="stage-label"><small>WILDBOOK / ${num}</small><b>${safe(name)}</b>${elBadge(element,true)}</span></button>`}).join('')}<div class="stage-coordinate">THE WILDBOOK / FIELD NOTES — 001</div></div><div class="hero-bottom-line"><span>TURN THE PAGE</span><span class="scroll-mark">↓</span><span>A WORLD OF POSSIBILITIES</span></div></section><section class="stats-ribbon" aria-label="Aniimo Wildbook coverage"><div><strong>${catalog.items.length||ANIIMO.length}<span>+</span></strong><small>ANIIMO INDEXED</small></div><div><strong>${TEAMS.length.toString().padStart(2,'0')}</strong><small>ELEMENTAL PATHS</small></div><div><strong>${ITEMS.length.toString().padStart(2,'0')}</strong><small>HELD ITEMS</small></div><div><strong>${researched.toString().padStart(2,'0')}</strong><small>BUILD GUIDES</small></div><button class="ribbon-link" data-nav="aniidex">MEET YOUR COMPANIONS ${icon('arrow',17)}</button></section><section class="experience-section"><div class="experience-heading"><div><span class="section-kicker">START YOUR JOURNEY</span><h2>One world. <em>Endless possibilities.</em></h2><p>From your very first companion to an endgame squad, find inspiration for every step.</p></div><span class="section-index">01 — 07</span></div><div class="feature-paths">${features.map(([id,number,heading,desc,ic])=>`<button class="feature-path" data-nav="${id}"><span class="path-top"><span>${number}</span>${icon(ic,25)}</span><span class="path-content"><strong>${heading}</strong><small>${desc}</small></span><span class="path-link">EXPLORE ${icon('arrow',17)}</span></button>`).join('')}</div></section><section class="experience-section elements-section"><div class="experience-heading"><div><span class="section-kicker">NINE ELEMENTAL PATHS</span><h2>Nine paths to <em>power.</em></h2><p>Choose an element to uncover its lineup, combat philosophy and alternatives.</p></div>${button('Browse all compositions','teams','btn outline')}</div><div class="element-gallery">${ELEMENTS.map(e=>`<button class="element-portrait" data-team="${safe(e.id)}" style="--tile:${e.tone}"><span class="element-portrait-glow"></span><span class="element-big-symbol">${e.symbol}</span><span class="element-details"><strong>${safe(e.id)}</strong><small>EXPLORE ELEMENT ${icon('arrow',14)}</small></span></button>`).join('')}</div></section><section class="experience-section spotlight-section"><div class="experience-heading"><div><span class="section-kicker">STRATEGY SPOTLIGHT</span><h2>Squads worth <em>discovering.</em></h2><p>Explore team combinations, swap companions, and find a strategy that fits your journey.</p></div>${button('Open team lab','teams','btn outline')}</div><div class="spotlight-grid">${picks.map(teamPreview).join('')}</div></section><section class="experience-cta"><div><span class="section-kicker">YOUR ADVENTURE, YOUR WAY</span><h2>Make every upgrade <em>count.</em></h2><p>Track your collection on this device. No account needed — your progress stays with you.</p></div><div><button class="btn primary" data-nav="collection">Open my collection ${icon('arrow',17)}</button><button class="btn outline" data-nav="planner">Build a team ${icon('arrow',17)}</button></div></section>`}
 
 function teamsPage(){const current=TEAMS.find(t=>t.element===state.target)||TEAMS[0];const e=getElement(current.element);const line=current.lineup;const own=line.filter(r=>owned(r[0])).length;return `${title('TEAM ARCHITECT / 002','Elemental <em>team lab.</em>','Explore nine researched compositions, role coverage, substitutions, and proven rotation ideas.',button('Build custom squad','planner','btn primary'))}<div class="filter-head"><div class="filter-label">SELECT YOUR ELEMENT <span>09 TYPES</span></div><div class="elements-strip">${ELEMENTS.map(ele=>`<button data-team="${ele.id}" class="element-switch ${current.element===ele.id?'chosen':''}" style="--tile:${ele.tone}"><span>${ele.symbol}</span>${ele.id}</button>`).join('')}</div></div><div class="team-detail" style="--team-tone:${e.tone}"><div class="detail-background"></div><div class="detail-main"><div class="detail-overline">${elBadge(e.id)} <span>• ${safe(current.tag)}</span></div><h2>${safe(current.name)}</h2><p class="team-summary">${safe(current.summary)}</p><div class="team-measures"><span>${icon('team',16)} 4-MEMBER SQUAD</span><span>${icon('check',16)} ${own}/4 IN COLLECTION</span><span>${icon('book',16)} TEAM GUIDE</span></div><div class="team-row">${line.map(([name,role,form])=>unitCard(name,role,form)).join('')}</div><div class="team-detail-actions"><button class="btn primary" data-load-team="${current.element}">${icon('layers',17)} Load in planner</button><button class="btn secondary" data-team-owned="${current.element}">${icon('plus',17)} Mark lineup owned</button></div></div><aside class="detail-why"><div class="detail-aside-title">WHY IT WORKS</div>${current.strength.map((x,i)=>`<div class="plus-row"><span class="small-plus">0${i+1}</span><span>${safe(x)}</span></div>`).join('')}<div class="tactical-callout"><span>TACTICAL CONSIDERATION</span><p>${safe(current.risk)}</p></div><div class="owned-bar"><div><span>ROSTER READINESS</span><strong>${Math.round(own/4*100)}%</strong></div><div class="progress"><i style="width:${own/4*100}%"></i></div><small>${own} of 4 team members owned</small></div></aside></div><div class="secondary-grid"><section class="content-card"><div class="card-head"><span class="section-kicker">COMBAT FLOW</span><h3>Suggested rotation</h3></div><div class="rotation-list">${current.rotation.map((s,i)=>`<div class="rotation-step"><span>${String(i+1).padStart(2,'0')}</span><p>${safe(s)}</p></div>`).join('')}</div><div class="hint-block">${icon('spark',18)} <span>${safe(current.tip)}</span></div></section><section class="content-card"><div class="card-head"><span class="section-kicker">ADAPT YOUR SQUAD</span><h3>Recommended alternatives</h3></div><div class="alternatives">${current.alternatives.map(alt=>`<div class="alternative"><div class="alt-compare">${avatar(getAniimo(alt.out),'sm')}<span>${safe(alt.out)}</span>${icon('arrow',17)}${avatar(getAniimo(alt.in),'sm')}<strong>${safe(alt.in)}</strong></div><p>${safe(alt.why)}</p><button data-swap="${safe(current.element)}|${safe(alt.out)}|${safe(alt.in)}|${safe(alt.form)}" class="text-action">Load alternative ${icon('arrow',14)}</button></div>`).join('')}</div><div class="subnote">These recommendations are situation-dependent, not universally strongest.</div></section></div>`}
 function isPrismana(a){return a.official?.forms?.some(f=>/prismana/i.test(f.name))}
@@ -1754,7 +1968,7 @@ function officialDetail(a) {
  const statNames=['HP','ATK','BREAK','P.DEF','M.DEF','REGEN'];
  const statblock=f.stats?`<div class="dex-statgrid">${statNames.map(k=>`<div class="dex-stat"><small>${safe(k)}</small><strong>${f.stats[k]===null?'—':safe(f.stats[k])}</strong></div>`).join('')}<div class="dex-stat total"><small>BASE TOTAL</small><strong>${f.stats.total??'—'}</strong></div></div>`:'<p class="muted">Attribute values are not published for this form.</p>';
  const skillblock=f.skills.length?`<div class="dex-skill-list">${f.skills.map(sk=>`<div class="dex-skill"><div><strong>${safe(sk.name)}</strong><span>${safe([sk.type,...sk.element].filter(Boolean).join(' · '))}</span></div><div class="dex-skill-numbers">${sk.power!=null?`POWER ${safe(sk.power)}`:''}${sk.cost!=null?` · COST ${safe(sk.cost)}`:''}</div>${sk.description?`<p>${safe(sk.description)}</p>`:''}</div>`).join('')}</div>`:'<p class="muted">No published skills for this form in the current feed.</p>';
- return `<section class="dex-official"><div class="dex-official-head"><div><div class="section-kicker">COMPANION NO. ${safe(o.id)}</div><h3>${safe(a.name)} · Full form encyclopedia</h3><p>Discover the details of every documented form, from elements to skills and traits.</p></div></div>
+ return `<section class="dex-official"><div class="dex-official-head"><div><div class="section-kicker">COMPANION NO. ${safe(o.id)}</div><h3>${safe(a.name)} · Full form encyclopedia</h3><p>Discover the details of every documented form, from elements to skills and traits.</p><button class="text-action" data-explore-species="${safe(a.name)}">Find documented habitats ${icon('arrow',15)}</button></div></div>
  <div class="dex-form-tabs" role="group" aria-label="Choose Aniimo form">${forms.map(fm=>`<button data-form-name="${safe(a.name)}" data-form-id="${safe(fm.id)}" class="dex-form-tab ${fm.id===f.id?'active':''}">${safe(fm.name)}</button>`).join('')}</div>
  <div class="dex-form-detail"><div class="dex-form-portrait">${f.image?`<img src="${safe(f.image)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="${safe(a.name+' — '+f.name)}" onerror="this.style.display='none'">`:avatar(a,'xl')}<div class="dex-form-caption">${safe(f.name)}${f.stage?` · STAGE ${f.stage}`:''}</div></div><div class="dex-form-attributes"><div class="dex-form-badges">${f.elements.map(x=>elBadge(x,true)).join('')} ${f.roles.map(x=>`<span class="role-badge">${safe(x)}</span>`).join('')}</div><p>${safe(f.description||o.description||'No description supplied for this form.')}</p>${statblock}</div></div>
  ${formCompare(a,f)}<h3 class="sheet-section">Skills · ${f.skills.length}</h3>${skillblock}
@@ -1922,7 +2136,7 @@ function battlePage(){
   const draft=draftBossSquad(b,ANIIMO,state.instances,{ownedOnly:onlyOwned});
   const record=battleRecord(b.id);
   const general=['Watch the ground warning zones and dodge before big attacks.','Use a BREAK specialist to open a safer damage window.','Your build, level and the boss’s active modifiers can change the outcome.'];
-  detail=`<section id="battle-detail" class="wb-battle-detail" style="--boss-hue:${getElement(b.elements[0]).tone}"><div class="wb-battle-detail-hero"><div class="wb-battle-portrait">${unit?avatar(unit,'xl'):`<span class="wb-boss-rune">${safe(getElement(b.elements[0]).symbol)}</span>`}</div><div><span class="section-kicker">${tag(b)} · ENCOUNTER FIELD NOTES</span><h2>${safe(b.name)}</h2><p>${safe(b.region)}</p><div class="wb-tags">${b.elements.map(x=>elBadge(x,true)).join('')}</div><p class="wb-boss-gate">${safe(b.gate)}</p>${b.location?`<p class="wb-location">LOCATION NOTE · ${safe(b.location)}</p>`:''}</div></div>
+  detail=`<section id="battle-detail" class="wb-battle-detail" style="--boss-hue:${getElement(b.elements[0]).tone}"><div class="wb-battle-detail-hero"><div class="wb-battle-portrait">${unit?avatar(unit,'xl'):`<span class="wb-boss-rune">${safe(getElement(b.elements[0]).symbol)}</span>`}</div><div><span class="section-kicker">${tag(b)} · ENCOUNTER FIELD NOTES</span><h2>${safe(b.name)}</h2><p>${safe(b.region)}</p><div class="wb-tags">${b.elements.map(x=>elBadge(x,true)).join('')}</div><p class="wb-boss-gate">${safe(b.gate)}</p>${b.location?`<p class="wb-location">LOCATION NOTE · ${safe(b.location)}</p>`:''}${buildHabitatIndex(catalog.items,STARTER_REGIONS,ANIIMO).some(r=>r.id===canonicalRegionId(b.region))?`<button class="text-action" data-explore-region="${safe(canonicalRegionId(b.region))}">Explore this habitat ${icon('arrow',15)}</button>`:''}</div></div>
   <div class="wb-battle-matchbar"><div><small>BEST TYPE ADVANTAGE</small><strong>${attack.length?attack.slice(0,5).map(x=>`${safe(x.element)} ×${+x.multiplier.toFixed(3)}`).join(' · '):'No verified weakness listed'}</strong></div><div><small>RESISTED ATTACKS</small><strong>${resist.length?resist.slice(0,4).map(x=>safe(x.element)).join(' · '):'None in this chart'}</strong></div></div>
   <div class="wb-battle-columns"><section class="content-card wb-battle-paper"><span class="section-kicker">WHAT TO PREPARE</span><h3>Fight notes</h3><ul>${[...(b.mechanics||[]),...(b.preparation?[b.preparation]:[]),...general].map(x=>`<li>${safe(x)}</li>`).join('')}</ul><p class="wb-subtle">The type matrix is a community model. Boss modes and buffs can alter actual effectiveness; verify current gameplay.</p></section>
   <section class="content-card wb-battle-paper"><span class="section-kicker">PERSONAL ENCOUNTER LOG</span><h3>Your progress</h3><div class="wb-boss-status-actions">${[['not-started','Not started'],['attempted','Attempted'],['cleared','Cleared']].map(([status,label])=>`<button class="wb-progress-button ${record.status===status?'active':''}" data-battle-status="${safe(status)}" data-battle-id="${safe(b.id)}">${safe(label)}</button>`).join('')}</div><label class="wb-boss-notes">YOUR NOTES<textarea data-battle-notes maxlength="350" rows="3" placeholder="Mechanics, strategy, drops or your next attempt...">${safe(record.notes)}</textarea></label><button class="btn secondary" data-battle-note-save="${safe(b.id)}">Save notes</button><p class="wb-subtle">Saved on this device. Included in a new JSON backup.</p></section></div>
@@ -1938,7 +2152,50 @@ function battlePage(){
  ${detail||`<div class="wb-battle-welcome"><span>✧</span><h2>Choose an encounter above.</h2><p>Each profile includes documented elements, a preparation checklist, personal progress and a squad draft.</p></div>`}
  <div class="wb-battle-footnote">Unverified boss variants, encounter bonuses and location changes are not guessed. Always confirm your current in-game map and battle rules.</div>`;
 }
-function render(keepScroll=false){const was=window.scrollY;document.querySelectorAll('.build-overlay').forEach(el=>el.remove());app.innerHTML=header()+({overview,teams:teamsPage,battles:battlePage,aniidex:library,items:itemsPage,progression:growthV2,workshop,matchups,planner:plannerV2,collection:collectionV2}[state.nav]||overview)()+footer();if(modal){document.body.insertAdjacentHTML('beforeend',buildDetail(modal));document.body.classList.add('modal-open')}else{document.body.classList.remove('modal-open')}if(keepScroll)requestAnimationFrame(()=>window.scrollTo(0,was));else requestAnimationFrame(()=>window.scrollTo(0,0))}
+
+function explorerPage(){
+ const regions=buildHabitatIndex(catalog.items,STARTER_REGIONS,ANIIMO);
+ const selected=regions.find(x=>x.id===explorerUI.region)||regions[0];
+ if(!selected)return '<div class="empty-state">No habitat information is currently available.</div>';
+ const totals=regions.reduce((out,r)=>{const x=regionStats(r,explorerProgress,state.instances);out.known+=x.total;out.seen+=x.seen;out.caught+=x.caught;out.visited+=Number(x.visited);return out},{known:0,seen:0,caught:0,visited:0});
+ const routes=planExpedition(regions,explorerProgress,state.instances,4);
+ const uniqueKnown=[...new Set(regions.flatMap(r=>r.leads.map(x=>x.key)))];
+ const uniqueSeen=uniqueKnown.filter(key=>explorerProgress.discoveries[key]||state.instances.some(u=>discoveryKey(u.species,u.form)===key)).length;
+ const metrics=regionStats(selected,explorerProgress,state.instances);
+ const needle=explorerUI.query.trim().toLowerCase();
+ const filtered=selected.leads.filter(x=>{
+  const status=explorerProgress.discoveries[x.key]||'';
+  const isOwned=state.instances.some(u=>discoveryKey(u.species,u.form)===x.key);
+  if(needle&&!(`${x.species} ${x.form} ${x.elements.join(' ')}`.toLowerCase().includes(needle)))return false;
+  if(explorerUI.show==='Unseen'&&(status||isOwned))return false;
+  if(explorerUI.show==='Seen'&&status!=='seen')return false;
+  if(explorerUI.show==='Caught'&&status!=='caught'&&!isOwned)return false;
+  if(explorerUI.show==='Wishlist'&&!explorerProgress.wishlist.includes(x.key))return false;
+  if(explorerUI.onlyNeeded&&(status==='caught'||isOwned))return false;
+  return true;
+ });
+ const sourceHint=selected.source==='catalog'?'Form habitats documented in the creature directory.':selected.source==='starter'?'Starter field leads only: these are not a complete regional roster.':'No creature habitats documented in the current directory.';
+ const visit=explorerProgress.visited[selected.id]||{visited:false,notes:''};
+ const localBosses=WORLD_BOSSES.filter(b=>canonicalRegionId(b.region)===selected.id);
+ const cards=filtered.map(x=>{
+  const species=getAniimo(x.species),e=getElement(x.elements[0]||species?.element),ownedCopy=state.instances.some(u=>discoveryKey(u.species,u.form)===x.key);
+  const status=explorerProgress.discoveries[x.key]||'';
+  const wished=explorerProgress.wishlist.includes(x.key);
+  return `<article class="wb-explore-creature" style="--explore-element:${e.tone}"><button class="wb-explore-art" ${species?`data-open="${safe(x.species)}"`:'disabled'} aria-label="${species?'Read about':'Reference for'} ${safe(x.species)}">${species?avatar(species,'lg',x.form):'<span class="wb-explore-missing-art">✿</span>'}</button><div class="wb-explore-creature-info"><span class="wb-explore-source">${x.source==='catalog'?'DOCUMENTED HABITAT':'STARTER TRAIL'}</span><h4>${safe(x.species)}</h4><p>${safe(x.form)} ${ownedCopy?'· In your collection':!species?'· Directory entry':''}</p><div class="wb-explore-tags">${x.elements.map(v=>elBadge(v,true)).join('')}</div></div><div class="wb-explore-actions"><div class="wb-explore-status-actions"><button data-explore-state="seen" data-explore-key="${safe(x.key)}" class="${status==='seen'?'active':''}" aria-pressed="${status==='seen'}">Seen</button><button data-explore-state="caught" data-explore-key="${safe(x.key)}" class="${status==='caught'||ownedCopy?'active':''}" aria-pressed="${status==='caught'}">Caught</button></div><button class="wb-explore-pin ${wished?'active':''}" data-explore-wishlist="${safe(x.key)}" aria-pressed="${wished}" title="${wished?'Remove from wishlist':'Plan to find this form'}">${wished?'♥ On my list':'♡ Want to find'}</button></div></article>`;
+ }).join('');
+ return `${title('WILDBOOK / THE EXPLORER','Follow the <em>wild trails.</em>','Find documented Aniimo habitats, keep a personal field journal and plan your next discoveries.',button('Open the Aniidex','aniidex','btn secondary','book'))}
+ <section class="wb-explore-hero"><div><span class="section-kicker">YOUR FIELD JOURNAL</span><h2>Every region has a story.</h2><p>Track the places you have explored and the companions you are looking for. Your notes stay on this device, with no sign-in needed.</p><div class="wb-explore-hero-actions"><button class="btn primary" data-explore-region="${safe(selected.id)}">Explore ${safe(selected.name)} ${icon('arrow',16)}</button><span>✿ No invented coordinates or spawn times</span></div></div><div class="wb-explore-hero-bloom">✿<span>✧</span></div></section>
+ <div class="wb-explore-metrics"><div><strong>${regions.length}</strong><span>Named habitats</span></div><div><strong>${totals.visited}</strong><span>Regions visited</span></div><div><strong>${uniqueSeen}</strong><span>Forms discovered*</span></div><div><strong>${explorerProgress.wishlist.length}</strong><span>Wishlisted forms</span></div></div>
+ <div class="wb-explore-layout"><aside class="wb-explore-sidebar"><div class="wb-explore-side-head"><span class="section-kicker">PICK A DESTINATION</span><h3>Regions of Idyll</h3><p>Habitat names, not a geographic map.</p></div><div class="wb-explore-region-list">${regions.map(r=>{const summary=regionStats(r,explorerProgress,state.instances);return `<button data-explore-region="${safe(r.id)}" class="wb-explore-region ${selected.id===r.id?'active':''}"><span class="wb-explore-region-icon">${safe(r.icon)}</span><span><strong>${safe(r.name)}</strong><small>${summary.total?`${summary.seen}/${summary.total} discovered`:'No records yet'}${summary.visited?' · Visited':''}</small></span><span class="wb-region-arrow">${icon('arrow',15)}</span></button>`}).join('')}</div></aside>
+ <div class="wb-explore-main"><section class="wb-explore-selected"><div class="wb-explore-region-top"><span class="wb-explore-badge">${safe(selected.icon)} FIELD LOCATION / ${String(regions.findIndex(r=>r.id===selected.id)+1).padStart(2,'0')}</span><span class="wb-explore-visited-label">${visit.visited?'✓ Visited':'Not visited yet'}</span></div><div class="wb-explore-region-heading"><div><h2>${safe(selected.name)}</h2><p>${safe(selected.subtitle)}</p><span class="wb-explore-limited">${safe(sourceHint)}</span></div><button data-explore-visit="${safe(selected.id)}" class="btn ${visit.visited?'secondary':'primary'}">${visit.visited?'✓ Mark as unvisited':'✓ Mark visited'}</button></div><div class="wb-explore-progress"><div><b>${metrics.seen}</b> form discoveries <span>of ${metrics.total} currently listed</span></div><div class="wb-progress-track"><i style="width:${metrics.total?Math.round(metrics.seen/metrics.total*100):0}%"></i></div><small>${metrics.caught} caught or owned · ${metrics.planned} on your wishlist</small></div></section>
+ <div class="wb-explore-search"><label class="wb-explore-search-box">${icon('search',17)}<input id="explorer-search" type="search" placeholder="Search species or form..." value="${safe(explorerUI.query)}" aria-label="Search regional Aniimo"></label><label class="wb-explore-status-filter">SHOW<select id="explorer-show">${['All','Unseen','Seen','Caught','Wishlist'].map(v=>`<option ${explorerUI.show===v?'selected':''}>${v}</option>`).join('')}</select></label><label class="wb-explore-only"><input type="checkbox" id="explorer-need" ${explorerUI.onlyNeeded?'checked':''}> Not yet caught</label></div>
+ <div class="wb-explore-discoveries-heading"><h3>Companions found in this area <small>${filtered.length} shown</small></h3>${selected.source==='starter'?'<span class="wb-caution">Partial starter index</span>':''}</div><div class="wb-explore-creature-list">${cards||'<div class="wb-explore-empty">✧ No matching documented creatures yet. Try another filter or region. We never guess exact spawn points.</div>'}</div>
+ ${localBosses.length?`<section class="wb-explore-bosses"><div><span class="section-kicker">BATTLES ON THIS TRAIL</span><h3>Powerful encounters nearby</h3><p>Documented encounters in this region. Open the Battle Journal for preparation.</p></div><div class="wb-explore-bosslinks">${localBosses.map(b=>`<button data-explore-boss="${safe(b.id)}">${safe(b.kind)} · ${safe(b.name)} ${icon('arrow',14)}</button>`).join('')}</div></section>`:''}<section class="wb-explore-notes"><div><span class="section-kicker">PERSONAL FIELD NOTES</span><h3>Remember this place</h3><p>Write landmarks, game coordinates, weather, or routes you observed yourself.</p></div><textarea data-explorer-notes maxlength="350" rows="3" placeholder="Your route notes, coordinates or reminders...">${safe(visit.notes)}</textarea><button class="btn primary" data-explore-note-save="${safe(selected.id)}">Save region notes ${icon('check',16)}</button></section></div></div>
+ <section class="wb-explore-itinerary"><div class="wb-explore-itinerary-title"><div><span class="section-kicker">NEXT EXPEDITION</span><h2>Your wishlist <em>trail.</em></h2><p>Grouped by where your documented targets appear. This is a checklist, not an optimized travel route.</p></div><span class="wb-explore-count">${explorerProgress.wishlist.length} SAVED</span></div>${routes.length?`<div class="wb-explore-route-grid">${routes.map(r=>`<button class="wb-explore-route" data-explore-region="${safe(r.id)}"><span>${safe(r.icon)} ${safe(r.name)}</span><strong>${r.pending.length} to find</strong><small>${safe(r.pending.slice(0,3).map(x=>x.species+(x.form!=='Basic'?' · '+x.form:'')).join(' · '))}</small><b>OPEN REGION ${icon('arrow',14)}</b></button>`).join('')}</div>`:'<div class="wb-explore-no-route">♡ Tap “Want to find” on a creature to create your own exploration wishlist.</div>'}</section>
+ <p class="wb-explore-disclaimer">*Discovery totals count only forms currently listed for a region, and ownership also counts as caught. Missing habitat entries are not proof that an Aniimo cannot appear there. Confirm exact coordinates, time and weather in the in-game map.</p>`;
+}
+
+function render(keepScroll=false){const was=window.scrollY;document.querySelectorAll('.build-overlay').forEach(el=>el.remove());app.innerHTML=header()+({overview,teams:teamsPage,battles:battlePage,aniidex:library,items:itemsPage,progression:growthV2,workshop,matchups,planner:plannerV2,explorer:explorerPage,collection:collectionV2}[state.nav]||overview)()+footer();if(modal){document.body.insertAdjacentHTML('beforeend',buildDetail(modal));document.body.classList.add('modal-open')}else{document.body.classList.remove('modal-open')}if(keepScroll)requestAnimationFrame(()=>window.scrollTo(0,was));else requestAnimationFrame(()=>window.scrollTo(0,0))}
 function navigate(page){state.nav=page;document.body.classList.remove('menu-open');render();persist()}
 function openBuild(name){if(!getAniimo(name))return;modal=name;render(true)}
 function closeBuild(){modal=null;document.querySelector('.build-overlay')?.remove();document.body.classList.remove('modal-open');render(true)}
@@ -1957,19 +2214,26 @@ function swapTeam(value){const [element,outN,inN,form]=value.split('|');const t=
  state.target=element;state.teamEntries=t.lineup.map(([species,,variant])=>species===outN?{species:inN,form:form||'Basic'}:{species,form:variant||'Basic'});
  state.teamNames=state.teamEntries.map(x=>x.species);persist();navigate('planner');flash(`${outN} swapped for ${inN}.`);
 }
-function downloadBackup(){const backup=exportBackup(state.instances,battleProgress);
+function downloadBackup(){const backup=exportBackup(state.instances,battleProgress);backup.exploration=normalizeExplorerProgress(explorerProgress);
  const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob);
- const a=document.createElement('a');a.href=url;a.download='aniimo-wildbook-v2-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);flash('Your Wildbook backup is ready.');
+ const a=document.createElement('a');a.href=url;a.download='aniimo-wildbook-explorer-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);flash('Your Wildbook backup is ready.');
 }
 function importBackup(file){if(!file)return;
  if(file.size>2500000){flash('Backup exceeds 2.5 MB.','warn');return}
  const reader=new FileReader();reader.onload=()=>{try{const incoming=parseBackup(String(reader.result));
  if(!window.confirm(`Import ${incoming.length} companion copies? Your current collection will be replaced. Export a backup first if needed.`))return;
- state.instances=incoming;try{const parsed=JSON.parse(String(reader.result));if(parsed&&parsed.format==='aniimo-wildbook'&&parsed.encounters&&typeof parsed.encounters==='object'){battleProgress=normalizeBattleProgress(parsed.encounters);saveBattleProgress()}}catch{}state.workshopUnit='';persist();render(true);flash(`Restored ${incoming.length} companion copies.`);
+ state.instances=incoming;try{const parsed=JSON.parse(String(reader.result));if(parsed&&parsed.format==='aniimo-wildbook'&&parsed.encounters&&typeof parsed.encounters==='object'){battleProgress=normalizeBattleProgress(parsed.encounters);saveBattleProgress()}if(parsed&&parsed.format==='aniimo-wildbook'&&Object.prototype.hasOwnProperty.call(parsed,'exploration')){explorerProgress=normalizeExplorerProgress(parsed.exploration);saveExplorerProgress()}}catch{}state.workshopUnit='';persist();render(true);flash(`Restored ${incoming.length} companion copies.`);
  }catch(err){flash('Import failed: '+err.message,'warn')}};reader.readAsText(file);
 }
 const uploader=document.createElement('input');uploader.type='file';uploader.accept='application/json,.json';uploader.hidden=true;document.body.appendChild(uploader);uploader.addEventListener('change',e=>{importBackup(e.target.files[0]);uploader.value=''})
 document.addEventListener('click',e=>{const target=e.target.closest('button,a,[data-close],[data-toggle]');if(!target)return;
+ if(target.dataset.exploreRegion){explorerUI.region=target.dataset.exploreRegion;explorerUI.query='';if(state.nav==='explorer')render(true);else navigate('explorer');return}
+ if(target.dataset.exploreBoss){battleUI.mode='world';battleUI.kind='All';battleUI.element='All';battleUI.query='';battleUI.openOnly=false;battleUI.selected=target.dataset.exploreBoss;navigate('battles');return}
+ if(target.dataset.exploreState&&target.dataset.exploreKey){const key=target.dataset.exploreKey,old=explorerProgress.discoveries[key];if(old===target.dataset.exploreState)delete explorerProgress.discoveries[key];else explorerProgress.discoveries[key]=target.dataset.exploreState;saveExplorerProgress();render(true);return}
+ if(target.dataset.exploreWishlist){const key=target.dataset.exploreWishlist;explorerProgress.wishlist=explorerProgress.wishlist.includes(key)?explorerProgress.wishlist.filter(x=>x!==key):[...explorerProgress.wishlist,key].slice(0,300);saveExplorerProgress();render(true);return}
+ if(target.dataset.exploreVisit){const id=target.dataset.exploreVisit;const old=explorerProgress.visited[id]||{visited:false,notes:''};explorerProgress.visited[id]={...old,visited:!old.visited};saveExplorerProgress();render(true);return}
+ if(target.dataset.exploreNoteSave){const id=target.dataset.exploreNoteSave,prev=explorerProgress.visited[id]||{visited:false,notes:''};explorerProgress.visited[id]={...prev,notes:(document.querySelector('[data-explorer-notes]')?.value||'').slice(0,350)};saveExplorerProgress();flash('Your field notes are saved.');return}
+ if(target.dataset.exploreSpecies){const species=target.dataset.exploreSpecies,index=buildHabitatIndex(catalog.items,STARTER_REGIONS,ANIIMO);const found=index.find(r=>r.leads.some(x=>x.species===species));if(found)explorerUI.region=found.id;explorerUI.query=species;navigate('explorer');return}
  if(target.dataset.battleMode){battleUI.mode=target.dataset.battleMode;battleUI.selected='';battleUI.kind='All';render(true);return}
  if(target.dataset.battleSelect){battleUI.selected=target.dataset.battleSelect;render(true);requestAnimationFrame(()=>document.getElementById('battle-detail')?.scrollIntoView({behavior:'smooth',block:'start'}));return}
  if(target.dataset.battleStatus&&target.dataset.battleId){const id=target.dataset.battleId;const prev=battleRecord(id);battleProgress[id]={...prev,status:target.dataset.battleStatus};saveBattleProgress();render(true);return}
@@ -1996,6 +2260,8 @@ if(target.dataset.formName){activeFormByName.set(target.dataset.formName,target.
  if(target.dataset.action==='planner-owned'){state.plannerOwned=!state.plannerOwned;persist();render(true);return}
  if(target.dataset.action==='refresh-dex'){refreshCatalog(true);return}if(target.dataset.close){if(e.target===target||target.tagName==='BUTTON')closeBuild();return}if(target.dataset.toggle==='menu'){const open=document.body.classList.toggle('menu-open');document.querySelector('.menu-trigger')?.setAttribute('aria-expanded',String(open));return}if(target.dataset.toggle==='roster-owned'){state.rosterOwned=!state.rosterOwned;render(true);return}if(target.dataset.nav){navigate(target.dataset.nav);return}if(target.dataset.open){openBuild(target.dataset.open);return}if(target.dataset.team){state.target=target.dataset.team;navigate('teams');return}if(target.dataset.owned){toggleOwned(target.dataset.owned);return}if(target.dataset.loadTeam){loadTeam(target.dataset.loadTeam);return}if(target.dataset.swap){swapTeam(target.dataset.swap);return}if(target.dataset.teamOwned){const t=TEAMS.find(x=>x.element===target.dataset.teamOwned);let count=0;t?.lineup.forEach(([name])=>{if(!owned(name)){state.instances.push(newInstance(name,t.lineup.find(x=>x[0]===name)?.[2]||'Basic'));count++}});persist();render(true);flash(count?`${count} Aniimo added to collection.`:'All team members already owned.');return}if(target.dataset.saveProfile){saveProfile(target.dataset.saveProfile);return}if(target.dataset.analyze){flash('Role checklist updated from your selected lineup.');return}if(target.dataset.clear==='team'){state.teamNames=['','','',''];state.teamEntries=[null,null,null,null];persist();render(true);return}if(target.dataset.clear==='filters'){state.rosterQuery='';state.rosterFilter='All';state.rosterOwned=false;state.formFilter='All';render(true);return}if(target.dataset.action==='export'){downloadBackup();return}if(target.dataset.action==='import'){uploader.click();return}if(target.dataset.action==='reset'){if(window.confirm('Clear the entire ANIIMO collection stored in this browser? Export a backup first.')){state.instances=[];state.collection={};persist();render();flash('Collection reset.')}}});
 document.addEventListener('change',e=>{const t=e.target;
+ if(t.id==='explorer-show'){explorerUI.show=t.value;render(true);return}
+ if(t.id==='explorer-need'){explorerUI.onlyNeeded=t.checked;render(true);return}
  if(t.id==='battle-kind'){battleUI.kind=t.value;render(true);return}
  if(t.id==='battle-element'){battleUI.element=t.value;render(true);return}
 if(t.id==='growth-unit'){state.growthUnit=t.value;persist();render(true);return}
@@ -2008,6 +2274,7 @@ if(t.id==='growth-unit'){state.growthUnit=t.value;persist();render(true);return}
  state.teamEntries[i]=species?{species,form}:null;state.teamNames=state.teamEntries.map(e=>e?.species||'');persist();render(true);return}
  if(t.id==='roster-element'){state.rosterFilter=t.value;render(true)}if(t.id==='roster-form'){state.formFilter=t.value;render(true)}if(t.id==='progress-select'){state.selected=t.value;persist();render(true)}if(t.id==='team-preset'){state.target=t.value;const preset=TEAMS.find(a=>a.element===t.value)||TEAMS[0];state.teamEntries=preset.lineup.map(([species,,form])=>({species,form:form||'Basic'}));state.teamNames=state.teamEntries.map(x=>x.species);persist();render(true)}if(t.dataset.slot!==undefined){state.teamNames[Number(t.dataset.slot)]=t.value;persist();render(true)}});
 document.addEventListener('input',e=>{
+ if(e.target.id==='explorer-search'){const pos=e.target.selectionStart;explorerUI.query=e.target.value.slice(0,100);render(true);requestAnimationFrame(()=>{const input=document.getElementById('explorer-search');input?.focus();if(pos!=null)input?.setSelectionRange(pos,pos)});return}
  if(e.target.id==='battle-search'){const pos=e.target.selectionStart;battleUI.query=e.target.value;render(true);const input=document.getElementById('battle-search');input?.focus();if(pos!=null)input?.setSelectionRange(pos,pos);return}
 if(e.target.id==='roster-search'){let active=e.target,idx=active.selectionStart;state.rosterQuery=active.value;const grid=document.querySelector('.library-grid');const summary=document.querySelector('.library-summary');if(!grid)return;let filtered=filterAniimo();grid.querySelectorAll('.library-card').forEach(card=>{const name=card.querySelector('[data-open]')?.dataset.open;card.style.display=filtered.some(a=>a.name===name)?'':'none'});if(summary)summary.querySelector('b').textContent=filtered.length;const emp=document.querySelector('.library-empty-search');if(emp)emp.remove();if(!filtered.length)grid.insertAdjacentHTML('afterend','<p class="library-empty-search muted">No matching Aniimo. Try a different search.</p>')}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modal)closeBuild();document.body.classList.remove('menu-open')}});

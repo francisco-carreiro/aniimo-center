@@ -1,6 +1,6 @@
 # ✿ Aniimo Wildbook
 
-**A pocket field journal for the world of Idyll.** A colorful, account-free Aniimo companion for discovering creature forms, building form-specific teams, comparing held items, planning awakening investments, and tracking multiple personal copies of each Aniimo.
+**A pocket field journal for the world of Idyll.** A colorful, account-free Aniimo companion for discovering creature forms, building form-specific teams, comparing held items, planning awakening investments, and tracking multiple personal copies of each Aniimo and recording journeys across Idyll’s habitats.
 
 **Live website:** https://aniimo-center.netlify.app/  
 **Repository:** https://github.com/francisco-carreiro/aniimo-center
@@ -10,11 +10,12 @@
 ## ✨ What you can do
 
 - **Aniidex:** Browse available Aniimo, forms, elements, artwork, traits, skills, base attributes, habitats, evolution references, and form-to-form differences.
+- **Explorer (v1.8):** Browse named habitats and form-specific regional records; mark regions visited, log seen/caught forms, build a personal wishlist and write private travel notes and jump between region guides and documented local bosses.
 - **Team paths:** Discover nine elemental compositions, alternatives, and role coverage.
 - **Equipment:** Compare 15 documented held items and how their effects fit different roles.
 - **Growth:** Plan awakening allocations and Star Up decisions without claiming unverified costs.
 - **Team builder (v1.5):** Choose an exact form in each slot; check role coverage, offensive typing, incoming threats, and situational suggestions. Clearly labeled as heuristics, never a DPS simulator.
-- **My companions (v1.5):** Keep multiple independently editable copies of the same species and form, with level, CP, Star Up, awakening values, held items, and notes. Import legacy v1 or new v2 JSON backups.
+- **My companions (v1.5):** Keep multiple independently editable copies of the same species and form, with level, CP, Star Up, awakening values, held items, and notes. Import legacy v1 or new v2 JSON backups; v1.8 exports also include optional Explorer progress.
 - **Element matchups (v1.5):** Compare nine attacking elements against one or two defending elements, with a transparent effectiveness table.
 - **Build Workshop (v1.6):** Select a species and form, inspect documented abilities and base stats, review form-applicable build notes, get role-based held-item candidates, and track actual investments.
 - **Growth (v1.6):** Follow a particular saved copy rather than applying a species-level upgrade template to every form.
@@ -72,6 +73,7 @@ The portable **`ANIIMO-WILDBOOK.html`** edition bundles JavaScript and CSS into 
 node --check assets/app.js
 node --check assets/live-data.js
 node --check assets/wildbook-core.js
+node --check assets/explorer-core.js
 node --test tests/*.test.mjs
 python -m py_compile scripts/build_standalone.py scripts/source_watch.py
 python scripts/build_standalone.py
@@ -89,6 +91,7 @@ Browser previews may need internet access for live artwork; a blocked upstream s
 | `assets/data.js` | Curated elemental teams, held items, offline catalog, references |
 | `assets/live-data.js` | External catalog adapter and 12-hour cache |
 | `assets/wildbook-core.js` | Pure collection migration, matchup matrix, team and item heuristics |
+| `assets/explorer-core.js` | Offline habitat starter index, form-specific region join, safe local exploration journal and itinerary helpers |
 | `assets/mark.svg` | Custom Wildbook mark |
 | `scripts/build_standalone.py` | Build portable HTML |
 | `scripts/source_watch.py` | Read-only source availability check |
@@ -136,3 +139,19 @@ python scripts/build_standalone.py
 ```
 
 The Battle Companion has unit tests for encounter count, separate Rush entries, dual-element calculations, copy-aware counters, journal sanitation, JSON backup compatibility, and incomplete-offline fallbacks.
+
+
+## 🌱 v1.8 — Explorer (28 October 2026)
+
+The Explorer adds a regional field journal without inventing map coordinates or spawn conditions:
+
+- **Habitat directory:** 14 named starter regions; additional region names appear automatically when the catalog provides them. The offline version contains a **small and incomplete set of starter leads**, visually labeled as such, sourced from community habitat listings. It does not claim a complete offline encounter distribution.
+- **Form-level records:** Live directory entries join each species **and particular form** to the habitat names provided for that form; Basic and Prismana/alternate forms are not collapsed. A region can have multiple records for one species.
+- **Personal journal:** Mark a region as visited; record seen/caught forms; maintain a wishlist; add 350-character field notes. The wishlist groups outstanding targets by region — it is **not** a shortest-path planner.
+- **Existing collection:** An owned copy counts as caught in regional summaries, but does **not** automatically mark it as having been caught in that particular region. A species found in multiple regions contributes to each region's checklist; the Wildbook-wide "Forms discovered" summary counts each form only once.
+- **Browser persistence:** New key `aniimo-wildbook:explorer:v1`. The older v2 state and the legacy v1 key are left untouched. JSON backups retain format `aniimo-wildbook` version 2 with an additional optional `exploration` object; old backups without this property do not erase current Explorer progress. No server/database/login needed.
+- **Boundaries:** Habitat directories are not coordinate maps; season, weather, time of day, precise spawn spots, discovery requirements and future game releases must be confirmed in-game. If the catalog cannot load, Wildbook uses the limited starter list instead of claiming the full distribution is available.
+
+Maintainer research: [Aniimo map region guide](https://aniim.org/map/), [community habitat directory](https://aniimomap.org/), [how the in-game distribution works](https://aniimo.guide/en/guides/find-any-aniimo), and the existing public wiki-derived catalog. These resources differ in total region counts because of expansion timing and map coverage; the app follows named habitats supplied with actual form records. Dates/patch information should be reviewed when new areas release.
+
+To validate the explorer in isolation: `node --test tests/explorer.test.mjs`. This release adds seven deterministic tests over the previous 21 automated tests.

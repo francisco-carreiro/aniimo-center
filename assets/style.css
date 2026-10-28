@@ -1147,3 +1147,108 @@ body .wb-boss-image .avatar:not(.has-art) .avatar-rune,
 body .wb-battle-portrait .avatar:not(.has-art) .avatar-rune{color:var(--unit-color);font-size:72px;opacity:.36;filter:none}
 body .wb-battle-candidate .avatar:not(.has-art) .avatar-rune,
 body .wb-battle-squad-grid .avatar:not(.has-art) .avatar-rune{color:var(--unit-color);font-size:48px;opacity:.35;filter:none}
+
+/* ============== v1.8 · Explorer · Idyll field journal ============== */
+body .wb-explore-hero{position:relative;overflow:hidden;min-height:242px;border-radius:30px;border:1px solid #cae9de;background:linear-gradient(114deg,#e8f8ec 0%,#e0f9f5 57%,#f5ecff 100%);padding:clamp(25px,4vw,52px);margin:22px 0 19px;color:#356e71;display:flex;align-items:center}
+body .wb-explore-hero>div:first-child{position:relative;z-index:1;max-width:635px}
+body .wb-explore-hero h2{font-family:Outfit,inherit;font-size:clamp(31px,4.5vw,55px);font-weight:800;letter-spacing:-.055em;line-height:1.02;margin:10px 0;color:#367c79}
+body .wb-explore-hero p{color:#6c9497;font-weight:650;line-height:1.75;max-width:555px;font-size:13px;margin:13px 0 21px}
+body .wb-explore-hero-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+body .wb-explore-hero-actions span{font-weight:700;font-size:10px;color:#79a09e}
+body .wb-explore-hero-bloom{position:absolute;right:3%;top:-105px;font-size:350px;line-height:1;color:#a7e9cb8c;filter:drop-shadow(0 30px 22px #4aa79915);transform:rotate(-20deg);pointer-events:none}
+body .wb-explore-hero-bloom span{position:absolute;left:0;top:170px;font-size:130px;color:#f5cae2}
+body .wb-explore-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0 28px}
+body .wb-explore-metrics>div{background:#fffefa;border:1px solid #d2ebe5;padding:21px 22px;border-radius:19px;min-width:0;box-shadow:0 10px 25px #719b9810}
+body .wb-explore-metrics strong{display:block;font:850 34px/1 Outfit, sans-serif;color:#3b8f85;letter-spacing:-.06em}
+body .wb-explore-metrics span{display:block;font-size:10px;color:#74969b;font-weight:800;letter-spacing:.07em;text-transform:uppercase;margin-top:7px}
+body .wb-explore-layout{display:grid;grid-template-columns:minmax(238px,.77fr) minmax(0,2.05fr);gap:23px;align-items:start;margin-bottom:30px}
+body .wb-explore-sidebar{background:#fffefa;border:1px solid #d9ece6;border-radius:23px;padding:21px;min-width:0}
+body .wb-explore-side-head{padding:6px 7px 16px}
+body .wb-explore-side-head h3{color:#3d727b;font-size:22px;font-weight:850;letter-spacing:-.04em;margin:8px 0}
+body .wb-explore-side-head p{color:#809da4;font-size:11px;margin:5px 0}
+body .wb-explore-region-list{display:grid;gap:6px;max-height:740px;overflow-y:auto;scrollbar-color:#badcd2 transparent;scrollbar-width:thin;padding-right:3px}
+body .wb-explore-region{min-width:0;border:1px solid transparent;background:transparent;display:grid;grid-template-columns:35px minmax(0,1fr) 16px;gap:10px;align-items:center;text-align:left;padding:12px 10px;border-radius:14px;cursor:pointer;color:#4c7f83;font:inherit;transition:background .18s,transform .18s,border-color .18s}
+body .wb-explore-region:hover{background:#eff9f3;transform:translateX(2px)}
+body .wb-explore-region.active{border-color:#8dd5c0;background:linear-gradient(100deg,#e1f8eb,#f3fffa);box-shadow:0 3px 12px #8ec5b022}
+body .wb-explore-region-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:#e9f5f1;color:#59a7a0;font-size:19px}
+body .wb-explore-region strong{display:block;font-size:12px;font-weight:850;line-height:1.3;overflow-wrap:anywhere}
+body .wb-explore-region small{display:block;color:#89a4a5;font-size:10px;margin-top:3px;font-weight:700}
+body .wb-region-arrow{opacity:.5}
+body .wb-explore-main{min-width:0}
+body .wb-explore-selected{position:relative;overflow:hidden;padding:clamp(24px,3vw,33px);border-radius:23px;border:1px solid #cce9e1;background:linear-gradient(126deg,#f9fffa,#f0f9fc 70%,#f9f3ff);box-shadow:0 11px 29px #81a8a518}
+body .wb-explore-selected:after{content:'✿';pointer-events:none;position:absolute;right:-38px;top:-83px;font-size:240px;color:#c5eada62;line-height:1}
+body .wb-explore-region-top,body .wb-explore-region-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;position:relative;z-index:1}
+body .wb-explore-badge,body .wb-explore-visited-label{font-size:10px;font-weight:850;letter-spacing:.085em;color:#548e89}
+body .wb-explore-visited-label{color:#a1a0a0;white-space:nowrap}
+body .wb-explore-region-heading{align-items:center;margin:24px 0 23px}
+body .wb-explore-region-heading h2{font-size:clamp(30px,3.5vw,46px);letter-spacing:-.05em;color:#427d85;margin:0 0 5px}
+body .wb-explore-region-heading p{font-size:13px;color:#77a0a4;margin:0 0 8px}
+body .wb-explore-limited{display:block;max-width:510px;color:#849da1;font-size:11px;line-height:1.6}
+body .wb-explore-region-heading .btn{flex-shrink:0}
+body .wb-explore-progress{position:relative;z-index:1;max-width:650px}
+body .wb-explore-progress>div:first-child{font-weight:850;color:#477c84;font-size:13px}
+body .wb-explore-progress>div:first-child b{font-size:17px;color:#38a08b}
+body .wb-explore-progress>div:first-child span{color:#8ca3a5;font-weight:650}
+body .wb-explore-progress .wb-progress-track{height:11px;margin:10px 0 7px;background:#d6ede7}
+body .wb-explore-progress small{color:#73969a;font-size:11px;font-weight:650}
+body .wb-explore-search{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:19px 0}
+body .wb-explore-search-box{display:flex;align-items:center;gap:10px;min-height:44px;border:1px solid #cde6de;border-radius:13px;background:#fffefa;padding:0 12px;flex:1;min-width:180px;color:#7da69f}
+body .wb-explore-search-box input{font:inherit;font-size:12px;outline:none;border:0;background:none;min-width:0;width:100%;color:#376d7b}
+body .wb-explore-status-filter{display:flex;align-items:center;gap:7px;color:#7da09f;font-size:9px;font-weight:900;letter-spacing:.08em}
+body .wb-explore-status-filter select{height:44px;border-radius:12px;border:1px solid #cce5e0;color:#477d82;padding:0 11px;background:#fffefa;font:inherit;font-size:12px;font-weight:750}
+body .wb-explore-only{display:flex;align-items:center;gap:5px;color:#5f8b88;font-size:11px;font-weight:750;cursor:pointer}
+body .wb-explore-only input{accent-color:#4aab9b;width:15px;height:15px}
+body .wb-explore-discoveries-heading{display:flex;align-items:center;gap:10px;justify-content:space-between;margin:22px 2px 14px;flex-wrap:wrap}
+body .wb-explore-discoveries-heading h3{font-size:19px;letter-spacing:-.035em;color:#3e7780;margin:0}
+body .wb-explore-discoveries-heading h3 small{font-size:11px;color:#91a2a5;margin-left:6px;letter-spacing:0}
+body .wb-caution{font-size:10px;color:#a9825c;border:1px solid #eed9c1;background:#fff4e7;padding:7px 10px;border-radius:20px;font-weight:750}
+body .wb-explore-creature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+body .wb-explore-creature{min-width:0;display:grid;grid-template-columns:88px minmax(0,1fr);column-gap:12px;row-gap:12px;align-items:center;padding:14px;background:#fffefa;border:1px solid #daeae7;border-radius:18px;transition:box-shadow .2s,transform .2s}
+body .wb-explore-creature:hover{transform:translateY(-2px);box-shadow:0 12px 23px #689f8e17}
+body .wb-explore-art{width:88px;height:98px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--explore-element) 26%,#d4e8e2);border-radius:17px;background:radial-gradient(ellipse at 50% 40%,color-mix(in srgb,var(--explore-element) 12%,#fff),#f7fbfa);padding:3px;cursor:pointer;min-width:0;overflow:hidden}
+body .wb-explore-art .avatar.lg{width:87px;height:95px;border:0!important;background:none!important;box-shadow:none!important}
+body .wb-explore-art img{width:100%;height:100%;object-fit:contain}
+body .wb-explore-creature-info{min-width:0}
+body .wb-explore-source{font-size:8px;font-weight:950;color:#90a6a0;letter-spacing:.08em}
+body .wb-explore-creature h4{font:850 16px/1.25 Outfit, sans-serif;letter-spacing:-.025em;margin:7px 0 3px;color:#406f7c;overflow-wrap:anywhere}
+body .wb-explore-creature p{margin:0 0 7px;font-size:11px;color:#809ba0}
+body .wb-explore-tags{display:flex;flex-wrap:wrap;gap:4px}
+body .wb-explore-actions{grid-column:1/-1;display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:space-between;border-top:1px solid #e8f2ec;padding-top:11px}
+body .wb-explore-status-actions{display:flex;gap:5px}
+body .wb-explore-status-actions button,body .wb-explore-pin{cursor:pointer;font:800 10px/1.3 Nunito,sans-serif;padding:8px 11px;border:1px solid #cee4dc;border-radius:10px;background:#f7fcf8;color:#678e90;transition:background .17s,border-color .17s}
+body .wb-explore-status-actions button.active{background:#d6f4e5;border-color:#77c9ad;color:#2e8170}
+body .wb-explore-pin{background:#fff7f9;border-color:#f1dae2;color:#b18097}
+body .wb-explore-pin.active{background:#ffe6ed;border-color:#f2b3c7;color:#af627e}
+body .wb-explore-notes{display:grid;gap:10px;margin-top:24px;border:1px solid #d3e8e2;border-radius:22px;background:#f8fffb;padding:23px}
+body .wb-explore-notes h3{margin:4px 0 5px;color:#397c7c;font-size:21px;letter-spacing:-.035em}
+body .wb-explore-notes p{margin:0;color:#849ca4;font-size:11px}
+body .wb-explore-notes textarea{font:inherit;font-size:12px;color:#4b7a7e;border:1px solid #c8e4db;background:#fff;border-radius:13px;padding:14px;line-height:1.5;min-height:88px;resize:vertical;width:100%;box-sizing:border-box}
+body .wb-explore-notes .btn{justify-self:start}
+body .wb-explore-itinerary{background:linear-gradient(160deg,#eef9ff,#f5f6ff);border:1px solid #d7e8e8;padding:clamp(23px,3vw,32px);border-radius:25px;margin:20px 0}
+body .wb-explore-itinerary-title{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:16px}
+body .wb-explore-itinerary h2{font-size:clamp(24px,3vw,35px);letter-spacing:-.04em;color:#397d83;margin:6px 0}
+body .wb-explore-itinerary h2 em{color:#65b69f}
+body .wb-explore-itinerary p{margin:4px 0;font-size:12px;color:#7898a3}
+body .wb-explore-count{font-size:10px;font-weight:900;color:#5f9fa0;border:1px solid #acd7d0;background:#f8fffc;border-radius:20px;padding:10px;white-space:nowrap}
+body .wb-explore-route-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+body .wb-explore-route{display:flex;flex-direction:column;text-align:left;gap:10px;min-width:0;border-radius:17px;padding:17px;background:#ffffffd9;border:1px solid #d2e6e8;color:#4c848a;cursor:pointer;font:inherit;transition:transform .2s}
+body .wb-explore-route:hover{transform:translateY(-3px)}
+body .wb-explore-route span{font-size:11px;font-weight:850}
+body .wb-explore-route strong{color:#3d7d86;font-size:19px;letter-spacing:-.04em}
+body .wb-explore-route small{min-height:38px;line-height:1.5;font-size:10px;color:#7a969e}
+body .wb-explore-route b{font-size:10px;color:#4eab9e;display:flex;align-items:center;gap:7px}
+body .wb-explore-no-route,body .wb-explore-empty{padding:28px;border-radius:17px;background:#fff9fd;border:1px dashed #e1d5e4;color:#829aa2;text-align:center;font-size:12px;line-height:1.65}
+body .wb-explore-empty{grid-column:1/-1}
+body .wb-explore-disclaimer{font-size:11px!important;color:#83a09f!important;line-height:1.7!important;margin:17px 3px 35px!important}
+@media(max-width:1100px){body .wb-explore-creature-list{grid-template-columns:1fr}body .wb-explore-route-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){body .wb-explore-layout{grid-template-columns:1fr;gap:16px}body .wb-explore-sidebar{padding:15px}body .wb-explore-region-list{display:flex;overflow-x:auto;max-height:none;gap:7px;padding-bottom:9px;scroll-snap-type:x proximity}body .wb-explore-region{flex:0 0 185px;scroll-snap-align:start}body .wb-explore-region-icon{width:32px;height:32px}body .wb-explore-sidebar .wb-explore-side-head{padding:6px 6px 12px}body .wb-explore-metrics{gap:8px}body .wb-explore-metrics>div{padding:15px 12px}body .wb-explore-metrics strong{font-size:26px}body .wb-explore-metrics span{font-size:8px;letter-spacing:0}body .wb-explore-hero-bloom{font-size:250px;top:-55px;right:-45px;opacity:.52}body .wb-explore-region-heading{align-items:flex-start;flex-direction:column}body .wb-explore-region-heading .btn{min-height:39px}body .wb-explore-search{align-items:stretch}body .wb-explore-creature-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:570px){body .wb-explore-hero{padding:27px 22px;min-height:240px}body .wb-explore-hero>div:first-child{max-width:100%}body .wb-explore-hero h2{max-width:290px;font-size:36px}body .wb-explore-hero p{max-width:290px}body .wb-explore-hero-bloom{right:-70px;top:-30px;font-size:200px;opacity:.34}body .wb-explore-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}body .wb-explore-creature-list{grid-template-columns:1fr}body .wb-explore-route-grid{grid-template-columns:1fr}body .wb-explore-itinerary-title{flex-wrap:wrap}body .wb-explore-region-top{flex-wrap:wrap}body .wb-explore-selected{padding:20px}body .wb-explore-region-heading h2{font-size:32px}body .wb-explore-search-box{flex:1 1 100%;min-width:0}body .wb-explore-creature{grid-template-columns:80px minmax(0,1fr)}body .wb-explore-art{height:90px;width:80px}body .wb-explore-art .avatar.lg{height:86px;width:77px}}
+@media(prefers-reduced-motion:reduce){body .wb-explore-region,body .wb-explore-creature,body .wb-explore-route{transition:none!important}}
+body .wb-explore-missing-art{font-size:45px;color:#a9d7c8;line-height:1}
+body .wb-explore-art:disabled{cursor:default}
+body .wb-explore-bosses{background:linear-gradient(115deg,#fff7f2,#fff9fc);border:1px solid #efdcd7;border-radius:21px;margin:22px 0;padding:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+body .wb-explore-bosses h3{font-size:21px;letter-spacing:-.03em;color:#a57a74;margin:7px 0}
+body .wb-explore-bosses p{color:#ad958e;font-size:11px;margin:0}
+body .wb-explore-bosslinks{display:flex;flex-wrap:wrap;gap:8px}
+body .wb-explore-bosslinks button{border:1px solid #eecdc2;background:#fffefa;padding:10px 13px;border-radius:12px;color:#a97e77;font:800 11px Nunito,sans-serif;display:flex;gap:9px;align-items:center;cursor:pointer}
+body .wb-explore-bosslinks button:hover{background:#fff1eb}
