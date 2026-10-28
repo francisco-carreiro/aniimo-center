@@ -74,6 +74,558 @@
 
 .dex-comparison{margin-top:17px;padding:14px;background:#192f3c;border:1px solid #3b6471;border-radius:11px}.dex-comparison h4{font-size:15px;margin:8px 0 10px}.dex-comparison>small{display:block;color:#849daf;font-size:9px;margin-top:10px;line-height:1.6}.dex-element-delta{display:flex;flex-wrap:wrap;gap:7px}.dex-element-delta span{padding:8px;border:1px solid #38546e;border-radius:7px;font-size:10px;color:#a5c9dd;background:#1b3148}.dex-delta-caption{color:#95e8ed;font-size:11px;margin:10px 0}.dex-delta-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:13px}.dex-delta{background:#142639;border:1px solid #305063;border-radius:7px;text-align:center;padding:10px 3px}.dex-delta small{display:block;color:#9db4c8;font-size:9px}.dex-delta strong{display:block;font-size:19px;margin-top:5px;color:#c3d2db}.dex-delta.up strong{color:#77f0c8}.dex-delta.down strong{color:#ffab9f}
 @media(max-width:600px){.dex-delta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANIIMO CENTER · EXPEDITION EDITION / V1.3
+   Distinctive cinematic front-end, lightweight native interactions.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+:root {
+  --bg:#090b12;--bg2:#0f111c;--panel:#161927;--panel2:#191e2c;
+  --edge:#303342;--text:#f8f5f5;--muted:#a19daa;
+  --cyan:#ff748c;--violet:#bd99ec;--accent:#ff657e;
+  --shadow:0 24px 72px #02030960;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --font:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-padding-top:104px}
+body{background:#090b12;color:var(--text)}
+body::selection{background:#ff657e;color:#fff}
+body .app-shell{display:block;min-height:100vh}
+body .main-area{background:radial-gradient(ellipse 65% 23% at 97% -8%,#6a2c5040,transparent),radial-gradient(ellipse 65% 55% at 0 54%,#25204726,transparent),#090b12;min-height:100vh}
+body button:focus-visible,body a:focus-visible,body input:focus-visible{outline-color:#ff8b9f}
+body .topbar{position:sticky;top:0;z-index:32;height:86px;padding:0 28px;background:#0c0d17ed;border-bottom:1px solid #ffffff15;backdrop-filter:blur(15px)}
+body .topbar-inner{width:min(1536px,100%);height:100%;margin:auto;display:flex;align-items:center;gap:24px}
+body .horizon-brand{flex:0 0 auto;display:flex;align-items:center;gap:13px;margin:0;padding:0;background:transparent;color:var(--text);border:0;min-width:207px;text-align:left}
+body .horizon-brand .brand-mark{width:39px;height:39px;border-radius:13px;transform:rotate(-7deg);border:1px solid #ff8e9c5c;background:linear-gradient(155deg,#422838,#1a1825 80%);box-shadow:0 0 18px #ff697e19}
+body .horizon-brand .brand-bolt{color:#ff8a9c;text-shadow:0 0 16px #ff677d9c;font-size:30px;transform:rotate(7deg)}
+body .horizon-brand strong{font-size:17px;letter-spacing:-.04em;font-weight:800;white-space:nowrap}
+body .horizon-brand strong span{color:#ff7891;margin-left:2px}
+body .horizon-brand small{font-size:8px;color:#8f8b9c;letter-spacing:.17em;margin-top:3px}
+.horizon-nav{display:flex;align-items:center;gap:3px;flex:1;justify-content:center;min-width:0}
+.horizon-link{font-size:12px;white-space:nowrap;border:0;border-radius:9px;background:none;color:#a5a2b0;font-weight:750;padding:13px 11px;position:relative;transition:color .2s,background .2s}
+.horizon-link:hover{background:#ffffff09;color:#fff}
+.horizon-link.active{color:#fff;background:#ffffff0b}
+.horizon-link.active:after{content:"";position:absolute;bottom:-19px;left:25%;right:25%;height:2px;border-radius:3px;background:#ff657e;box-shadow:0 0 15px #ff657e9b}
+body .top-actions{flex:0 0 auto;gap:14px}
+body .top-status{color:#858390;font-size:9px;white-space:nowrap;letter-spacing:.09em}
+body .top-status i,.signal-dot{background:#ff7389;box-shadow:0 0 12px #ff738986;animation:breathe 3.6s ease-in-out infinite}
+.collection-shortcut{display:flex;align-items:center;gap:10px;border:1px solid #ffffff22;border-radius:100px;background:#ffffff0a;color:#ede8ef;padding:10px 14px;font-weight:750;font-size:11px;white-space:nowrap;transition:border-color .2s,background .2s}
+.collection-shortcut:hover,.collection-shortcut.active{border-color:#ff768c78;background:#ff768c12}
+.collection-shortcut b{display:grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:99px;background:#ff718227;color:#ffa9b5}
+.menu-trigger{display:none;background:#181a27;border:1px solid #363442;color:#faf4f7;border-radius:10px;padding:9px}
+.mobile-drawer{display:none}
+body main{width:min(1536px,100%);max-width:none;padding:55px clamp(23px,4vw,76px) 95px;margin:auto}
+body:has(.cinematic-hero) main{padding-top:24px}
+body .page-heading{margin-bottom:35px;padding-top:16px}
+body .page-heading h1{font-size:clamp(42px,4.1vw,69px);letter-spacing:-.075em;line-height:1.04;font-weight:750;margin:15px 0}
+body .page-heading h1 em{color:#ff788d}
+body .page-heading p{max-width:740px;color:#a4a0af;line-height:1.75;font-size:13px}
+body .eyebrow,body .section-kicker{color:#ef899a;letter-spacing:.17em;font-size:10px}
+body .microline{background:#ff6d84}
+body .btn{border-radius:10px;min-height:43px;font-size:11px;letter-spacing:.01em;font-weight:800;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+body .btn:hover{transform:translateY(-2px)}
+body .btn.primary,body .btn.light{background:linear-gradient(120deg,#ff788b,#fd536d);border-color:#ff7a8e;color:#1c0b14;box-shadow:0 14px 34px #f64c681c}
+body .btn.primary:hover,body .btn.light:hover{box-shadow:0 17px 40px #f64c6847}
+body .btn.outline{background:#ffffff09;border:1px solid #ffffff30;color:#f8f3f5}
+body .btn.outline:hover{background:#ffffff15;border-color:#ff839a77}
+body .btn.secondary,body .btn.subtle{background:#23222d;border-color:#42404b;color:#f4eef2}
+body .btn.ghost-link,body .btn.ghost{border-color:#ffffff35;color:#e5dfe7}
+body .btn:active{transform:translateY(0)}
+body .page-footer{width:min(1536px,100%);margin:auto;padding:35px clamp(23px,4vw,76px);background:none;border-top:1px solid #ffffff17;align-items:center;color:#8f8b9c}
+.footer-brand{font-size:14px;color:#fff;font-weight:850;letter-spacing:-.04em}
+.footer-brand small{font-size:8px;display:block;color:#9f909c;margin-top:5px;letter-spacing:.15em}
+.footer-link{border:0;background:transparent;color:#e6c1ca;font-size:11px;display:flex;align-items:center;gap:8px}
+
+/* Landing: visual storytelling, no dashboard tiles above the fold */
+.cinematic-hero{border:1px solid #ffffff1f;min-height:650px;position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(106deg,#1d1826 2%,#141521 48%,#251626 100%);display:grid;grid-template-columns:54% 46%;box-shadow:inset 0 1px #ffffff13,0 30px 110px #0005}
+.cinematic-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 76% 38%,#e3609054,transparent 36%),radial-gradient(ellipse at 90% 110%,#504c9d35,transparent 48%),linear-gradient(160deg,#0000 48%,#00000044);pointer-events:none}
+.cinematic-hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.20;background-image:linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px);background-size:92px 92px;mask-image:linear-gradient(90deg,transparent 25%,black)}
+.hero-ambient{position:absolute;inset:0;pointer-events:none;background:linear-gradient(128deg,transparent 35%,#ac567810 50%,transparent 63%)}
+.hero-copy{z-index:3;position:relative;padding:clamp(50px,5.3vw,90px) 0 98px clamp(32px,5.2vw,87px);display:flex;flex-direction:column;align-items:flex-start}
+.cinema-eyebrow{display:flex;align-items:center;gap:12px;letter-spacing:.16em;font-size:9px;font-weight:850;color:#e4cbd7;white-space:nowrap}
+.cinema-eyebrow>i{height:7px;width:7px;border-radius:50%;background:#ff7789;box-shadow:0 0 15px #ff607f}
+.eyebrow-line{height:1px;width:32px;background:#ffffff36}
+.hero-copy h1{font-size:clamp(44px,5.1vw,87px);line-height:.98;letter-spacing:-.082em;font-weight:800;margin:35px 0 26px;text-wrap:balance;color:#fbf8fb}
+.hero-copy h1 span{color:#ff778b;text-shadow:0 10px 52px #ff627e3f}
+.hero-copy>p{color:#c0afbf;line-height:1.8;font-size:14px;max-width:490px}
+.hero-copy .hero-buttons{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin:32px 0 0}
+.hero-copy .hero-buttons .btn{font-size:12px;padding:14px 19px;min-height:51px}
+.hero-footnote{display:flex;align-items:center;gap:10px;font-size:10px;color:#ae9ba9;margin-top:30px;flex-wrap:wrap}
+.footnote-divider{display:inline-block;height:12px;width:1px;background:#ffffff33;margin:0 5px}
+.hero-stage{min-width:0;position:relative;isolation:isolate;z-index:2}
+.stage-ring{position:absolute;width:540px;height:540px;left:48%;top:43%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid #ffcad62c;pointer-events:none}
+.stage-ring.ring-one:before,.stage-ring.ring-two:after{content:"";position:absolute;inset:12%;border-radius:50%;border:1px dashed #ffffff20}
+.stage-ring.ring-two{width:355px;height:355px;border-color:#ffb3c526;box-shadow:0 0 85px #ff86a317 inset}
+.stage-sigil{position:absolute;top:36%;left:52%;font-size:240px;font-weight:900;color:#ff9cac08;transform:translate(-50%,-50%);pointer-events:none}
+.stage-creature{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;background:none;border:0;padding:0;color:var(--text);transition:transform .35s ease;z-index:2}
+.stage-creature:hover{transform:translateY(-8px) scale(1.035);z-index:6}
+.stage-creature.figure-1{top:9%;left:18%;width:55%;height:52%;z-index:3}
+.stage-creature.figure-2{top:42%;left:-4%;width:42%;height:43%}
+.stage-creature.figure-3{top:46%;right:0;width:43%;height:41%}
+.stage-art{display:grid;place-items:center;width:100%;height:78%;filter:drop-shadow(0 18px 34px #0006)}
+.stage-creature .avatar.xl{width:min(100%,280px);height:min(100%,275px);border:0;box-shadow:none;background:transparent;border-radius:0;overflow:visible;filter:none}
+.stage-creature .avatar.xl img{inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 16px 15px #0008)}
+.stage-creature .avatar.xl .avatar-halo,.stage-creature .avatar.xl .avatar-rune,.stage-creature .avatar.xl .avatar-initial{display:none}
+.stage-creature .avatar.xl:not(.has-art){width:160px;height:160px;display:grid;place-items:center;background:radial-gradient(circle,#ffffff14,transparent 75%);border-radius:50%}
+.stage-creature .avatar.xl:not(.has-art) .avatar-rune{display:block;opacity:.65}
+.stage-label{display:flex;flex-direction:column;align-items:center;background:#151521b8;backdrop-filter:blur(10px);border:1px solid #ffffff24;border-radius:11px;padding:9px 16px;box-shadow:0 8px 25px #0004;min-width:127px;max-width:100%}
+.stage-label small{color:#c0a1ae;font-size:8px;font-weight:850;letter-spacing:.14em}
+.stage-label b{font-size:15px;margin:3px 0 5px;letter-spacing:-.03em}
+.stage-label .element{font-size:8px;padding:2px 6px;min-height:auto}
+.stage-coordinate{position:absolute;right:29px;bottom:64px;color:#bfa9b6;letter-spacing:.15em;font-size:9px}
+.hero-bottom-line{position:absolute;bottom:0;left:0;right:0;height:45px;border-top:1px solid #ffffff21;background:#07071120;display:flex;justify-content:space-between;align-items:center;color:#b9a4b4;letter-spacing:.14em;font-size:9px;font-weight:800;padding:0 31px;z-index:4}
+.scroll-mark{font-size:18px;line-height:1}
+.stats-ribbon{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px 30px 33px;border-bottom:1px solid #ffffff18}
+.stats-ribbon>div{display:flex;flex-direction:column;gap:3px}
+.stats-ribbon strong{font-size:38px;color:#fff;line-height:1;letter-spacing:-.07em;font-weight:800}
+.stats-ribbon strong span{color:#ff667e;font-size:23px;margin-left:2px}
+.stats-ribbon small{font-size:9px;letter-spacing:.15em;font-weight:800;color:#8b8696}
+.ribbon-link{display:flex;align-items:center;gap:13px;color:#f0b5c2;background:transparent;border:0;font-size:10px;font-weight:850;letter-spacing:.1em}
+.experience-section{margin-top:105px}
+.experience-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:35px}
+.experience-heading h2{font-size:clamp(30px,3.7vw,54px);line-height:1.15;letter-spacing:-.065em;margin:13px 0}
+.experience-heading h2 em,.experience-cta h2 em{font-style:normal;color:#ff7c93}
+.experience-heading p{color:#a9a2b0;line-height:1.7;max-width:610px;font-size:13px}
+.section-index{font-size:11px;color:#817b8e;letter-spacing:.16em}
+.feature-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.feature-path{min-height:265px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;text-align:left;padding:25px;border:1px solid #ffffff1f;background:linear-gradient(155deg,#1a1b2a,#12141f);border-radius:17px;color:#f7f2f7;position:relative;overflow:hidden;transition:transform .23s,border-color .23s,box-shadow .23s}
+.feature-path:before{content:"";position:absolute;right:-68px;top:-105px;width:220px;height:220px;border:1px solid #ff92a52b;border-radius:50%;box-shadow:0 0 0 27px #ff92a509,0 0 0 55px #ff92a505;pointer-events:none}
+.feature-path:hover{transform:translateY(-6px);border-color:#ff829b7b;box-shadow:0 24px 40px #0005}
+.path-top{display:flex;align-items:start;justify-content:space-between;font-size:10px;letter-spacing:.14em;color:#ed8ca0;font-weight:800}
+.path-top svg{color:#e4bbd1}
+.path-content{display:flex;flex-direction:column;gap:10px}
+.path-content strong{font-size:25px;line-height:1.15;letter-spacing:-.05em;max-width:260px}
+.path-content small{color:#b2aabb;font-size:12px;line-height:1.6;max-width:315px}
+.path-link{font-size:10px;font-weight:850;color:#ff9fb0;letter-spacing:.13em;display:flex;align-items:center;gap:12px}
+.element-gallery{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px}
+.element-portrait{color:var(--text);border:1px solid #ffffff20;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--tile) 13%,transparent),transparent 64%),#171825;min-width:0;border-radius:13px;min-height:162px;padding:10px 8px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.element-portrait:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--tile) 65%,#ffffff50)}
+.element-portrait-glow{position:absolute;inset:auto 15% -56px;aspect-ratio:1/1;filter:blur(26px);border-radius:50%;background:var(--tile);opacity:.15;pointer-events:none}
+.element-big-symbol{font-size:40px;line-height:1.5;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--tile) 50%,transparent));color:var(--tile);margin-top:18px}
+.element-details{display:flex;flex-direction:column;align-items:center;gap:7px}
+.element-details strong{font-size:12px;font-weight:800}
+.element-details small{display:flex;gap:3px;align-items:center;color:#bcb1c1;font-size:7px;white-space:nowrap;letter-spacing:.04em;font-weight:800}
+.spotlight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+body .team-preview{border:1px solid color-mix(in srgb,var(--team-tone) 27%,#ffffff19);background:radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--team-tone) 12%,transparent),transparent 60%),#171a29;border-radius:16px;padding:25px;min-height:320px;transition:transform .23s,border-color .23s}
+body .team-preview:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--team-tone) 60%,#ffffff30)}
+body .team-preview h3{font-size:25px;line-height:1.2;letter-spacing:-.04em}
+body .team-preview p{color:#b0a6b6;line-height:1.68;font-size:11px;margin:13px 0 17px}
+body .team-preview .preview-units{justify-content:space-between;gap:6px}
+body .team-preview .preview-unit{flex:1;min-width:0}
+body .team-preview .preview-unit>span:last-child{overflow:hidden;text-overflow:ellipsis;max-width:100%;white-space:nowrap;font-size:10px}
+body .team-preview .text-action{color:#ff9cb0}
+.experience-cta{margin-top:95px;padding:40px 44px;display:flex;justify-content:space-between;gap:28px;align-items:center;border-radius:18px;border:1px solid #ff8a9d41;background:radial-gradient(ellipse at 92% 50%,#a0527444,transparent 53%),#201825}
+.experience-cta h2{font-size:clamp(28px,3vw,43px);letter-spacing:-.06em;margin:11px 0}
+.experience-cta p{font-size:12px;color:#bdacbc;max-width:600px;line-height:1.75}
+.experience-cta>div:last-child{display:flex;gap:10px;flex-wrap:wrap}
+
+/* The Aniidex is a creature gallery instead of a uniform report grid */
+body .dex-status{border-radius:15px!important;border:1px solid #ffffff1f!important;background:linear-gradient(115deg,#231c2b,#171926)!important;gap:24px;padding:22px 26px;margin-bottom:22px}
+body .dex-status-main p,body .dex-status-main a{color:#b0a5b4}
+body .dex-status-main a{color:#ffa2b3}
+body .dex-metrics strong{color:#ffb4c1}
+body .dex-metrics>div{border-color:#ffffff19}
+body .live-state{border-color:#ffffff24;background:#ffffff0b;color:#e9dbe3}
+body .live-state.good{border-color:#c7859c44;color:#ffd0da;background:#ed7a9930}
+body .live-state.good i{background:#ff8499}
+body .library-toolbar,body .filter-head{background:#171a26;border:1px solid #ffffff20;border-radius:14px}
+body input,body textarea,body select{background:#242331;border-color:#45404e;color:#fff}
+body input::placeholder{color:#8b8494}
+body .toggle-filter{background:#252636;border-color:#403c50;color:#cdc2d0}
+body .toggle-filter.on{border-color:#ff879b;color:#fff;background:#743a4d}
+body .library-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px}
+body .dex-card{--card-element:#fa8191;display:flex;flex-direction:column;min-height:335px;border:1px solid #ffffff22;background:#1a1c2a;border-radius:16px;overflow:hidden;position:relative;transition:border-color .25s,transform .25s,box-shadow .25s}
+body .dex-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--card-element) 55%,#ffffff25);box-shadow:0 23px 48px #0004}
+body .dex-card .library-open{display:flex;flex:1;flex-direction:column;align-items:stretch;padding:0;min-height:0;isolation:isolate;text-align:left}
+.dex-card-wash{position:absolute;inset:0 0 80px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 35%,color-mix(in srgb,var(--card-element) 23%,transparent),transparent 66%),linear-gradient(180deg,#22223312,#141523 100%)}
+.card-topline{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:16px 16px 0;min-height:42px;color:#c7bac8;font-size:10px;letter-spacing:.13em;font-weight:850}
+body .dex-prismana{background:#a87ada21;border-color:#a87ada65;color:#dfbeff;font-size:8px;border-radius:30px;padding:5px 8px}
+.dex-art-wrap{flex:1;min-height:185px;display:grid;place-items:center;position:relative;padding:4px 23px 0}
+.dex-art-wrap:after{content:"";position:absolute;bottom:8px;width:53%;height:13px;border-radius:50%;background:#0008;filter:blur(11px);z-index:-1}
+body .dex-grid .dex-art-wrap .avatar.lg{width:100%;height:176px;max-width:245px;border:0;border-radius:0;box-shadow:none;background:transparent;overflow:visible;margin:0}
+body .dex-grid .dex-art-wrap .avatar.lg img{inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 9px 13px #0008);transition:transform .35s}
+body .dex-card:hover .dex-art-wrap .avatar.lg img{transform:scale(1.075) translateY(-3px)}
+body .dex-grid .dex-art-wrap .avatar.lg .avatar-initial,body .dex-grid .dex-art-wrap .avatar.lg .avatar-halo{display:none}
+body .dex-grid .dex-art-wrap .avatar.lg:not(.has-art) .avatar-rune{position:relative;opacity:.7;font-size:92px}
+.dex-card-title{display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:0 18px 18px;z-index:1}
+.dex-card-title .element{font-size:9px;padding:5px 9px;border-radius:6px}
+.dex-card-title strong{font-size:22px;letter-spacing:-.06em;line-height:1.2;color:#f8f6fa}
+.dex-card-title small{font-size:11px;color:#a7a1b3}
+.dex-card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding:12px 16px;border-top:1px solid #ffffff1a;color:#c3b3c0;font-size:9px;font-weight:800;letter-spacing:.12em}
+.dex-card-open{border:1px solid #ff859143;background:#ff738b18;color:#ffa2b4;border-radius:50%;width:31px;height:31px;display:grid;place-items:center;transition:transform .2s,background .2s}
+.dex-card:hover .dex-card-open{transform:rotate(-35deg);background:#ff738b33}
+body .library-summary{color:#aaa1b2}
+body .library-summary b{color:#f8d0dc}
+body .library-toolbar{padding:17px}
+body .dex-status a:hover{text-decoration:none;color:#ffe0e7}
+
+/* Full-screen field dossier, not a narrow side panel */
+body .build-overlay{justify-content:center;align-items:center;padding:24px;background:#030309db;backdrop-filter:blur(8px)}
+body .build-sheet{width:min(1220px,100%);height:min(870px,calc(100dvh - 48px));background:#141620;border:1px solid #615365;border-radius:20px;box-shadow:0 30px 125px #000b;overflow:hidden;animation:dossierAppear .27s ease-out}
+@keyframes dossierAppear{from{opacity:.6;transform:translateY(13px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+body .sheet-bar{min-height:55px;flex:0 0 auto;padding:9px 20px;border-bottom:1px solid #ffffff21;background:#1a1924;color:#aca2af;font-size:10px;letter-spacing:.13em}
+.modal-serial{color:#ff92a3}
+body .close-btn{border:1px solid #ffffff22;border-radius:50%;background:#ffffff0d;color:#efe9ed;width:34px;height:34px}
+body .close-btn:hover{background:#ff8b9e20;border-color:#ff8b9e70}
+.dossier-layout{display:grid;grid-template-columns:360px minmax(0,1fr);height:calc(100% - 55px);min-height:0}
+.dossier-poster{min-height:0;position:relative;isolation:isolate;overflow:hidden;border-right:1px solid #ffffff24;padding:24px;display:flex;flex-direction:column;align-items:flex-start;background:radial-gradient(ellipse at 45% 35%,color-mix(in srgb,var(--sheet-tone) 45%,transparent),transparent 64%),linear-gradient(150deg,#302335,#151824)}
+.dossier-poster:before{content:"";position:absolute;inset:0;background:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(180deg,black,transparent 70%);z-index:-1}
+.poster-halo{position:absolute;width:355px;height:355px;border:1px solid #ffffff2c;border-radius:50%;top:18%;left:50%;transform:translateX(-50%);box-shadow:0 0 0 35px #ffffff06,0 0 0 80px #ffffff03;z-index:-1}
+.poster-orbit{position:absolute;width:210px;height:210px;border:1px dashed #ffffff32;border-radius:50%;top:28%;left:50%;transform:translateX(-50%);z-index:-1}
+.poster-overline{font-size:9px;letter-spacing:.16em;color:#f5c2cc;font-weight:850}
+.poster-overline span{color:#ffffff8e}
+.poster-art{height:41%;min-height:200px;width:100%;display:grid;place-items:center;margin:16px 0 5px;filter:drop-shadow(0 20px 25px #0007)}
+.poster-art .avatar.xl{width:100%;max-width:320px;height:100%;border:0;background:none;box-shadow:none;overflow:visible;border-radius:0}
+.poster-art .avatar.xl img{inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 17px 13px #0006)}
+.poster-art .avatar.xl .avatar-initial,.poster-art .avatar.xl .avatar-halo{display:none}
+.poster-art .avatar.xl:not(.has-art) .avatar-rune{font-size:180px;opacity:.7}
+.poster-caption{display:flex;align-items:center;gap:10px;color:#d3c7d6;font-size:11px;margin-top:auto}
+.poster-caption>.element{color:#f1d7dc}
+.dossier-poster h2{font-size:clamp(31px,3.3vw,49px);line-height:1.04;letter-spacing:-.07em;margin:11px 0 9px}
+.dossier-poster>p{font-size:11px;line-height:1.6;color:#c8bcc9;margin-bottom:24px}
+.dossier-poster>.btn{width:100%;margin-top:4px;justify-content:center;min-height:44px}
+.poster-legal{font-size:9px;line-height:1.5;color:#bcaab9;margin-top:16px}
+body .build-sheet .sheet-scroll{overflow-y:auto;min-width:0;padding:35px clamp(20px,3.1vw,47px) 52px;scrollbar-color:#75516b #161521}
+.dossier-intro h3{font-size:clamp(25px,3vw,39px);letter-spacing:-.055em;line-height:1.1;margin:12px 0}
+.dossier-intro h3 em,.dossier-build h3 em{font-style:normal;color:#ff859b}
+.dossier-intro>p{font-size:12px;color:#aeabb9;line-height:1.7;max-width:620px;margin-bottom:22px}
+body .dex-official{border:1px solid #ffffff20;background:linear-gradient(140deg,#1e202d,#171924);padding:22px;border-radius:15px;margin:0 0 25px}
+body .dex-official-head h3{font-size:21px;letter-spacing:-.04em;color:#f7f1f6}
+body .dex-official-head p{color:#a4a0af}
+body .dex-official-head .text-action{color:#f0a5b5}
+body .dex-form-tab{border:1px solid #ffffff27;background:#292834;color:#c2b5c5;border-radius:100px}
+body .dex-form-tab:hover,body .dex-form-tab.active{background:#ff8b9e;color:#26151e;border-color:#ff8b9e}
+body .dex-form-portrait{background:radial-gradient(circle at center,#584153,#242636 72%);border-color:#ffffff26}
+body .dex-form-attributes p{color:#bdb2c0}
+body .dex-form-caption{color:#f7bdc9}
+body .dex-stat{background:#292b39;border:1px solid #ffffff20}
+body .dex-stat small{color:#a59aa9}
+body .dex-stat strong{color:#f5e7ee}
+body .dex-stat.total{background:#5b2b45;border-color:#ff8b9f50}
+body .dex-stat.total strong{color:#ffc1ce}
+body .dex-skill,body .dex-traits>div,body .dex-facts>div{background:#242533;border-color:#ffffff1d}
+body .dex-skill p,body .dex-traits p{color:#b8aaba}
+body .dex-skill span,body .dex-facts strong,body .dex-skill-numbers{color:#f0a8b9}
+body .dex-facts p{color:#d2c7d3}
+.dossier-build{border-top:1px solid #ffffff20;padding:27px 0 3px}
+.dossier-build .sheet-section{font-size:23px;margin-top:20px;letter-spacing:-.05em}
+body .sheet-intro,body .detail-description{color:#b4adbc;font-size:12px;line-height:1.8}
+body .build-facts>div{background:#212431;border-color:#ffffff1e;border-radius:12px}
+body .build-facts small{color:#f1a6b7}
+body .build-facts span{color:#a59daa}
+body .policy-line{background:#403044;border-color:#8d5169;color:#ffb6c8}
+body .policy-line p{color:#dac4d0}
+body .source-links a{border-color:#ff849e39;background:#ff829414;color:#f7afc0}
+body .edit-panel{background:#191b28;border-color:#ffffff25;border-radius:13px;margin-top:28px}
+body .form-field input,body .form-field select,body .form-field textarea{background:#262737;border-color:#474352}
+body .stat-input{background:#252636;border-color:#ffffff29}
+body .stat-track i{background:#ff8ba0}
+body .toast{background:#3b2636;border-color:#b1677a;color:#ffeaf2}
+/* Existing teams, planners, and data tools inherit the same visual language */
+body .content-card,body .team-detail,body .command-start,body .planner-layout>.content-card,body .vault-stats>div{background:#1a1b29;border-color:#ffffff24;border-radius:14px}
+body .team-detail{background:linear-gradient(135deg,color-mix(in srgb,var(--team-tone) 11%,#181824),#161923)}
+body .section-heading h2,body .card-head h3{letter-spacing:-.04em}
+body .element-tile,body .element-switch{background:#211f2d;border-color:#ffffff21}
+body .element-switch.chosen{background:color-mix(in srgb,var(--tile) 26%,#211f2d);border-color:var(--tile)}
+body .team-preview .preview-unit,body .unit-card,body .item-card{background:#272537;border-color:#ffffff1c}
+body .text-action,body .inline-link,body .mini-link{color:#ff9faf}
+body .filter-label,body .detail-aside-title{color:#d7aebc}
+body .hint-block,body .field-note{background:#2b2333;border-color:#ffffff1f;color:#d9c6d3}
+body .progress i{background:#ff748f}
+body .live-state.warn{background:#503329;border-color:#986450;color:#ffe2d0}
+
+@media(max-width:1410px){
+ .horizon-link{padding:12px 8px;font-size:11px}
+ body .topbar-inner{gap:13px}
+ body .horizon-brand{min-width:175px}
+ body .horizon-brand strong{font-size:15px}
+ body .horizon-brand small{font-size:7px}
+ .element-gallery{grid-template-columns:repeat(5,minmax(0,1fr))}
+ .element-portrait{min-height:135px}
+ .element-big-symbol{font-size:34px;margin-top:8px}
+}
+@media(max-width:1180px){
+ .horizon-nav{display:none}
+ .menu-trigger{display:grid;place-items:center}
+ body .top-status{display:flex}
+ .mobile-drawer{display:flex;position:fixed;z-index:45;top:86px;right:12px;width:min(350px,calc(100vw - 24px));flex-direction:column;gap:3px;max-height:calc(100dvh - 106px);overflow:auto;background:#191922;border:1px solid #ffffff2d;box-shadow:0 20px 60px #000a;border-radius:14px;padding:18px;transform:translateY(-10px) scale(.98);opacity:0;pointer-events:none;transition:transform .2s,opacity .2s}
+ .menu-open .mobile-drawer{transform:translateY(0) scale(1);opacity:1;pointer-events:auto}
+ .mobile-drawer-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:4px 4px 11px;color:#f3afbd;font-size:10px;letter-spacing:.12em}
+ .drawer-link{display:flex;align-items:center;justify-content:space-between;background:transparent;border:0;border-radius:9px;color:#d6ccd7;text-align:left;font-weight:750;padding:13px 12px}
+ .drawer-link:hover,.drawer-link.active{background:#ff7b901b;color:#ffb2c2}
+ .drawer-caption{display:flex;align-items:center;gap:9px;font-size:10px;color:#a99baa;padding:17px 10px 3px}
+ .menu-open #mobile-overlay{display:block;position:fixed;inset:86px 0 0;background:#0008;z-index:31}
+ .cinematic-hero{grid-template-columns:57% 43%;min-height:600px}
+ .hero-copy h1{font-size:clamp(46px,6vw,72px)}
+ .hero-copy{padding-left:44px}
+ .stage-creature.figure-1{left:9%;width:70%}
+ .stage-creature.figure-2{left:-13%;width:58%}
+ .stage-creature.figure-3{right:-7%;width:57%}
+ body .library-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .dossier-layout{grid-template-columns:305px minmax(0,1fr)}
+}
+@media(max-width:800px){
+ body .topbar{height:74px;padding:0 17px}
+ body .horizon-brand{min-width:0}
+ body .horizon-brand .brand-mark{width:35px;height:35px}
+ body .horizon-brand strong{font-size:15px}
+ body .horizon-brand small{font-size:7px}
+ body .top-status{display:none}
+ body .top-actions{gap:9px}
+ .mobile-drawer{top:77px}
+ .menu-open #mobile-overlay{inset:74px 0 0}
+ body main{padding:26px 18px 58px}
+ body:has(.cinematic-hero) main{padding-top:17px}
+ .cinematic-hero{grid-template-columns:1fr;min-height:720px;border-radius:18px}
+ .cinematic-hero:after{mask-image:none;opacity:.13}
+ .hero-copy{padding:35px 29px 0;max-width:none}
+ .hero-copy h1{font-size:clamp(48px,9.2vw,78px);margin:25px 0 19px}
+ .hero-copy>p{font-size:12px;max-width:570px}
+ .hero-copy .hero-buttons{margin:23px 0 0}
+ .hero-footnote{margin-top:18px;font-size:9px}
+ .hero-stage{position:absolute;left:0;right:0;bottom:35px;height:250px;opacity:.95}
+ .stage-ring{width:340px;height:340px;top:48%;left:52%}
+ .stage-ring.ring-two{width:220px;height:220px}
+ .stage-creature.figure-1{top:-10%;left:35%;width:35%;height:80%}
+ .stage-creature.figure-2{top:31%;left:6%;width:35%;height:61%}
+ .stage-creature.figure-3{top:36%;right:3%;width:34%;height:58%}
+ .stage-creature .avatar.xl{height:100%;max-height:160px}
+ .stage-label{padding:4px 10px;min-width:0;border-radius:8px}
+ .stage-label small{font-size:6px}
+ .stage-label b{font-size:11px}
+ .stage-label .element{display:none}
+ .stage-coordinate{display:none}
+ .hero-bottom-line{font-size:8px;height:35px}
+ .stats-ribbon{padding:22px 10px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+ .stats-ribbon strong{font-size:29px}
+ .stats-ribbon small{font-size:7px;line-height:1.4}
+ .ribbon-link{grid-column:1/-1;justify-content:center;margin-top:4px}
+ .experience-section{margin-top:70px}
+ .feature-paths{grid-template-columns:1fr;gap:12px}
+ .feature-path{min-height:170px;gap:13px;padding:19px}
+ .path-content strong{font-size:22px}
+ .element-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .spotlight-grid{grid-template-columns:1fr}
+ .experience-cta{flex-direction:column;align-items:start;margin-top:70px;padding:25px}
+ body .library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ body .dex-card{min-height:300px}
+ .dex-art-wrap{min-height:150px}
+ body .dex-grid .dex-art-wrap .avatar.lg{height:140px}
+ .dex-card-title strong{font-size:20px}
+ body .build-overlay{padding:0;align-items:stretch}
+ body .build-sheet{border:0;border-radius:0;width:100%;height:100dvh}
+ .dossier-layout{grid-template-columns:1fr;display:flex;flex-direction:column;overflow-y:auto;height:calc(100% - 55px)}
+ .dossier-poster{flex:0 0 auto;min-height:0;display:grid;grid-template-columns:150px minmax(0,1fr);column-gap:18px;align-items:center;padding:20px;border-right:0;border-bottom:1px solid #ffffff25}
+ .poster-overline{grid-column:1/-1}
+ .poster-art{grid-row:2/6;grid-column:1;height:175px;min-height:0;margin:5px 0}
+ .poster-art .avatar.xl{height:165px;max-width:150px}
+ .poster-caption,.dossier-poster h2,.dossier-poster>p,.dossier-poster>.btn,.poster-legal{grid-column:2}
+ .dossier-poster h2{font-size:35px;margin:0}
+ .dossier-poster>.btn{font-size:10px;min-height:37px}
+ .poster-legal{display:none}
+ .poster-halo{top:20px;left:24%;width:220px;height:220px}
+ .poster-orbit{display:none}
+ body .build-sheet .sheet-scroll{overflow:visible;padding:25px 20px 50px}
+ body .dex-official{padding:15px}
+ .dossier-intro>p{margin-bottom:16px}
+ body .page-footer{padding:25px 20px;gap:13px;flex-wrap:wrap}
+}
+@media(max-width:520px){
+ body .horizon-brand strong{font-size:13px}
+ body .horizon-brand small{font-size:6px}
+ body .topbar-inner{gap:6px}
+ .collection-shortcut{padding:9px;border-radius:9px}
+ .collection-shortcut span{display:none}
+ .collection-shortcut b{min-width:17px;height:17px;font-size:9px}
+ body main{padding:19px 13px 55px}
+ .cinematic-hero{min-height:690px;border-radius:15px}
+ .hero-copy{padding:28px 23px 0}
+ .cinema-eyebrow{font-size:8px;gap:7px;letter-spacing:.09em}
+ .cinema-eyebrow .eyebrow-line{display:none}
+ .hero-copy h1{font-size:clamp(43px,11vw,58px);margin:25px 0 20px}
+ .hero-copy>p{font-size:12px;line-height:1.75}
+ .hero-copy .hero-buttons{flex-wrap:wrap;gap:8px}
+ .hero-copy .hero-buttons .btn{min-height:43px;padding:11px 12px;font-size:10px}
+ .hero-footnote{gap:5px;line-height:1.6}
+ .hero-footnote .footnote-divider,.hero-footnote .footnote-divider+span{display:none}
+ .hero-stage{height:220px;bottom:38px}
+ .stage-creature.figure-1{left:35%;width:40%}
+ .stage-creature.figure-2{left:1%;width:40%}
+ .stage-creature.figure-3{right:-2%;width:40%}
+ .stage-ring{width:290px;height:290px}
+ .stage-ring.ring-two{width:190px;height:190px}
+ .stage-label{padding:4px 5px;max-width:115px}
+ .stage-label small{font-size:5px}
+ .stage-label b{font-size:10px}
+ .hero-bottom-line{padding:0 15px;font-size:7px}
+ .stats-ribbon{gap:9px;padding:21px 7px}
+ .stats-ribbon strong{font-size:24px}
+ .stats-ribbon small{font-size:7px}
+ .experience-heading{align-items:start;flex-direction:column;gap:10px;margin-bottom:22px}
+ .experience-heading h2{font-size:32px}
+ .experience-heading p{font-size:12px}
+ .experience-section{margin-top:65px}
+ .element-gallery{gap:7px}
+ .element-portrait{min-height:118px;border-radius:10px}
+ .element-big-symbol{font-size:31px}
+ .element-details strong{font-size:10px}
+ .element-details small{font-size:6px}
+ body .page-heading h1{font-size:37px}
+ body .page-heading p{font-size:12px}
+ body .library-grid{gap:9px}
+ body .dex-card{min-height:265px;border-radius:12px}
+ .card-topline{font-size:8px;padding:12px 11px 0}
+ .dex-art-wrap{min-height:130px;padding:0 8px}
+ body .dex-grid .dex-art-wrap .avatar.lg{height:132px}
+ .dex-card-title{padding:0 11px 12px;gap:4px}
+ .dex-card-title strong{font-size:17px}
+ .dex-card-title small{font-size:9px}
+ .dex-card-title .element{font-size:8px;padding:3px 6px}
+ .dex-card-bottom{padding:8px 11px;font-size:7px}
+ .dex-card-open{width:26px;height:26px}
+ body .dex-status{padding:17px!important}
+ .dossier-poster{grid-template-columns:104px 1fr;gap:12px;padding:16px}
+ .poster-art{height:128px;grid-row:2/6}
+ .poster-art .avatar.xl{height:125px}
+ .dossier-poster h2{font-size:29px}
+ .dossier-poster>p{font-size:9px;margin-bottom:9px}
+ .dossier-poster>.btn{font-size:9px;padding:6px}
+ .poster-overline{font-size:8px}
+ body .dex-form-portrait img{height:190px}
+ .dossier-intro h3{font-size:28px}
+ body .build-facts{grid-template-columns:1fr}
+ body .dex-statgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){.stage-creature,.feature-path,.dex-card,.element-portrait{transition:none!important}}
+
+/* Final cross-module refinements */
+.stage-creature .avatar.xl:not(.has-art) .avatar-rune{position:static;display:block;font-size:114px;line-height:1;opacity:.8;filter:drop-shadow(0 0 17px color-mix(in srgb,var(--unit-color) 44%,transparent))}
+.poster-art .avatar.xl:not(.has-art){display:grid;place-items:center}
+.poster-art .avatar.xl:not(.has-art) .avatar-rune{position:static;display:block;font-size:176px;line-height:1;opacity:.76}
+body .gear-callout{background:#2d202e;border-color:#92536a63;color:#ffbccb}
+body .gear-callout p,body .gear-callout a{color:#bfafbd}
+body .item-icon{background:#583042;border:1px solid #b36d8780;color:#ffc4d2}
+body .item-index{color:#ac879e}
+body .item-card h3{color:#fff}
+body .item-main{color:#eea8b9}
+body .item-card p{color:#afa7b8}
+body .item-roles{border-color:#ffffff25}
+body .item-rec{color:#b5a9b5}
+body .detail-why{background:#1b1a29;border-color:#ffffff23}
+body .small-plus,body .detail-measures{color:#f0b9c7}
+body .tactical-callout{background:#332736;border-color:#92667c5c}
+body .tactical-callout span,body .detail-aside-title{color:#ffb1bf}
+body .tactical-callout p,body .plus-row{color:#beb1be}
+body .team-measures{color:#c9b2c1}
+body .rotation-step>span{color:#ffc0cd}
+body .item-guidance{background:#241f2e}
+body .source-symbol,body .check-sign{color:#ff99af;background:#533145;border-color:#9d5976}
+body .source-cat,body .detail-aside-title{color:#f5a8bc}
+body .source-date{color:#998c9d}
+body .data-actions{border-color:#ffffff25;background:#211d2a}
+body .stat-track i,body .mini-track i{background:linear-gradient(90deg,#ff748b,#bf8df4)}
+body .source-links a:hover,body .inline-link:hover{color:#ffe4ed}
+@media(max-width:800px){.stage-creature .avatar.xl:not(.has-art) .avatar-rune{font-size:95px}.poster-art .avatar.xl:not(.has-art) .avatar-rune{font-size:125px}}
+@media(max-width:520px){.stage-creature .avatar.xl:not(.has-art) .avatar-rune{font-size:77px}.poster-art .avatar.xl:not(.has-art) .avatar-rune{font-size:105px}}
+
+/* v1.3.1 | ARTWORK PRESENTATION: source artwork sometimes ships with hard square edges.
+   Present the full asset inside a deliberate frame instead of letting cut-offs float
+   against the hero / field dossier. All effects are CSS-only, no new image fetches. */
+.stage-creature{overflow:visible}
+.stage-art{
+ position:relative;isolation:isolate;overflow:hidden;flex:1 1 auto;min-height:0;
+ display:grid;place-items:center;
+ width:100%;height:auto;padding:clamp(7px,1.2vw,16px);
+ border:1px solid color-mix(in srgb,var(--figure-tone) 37%,#ffffff28);
+ border-radius:clamp(14px,2vw,26px);
+ background:
+  radial-gradient(ellipse at 50% 37%,color-mix(in srgb,var(--figure-tone) 23%,transparent),transparent 74%),
+  linear-gradient(160deg,#ffffff0b,#0e101d6c 65%,#080a13ba);
+ box-shadow:inset 0 1px 0 #ffffff20,inset 0 -33px 42px #0004,0 18px 40px #0005;
+ filter:none;
+ transition:border-color .22s ease,box-shadow .22s ease;
+}
+.stage-art::before{content:"";position:absolute;inset:11px;border:1px solid #ffffff1b;border-radius:clamp(9px,1.3vw,17px);pointer-events:none;z-index:2}
+.stage-art::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:linear-gradient(0deg,#0b0b19ab,transparent 19%,transparent 82%,#ffffff06)}
+.stage-creature:hover .stage-art,.stage-creature:focus-visible .stage-art{border-color:color-mix(in srgb,var(--figure-tone) 72%,white);box-shadow:inset 0 1px 0 #ffffff36,0 20px 49px #0008,0 0 26px color-mix(in srgb,var(--figure-tone) 25%,transparent)}
+.stage-creature .stage-art .avatar.xl{
+ position:relative;display:grid;place-items:center;width:100%;height:100%;max-width:none;max-height:none;
+ border-radius:0;overflow:hidden;
+}
+.stage-creature .stage-art .avatar.xl img{
+ position:relative;inset:auto;display:block;width:100%;height:100%;object-fit:contain;
+ object-position:center center;
+ -webkit-mask-image:radial-gradient(ellipse 78% 79% at 50% 49%,#000 50%,#000d 63%,#0007 80%,transparent 100%);
+ mask-image:radial-gradient(ellipse 78% 79% at 50% 49%,#000 50%,#000d 63%,#0007 80%,transparent 100%);
+ filter:drop-shadow(0 12px 14px #0007);transition:transform .35s ease;
+}
+.stage-creature:hover .stage-art .avatar.xl img{transform:scale(1.035)}
+.stage-creature .stage-label{position:relative;z-index:4;margin-top:-13px;flex:0 0 auto;border-color:#ffffff34;background:#171522f0;box-shadow:0 9px 27px #0009}
+.stage-creature.figure-1{z-index:4}
+.stage-creature.figure-1 .stage-art{border-color:#ffffff40}
+.stage-creature.figure-2 .stage-art,.stage-creature.figure-3 .stage-art{border-radius:19px}
+
+/* Dossier art is a framed specimen portrait with an inner illuminated mat. */
+.dossier-poster .poster-art{
+ position:relative;isolation:isolate;flex-shrink:1;
+ height:43%;min-height:190px;width:100%;
+ margin:20px 0 15px;padding:15px;overflow:hidden;
+ border:1px solid color-mix(in srgb,var(--sheet-tone) 44%,#ffffff2b);
+ border-radius:22px;background:
+ radial-gradient(ellipse at 50% 42%,color-mix(in srgb,var(--sheet-tone) 30%,transparent),transparent 70%),
+ linear-gradient(155deg,#ffffff10,#10101bbd 67%,#090a12d9);
+ box-shadow:0 22px 38px #0004,inset 0 1px 0 #ffffff23,inset 0 -35px 45px #0005;
+ filter:none;
+}
+.dossier-poster .poster-art::before{content:"";position:absolute;inset:11px;border:1px solid #ffffff1e;border-radius:13px;pointer-events:none;z-index:3}
+.dossier-poster .poster-art::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#100e19b0,transparent 20%);pointer-events:none;z-index:2}
+.dossier-poster .poster-art .avatar.xl{position:relative;display:grid;place-items:center;width:100%;height:100%;max-width:none;min-height:0;overflow:hidden}
+.dossier-poster .poster-art .avatar.xl img{
+ position:relative;inset:auto;display:block;width:100%;height:100%;object-fit:contain;object-position:center;
+ -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 49%,#000 50%,#000d 63%,#0007 82%,transparent 100%);
+ mask-image:radial-gradient(ellipse 80% 80% at 50% 49%,#000 50%,#000d 63%,#0007 82%,transparent 100%);
+ filter:drop-shadow(0 16px 13px #0008)
+}
+/* The form image should remain complete within its own framed reference tile. */
+body .dex-form-portrait{overflow:hidden;position:relative;border-radius:15px;padding:16px 12px 28px;background:radial-gradient(ellipse at 50% 40%,#694e613d,#191b2a 78%)}
+body .dex-form-portrait img{display:block;margin:auto;width:100%;height:175px;max-width:100%;object-fit:contain;object-position:center;
+ -webkit-mask-image:radial-gradient(ellipse 84% 81% at 50% 48%,#000 53%,#000b 72%,transparent 100%);
+ mask-image:radial-gradient(ellipse 84% 81% at 50% 48%,#000 53%,#000b 72%,transparent 100%)}
+
+@media(max-width:800px){
+ .stage-art{padding:7px;border-radius:13px}
+ .stage-art::before{inset:5px;border-radius:9px}
+ .stage-creature.figure-2 .stage-art,.stage-creature.figure-3 .stage-art{border-radius:12px}
+ .stage-creature .stage-label{margin-top:-7px}
+ .dossier-poster .poster-art{grid-row:2/6;grid-column:1;margin:5px 0;height:175px;min-height:0;padding:7px;border-radius:16px}
+ .dossier-poster .poster-art::before{inset:6px;border-radius:10px}
+ .dossier-poster .poster-art .avatar.xl{height:100%;max-width:none}
+}
+@media(max-width:520px){
+ .stage-art{padding:5px}
+ .stage-art::before{inset:4px}
+ .dossier-poster .poster-art{height:128px;min-height:0}
+ .dossier-poster .poster-art .avatar.xl{height:100%}
+ body .dex-form-portrait img{height:190px}
+}
+@media(prefers-reduced-motion:reduce){.stage-creature .stage-art .avatar.xl img,.stage-art{transition:none}}
+
+/* Balanced gallery composition: frames are sized and spaced instead of floating over copy. */
+@media(min-width:801px){
+ .stage-creature.figure-1{top:10%;left:28%;width:45%;height:57%;z-index:4}
+ .stage-creature.figure-2{top:49%;left:1%;width:34%;height:35%;z-index:3}
+ .stage-creature.figure-3{top:51%;right:1%;width:34%;height:35%;z-index:3}
+}
+@media(max-width:800px){
+ .stage-creature.figure-1{top:-11%;left:36%;width:32%;height:77%}
+ .stage-creature.figure-2{top:33%;left:6%;width:32%;height:60%}
+ .stage-creature.figure-3{top:34%;right:6%;width:32%;height:60%}
+}
+@media(max-width:520px){
+ .stage-creature.figure-1{top:-8%;left:35%;width:34%;height:73%}
+ .stage-creature.figure-2{top:36%;left:4%;width:34%;height:59%}
+ .stage-creature.figure-3{top:36%;right:4%;width:34%;height:59%}
+}
 </style></head><body><div id="app"></div><script>// ANIIMO CENTER / curated game-guide snapshot. Last reviewed: 2026-10-27.
 // Each team is attributed to its published source. These are editorial recommendations,
 // NOT proven globally optimal compositions or live game API results.
@@ -354,12 +906,15 @@ function elBadge(name,small=false){let e=getElement(name);return `<span class="e
 function avatar(a,size='md',formName=''){if(!a)return '<span class="avatar md">?</span>';let e=getElement(a.element);let picked=a.official?.forms.find(f=>f.name.toLowerCase()===String(formName).toLowerCase()||f.name.toLowerCase().startsWith(String(formName).toLowerCase())&&formName);const img=picked?.image||a.image||'';return `<span class="avatar ${size} ${img?'has-art':''}" style="--unit-color:${e.tone};--unit-symbol:'${e.symbol}'"><span class="avatar-halo"></span><span class="avatar-rune">${safe(e.symbol)}</span><span class="avatar-initial">${safe(a.monogram)}</span>${img?`<img src="${safe(img)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="" onerror="this.style.display='none'">`:''}</span>`}
 function unitCard(name,role,form,opts={}){const a=getAniimo(name)||{name,element:'Lightning',monogram:name.slice(0,2).toUpperCase(),role:role||'Support'};return `<button class="unit-card ${opts.compact?'compact':''}" data-open="${safe(name)}" aria-label="Open ${safe(name)} build"><div class="unit-visual">${avatar(a,opts.compact?'sm':'md',form)}<span class="unit-owned ${owned(name)?'yes':''}" title="${owned(name)?'Owned':'Not in collection'}">${owned(name)?icon('check',12):icon('plus',12)}</span></div><span class="unit-name">${safe(name)}</span><span class="unit-role">${safe(role||a.role)}${form&&form!=='Basic'?` · ${safe(form)}`:''}</span></button>`}
 const button=(title,nav,cls='btn secondary',suffix='arrow')=>`<button class="${cls}" data-nav="${nav}">${title} ${icon(suffix,16)}</button>`;
-function header(){return `<div class="app-shell"><aside class="sidebar"><div class="brand"><span class="brand-mark"><span class="brand-bolt">ϟ</span></span><div><strong>ANIIMO<span>CENTER</span></strong><small>OPTIMIZATION COMMAND</small></div></div><div class="side-label">WORKSPACE</div><nav class="side-nav" aria-label="Main navigation">${NAV.map(([id,title,i])=>`<button data-nav="${id}" class="nav-link ${state.nav===id?'active':''}">${icon(i,19)}<span>${title}</span>${state.nav===id?'<span class="nav-active-dot"></span>':''}</button>`).join('')}</nav><div class="sidebar-lower"><div class="signal-card"><div class="signal-head"><span class="signal-dot"></span> FIELD INTELLIGENCE</div><b>Official wiki data</b><span>Reviewed 27 Oct 2026</span><div class="mini-track"><i></i></div><small>${catalog.mode==='live'?'Public API connected':catalog.mode==='cached'?'Recent cached snapshot':catalog.mode==='offline'?'Offline cached snapshot':catalog.mode==='unavailable'?'Offline starter catalog':'Connecting to live catalog...'}</small></div><div class="sidebar-footer">INDEPENDENT FAN TOOL <span>V 1.2</span></div></div></aside><div class="main-area"><header class="topbar"><button class="mobile-brand" data-toggle="menu" aria-label="Open menu">${icon('menu',22)}<strong>ANIIMO<span>CENTER</span></strong></button><div class="crumb">OPERATIONS <span>/</span> ${NAV.find(x=>x[0]===state.nav)?.[1].toUpperCase()}</div><div class="top-actions"><span class="top-status"><i></i> ${catalog.mode==='live'?'PUBLIC API CONNECTED':catalog.mode==='cached'?'CACHED WIKI DATA':catalog.mode==='offline'?'OFFLINE CACHE':catalog.mode==='unavailable'?'OFFLINE STARTER':'SYNCING ANIIMO INDEX'}</span><button class="pill-btn" data-nav="collection" title="My collection">${icon('layers',16)} <span>${countOwned()} owned</span></button><span class="top-avatar" title="Independent Aniimo fan tool">AC</span></div></header><main id="main" tabindex="-1">`}
-function footer(){return `</main><footer class="page-footer"><span>ANIIMO CENTER <span class="muted">· Independent fan-made optimizer · Not affiliated with Aniimo</span></span><span>Official index via Aniimo Tools · Teams remain curated</span></footer></div><div id="mobile-overlay" data-toggle="menu"></div></div>`}
+function header(){const featureNav=[['overview','Home'],['aniidex','Discover'],['teams','Teams'],['items','Equipment'],['progression','Upgrade'],['planner','Planner'],['sources','Research']];const tab=(id,label)=>`<button class="horizon-link ${state.nav===id?'active':''}" data-nav="${id}">${safe(label)}</button>`;return `<div class="app-shell experience-shell"><div class="main-area"><header class="topbar"><div class="topbar-inner"><button class="brand horizon-brand" data-nav="overview" aria-label="ANIIMO CENTER home"><span class="brand-mark"><span class="brand-bolt">ϟ</span></span><span class="brand-copy"><strong>ANIIMO<span>CENTER</span></strong><small>THE UNOFFICIAL FIELD GUIDE</small></span></button><nav class="horizon-nav" aria-label="Explore ANIIMO CENTER">${featureNav.map(([id,label])=>tab(id,label)).join('')}</nav><div class="top-actions"><span class="top-status"><i></i> ${catalog.mode==='live'?'LIVE INDEX':catalog.mode==='cached'?'CACHED INDEX':catalog.mode==='offline'?'OFFLINE':catalog.mode==='unavailable'?'STARTER INDEX':'CONNECTING'}</span><button class="collection-shortcut ${state.nav==='collection'?'active':''}" data-nav="collection">${icon('layers',17)}<span>My collection</span><b>${countOwned()}</b></button><button class="menu-trigger" data-toggle="menu" aria-label="Open navigation" aria-expanded="false">${icon('menu',23)}</button></div></div></header><nav class="mobile-drawer" aria-label="Mobile navigation"><div class="mobile-drawer-head"><strong>EXPLORE ANIIMO</strong><button class="close-btn" data-toggle="menu" aria-label="Close navigation">${icon('x',21)}</button></div>${[...featureNav,['collection','My collection']].map(([id,label])=>`<button class="drawer-link ${state.nav===id?'active':''}" data-nav="${id}">${safe(label)} ${icon('arrow',17)}</button>`).join('')}<div class="drawer-caption"><span class="signal-dot"></span> ${catalog.mode==='live'?'Wiki-derived index connected':'Private, account-free companion'}</div></nav><div id="mobile-overlay" data-toggle="menu"></div><main id="main" tabindex="-1">`}
+
+function footer(){return `</main><footer class="page-footer"><span class="footer-brand">ϟ ANIIMO CENTER <small>THE FIELD GUIDE FOR EVERY FORM</small></span><span>Independent fan-made project · No account required · Not affiliated with Aniimo</span><button data-nav="sources" class="footer-link">Research & sources ${icon('arrow',14)}</button></footer></div></div>`}
+
 function title(label,heading,desc,actions=''){return `<div class="page-heading"><div><div class="eyebrow"><span class="microline"></span>${label}</div><h1>${heading}</h1><p>${desc}</p></div><div class="heading-actions">${actions}</div></div>`}
 function statusRow(label,val,sub){return `<div class="metric"><div class="metric-label">${label}</div><div class="metric-value">${val}</div><div class="metric-sub">${sub}</div></div>`}
 function teamPreview(team){const e=getElement(team.element);return `<div class="team-preview" style="--team-tone:${e.tone}"><div class="team-preview-head"><div>${elBadge(team.element)}<h3>${safe(team.name)}</h3></div><span class="badge thin">${safe(team.tag)}</span></div><p>${safe(team.summary)}</p><div class="preview-units">${team.lineup.map(([name,role])=>{const a=getAniimo(name);return `<button class="preview-unit" data-open="${safe(name)}" title="${safe(name)} — ${safe(role)}">${avatar(a,'sm')}<span>${safe(name)}</span></button>`}).join('')}</div><button class="text-action" data-team="${safe(team.element)}">View composition ${icon('arrow',15)}</button></div>`}
-function overview(){const researched=Object.keys(BUILDS).length;const ownedCount=countOwned();const picks=['Fire','Grass','Dark'].map(id=>TEAMS.find(t=>t.element===id)).filter(Boolean);return `${title('COMMAND CENTER / 001','Every element. <em>Every advantage.</em>','Explore official wiki-derived species and forms, then compare guide-based teams, equipment and upgrades — no login needed.',button('Explore complete Aniidex','aniidex','btn primary'))}<section class="hero-grid universal-hero"><div class="hero-panel"><div class="hero-noise"></div><div class="hero-content"><span class="hero-tag"><span class="sparkdot"></span> ALL NINE ELEMENTS / BUILD INTELLIGENCE</span><h2>BUILD THE<br><span class="hero-highlight">BEST TEAM.</span></h2><p>Find the right lineup for an encounter. Then tune each Aniimo’s skills, held items, capability awakenings, and star-up investments.</p><div class="hero-chips"><span class="glass-chip">9 ELEMENTAL PATHS</span><span class="glass-chip">SOURCE-ATTRIBUTED GUIDES</span><span class="glass-chip">PERSONAL ROSTER OPTIONAL</span></div><div class="hero-buttons"><button class="btn light" data-nav="teams">Explore all teams ${icon('arrow',17)}</button><button class="btn ghost" data-nav="progression">Plan an awakening ${icon('chart',17)}</button></div></div><div class="hero-art universal-art" aria-hidden="true"><div class="universe-ring outer"></div><div class="universe-ring inner"></div><div class="universe-core"><strong>9</strong><small>ELEMENTS</small></div>${ELEMENTS.map((e,i)=>`<div class="universe-node" style="--i:${i};--node:${e.tone}"><span>${e.symbol}</span></div>`).join('')}</div><div class="hero-corner">ALL-ELEMENT META / CURATED RESEARCH</div></div><div class="hero-stats">${statusRow('ELEMENTAL TEAMS',String(TEAMS.length).padStart(2,'0'),'Element-by-element strategies')}${statusRow('ANIIMO INDEXED',String(ANIIMO.length),catalog.mode==='live'?'Official wiki-derived index':'Starter / offline fallback')}${statusRow('HELD ITEMS',String(ITEMS.length).padStart(2,'0'),'Equipment reference')}${statusRow('GUIDED BUILDS',String(researched).padStart(2,'0'),'Individual research profiles')}</div></section><section class="command-start"><div><span class="section-kicker">YOUR WORKSPACE</span><h2>${ownedCount?`${ownedCount} Aniimo tracked`:'Start with any Aniimo'}</h2><p>${ownedCount?'Your collection is saved locally. Discover gaps in your elemental coverage, then plan your next investment.':'Browsing doesn’t require a collection. Add Aniimo only when you want to track your own progress.'}</p></div><div class="command-start-actions"><button class="btn secondary" data-nav="collection">${icon('layers',16)} ${ownedCount?'View my collection':'Create my collection'}</button><button class="btn subtle" data-nav="planner">${icon('team',16)} Open squad planner</button></div></section><section class="overview-columns"><div class="section-block"><div class="section-heading"><div><span class="section-kicker">ELEMENT MATCHUPS</span><h2>Choose a combat element</h2></div>${button('Compare teams','teams','btn subtle')}</div><div class="element-grid">${ELEMENTS.map(e=>`<button class="element-tile" style="--tile:${e.tone}" data-team="${e.id}"><span class="tile-icon">${e.symbol}</span><strong>${e.id}</strong><small>${TEAMS.find(t=>t.element===e.id)?.name||''}</small>${icon('chevron',17)}</button>`).join('')}</div><div class="section-heading second"><div><span class="section-kicker">MULTI-ELEMENT EXAMPLES</span><h2>Explore different strategies</h2></div></div><div class="overview-mini-teams">${picks.map(teamPreview).join('')}</div><div class="field-note">${icon('info',20)}<p><strong>Not a tier-list verdict.</strong> These are published team examples; the strongest option depends on the boss, forms, skills, equipment, and patch.</p></div></div><div class="section-block"><div class="section-heading"><div><span class="section-kicker">HOW TO OPTIMIZE</span><h2>Five steps to a stronger squad</h2></div></div><div class="checklist"><div class="check-item"><span class="check-sign">${icon('team',18)}</span><div><b>01 · Choose an elemental team</b><p>Start with enemy weaknesses and what your roster can cover.</p><button class="mini-link" data-nav="teams">Browse teams ${icon('arrow',14)}</button></div><span class="check-state">TEAM</span></div><div class="check-item"><span class="check-sign">${icon('book',18)}</span><div><b>02 · Open each Aniimo build</b><p>Check role, skills, personality, form, and the recommendation’s confidence.</p><button class="mini-link" data-nav="aniidex">Search library ${icon('arrow',14)}</button></div><span class="check-state">BUILD</span></div><div class="check-item"><span class="check-sign">${icon('spark',18)}</span><div><b>03 · Select held items</b><p>Compare documented effects to actual skill and team synergy.</p><button class="mini-link" data-nav="items">Compare items ${icon('arrow',14)}</button></div><span class="check-state">GEAR</span></div><div class="check-item"><span class="check-sign">${icon('chart',18)}</span><div><b>04 · Plan awakening and Star Up</b><p>Prioritize role scaling and useful breakpoints before committing materials.</p><button class="mini-link" data-nav="progression">Upgrade roadmap ${icon('arrow',14)}</button></div><span class="check-state">GROW</span></div><div class="check-item"><span class="check-sign">${icon('layers',18)}</span><div><b>05 · Track only what you own</b><p>Record personal stats whenever you're ready; no demo units or guessed levels.</p><button class="mini-link" data-nav="collection">My collection ${icon('arrow',14)}</button></div><span class="check-state">SAVE</span></div></div><div class="field-note">${icon('info',20)}<p><strong>Evidence first.</strong> Detailed guides, community-tested builds, and general role templates are visibly distinguished. No simulated DPS or invented best-in-slot claims.</p></div></div></section>`}
+function overview(){const researched=Object.keys(BUILDS).length;const picks=['Fire','Grass','Water'].map(id=>TEAMS.find(t=>t.element===id)).filter(Boolean);const features=[['aniidex','01 / DISCOVER','Meet the entire Aniidex','Browse species, regional forms, Prismanas, skills and official artwork.','book'],['teams','02 / STRATEGIZE','Find your perfect team','Explore all nine elemental compositions and tactical alternatives.','team'],['progression','03 / EVOLVE','Grow with purpose','Plan held items, awakening priorities and Star Up investments.','spark']];const heroes=[['Glacy','Water','01'],['Stellarys','Dark','02'],['Scorchhowl','Fire','03']];return `<section class="cinematic-hero"><div class="hero-ambient" aria-hidden="true"></div><div class="hero-copy"><span class="cinema-eyebrow"><i></i> THE ULTIMATE ANIIMO COMPANION <span class="eyebrow-line"></span> EST. 2026</span><h1>KNOW YOUR<br><span>ANIIMO.</span><br>MASTER EVERY<br>FORM.</h1><p>An entire world of creatures, abilities, elemental combinations and powerful builds. Discover what makes every Aniimo extraordinary.</p><div class="hero-buttons"><button class="btn primary" data-nav="aniidex">Explore the Aniidex ${icon('arrow',18)}</button><button class="btn outline" data-nav="teams">Find your squad ${icon('arrow',18)}</button></div><div class="hero-footnote"><span class="signal-dot"></span><span>${catalog.mode==='live'?'Connected to live creature data':'Wiki-derived data · Works without an account'}</span><span class="footnote-divider"></span><span>Built for curious explorers</span></div></div><div class="hero-stage"><div class="stage-ring ring-one"></div><div class="stage-ring ring-two"></div><div class="stage-sigil" aria-hidden="true">ϟ</div>${heroes.map(([name,element,num],i)=>{const a=getAniimo(name);return `<button class="stage-creature figure-${i+1}" data-open="${safe(name)}" style="--figure-tone:${getElement(element).tone}" aria-label="Explore ${safe(name)}"><span class="stage-art">${avatar(a,'xl')}</span><span class="stage-label"><small>FIELD FILE / ${num}</small><b>${safe(name)}</b>${elBadge(element,true)}</span></button>`}).join('')}<div class="stage-coordinate">ANIIMO / FIELD NOTES — 001</div></div><div class="hero-bottom-line"><span>SCROLL TO DISCOVER</span><span class="scroll-mark">↓</span><span>INTELLIGENCE FOR EVERY ELEMENT</span></div></section><section class="stats-ribbon" aria-label="Aniimo Center coverage"><div><strong>${catalog.items.length||ANIIMO.length}<span>+</span></strong><small>ANIIMO INDEXED</small></div><div><strong>${TEAMS.length.toString().padStart(2,'0')}</strong><small>ELEMENTAL PATHS</small></div><div><strong>${ITEMS.length.toString().padStart(2,'0')}</strong><small>HELD ITEMS</small></div><div><strong>${researched.toString().padStart(2,'0')}</strong><small>RESEARCHED BUILDS</small></div><button class="ribbon-link" data-nav="sources">VIEW OUR DATA POLICY ${icon('arrow',17)}</button></section><section class="experience-section"><div class="experience-heading"><div><span class="section-kicker">START YOUR JOURNEY</span><h2>One world. <em>Endless possibilities.</em></h2><p>Go beyond tier lists. Explore, understand, and refine every choice with source-aware tools.</p></div><span class="section-index">01 — 03</span></div><div class="feature-paths">${features.map(([id,number,heading,desc,ic])=>`<button class="feature-path" data-nav="${id}"><span class="path-top"><span>${number}</span>${icon(ic,25)}</span><span class="path-content"><strong>${heading}</strong><small>${desc}</small></span><span class="path-link">EXPLORE ${icon('arrow',17)}</span></button>`).join('')}</div></section><section class="experience-section elements-section"><div class="experience-heading"><div><span class="section-kicker">THE ELEMENTAL ATLAS</span><h2>Nine paths to <em>power.</em></h2><p>Choose an element to uncover its lineup, combat philosophy and alternatives.</p></div>${button('Browse all compositions','teams','btn outline')}</div><div class="element-gallery">${ELEMENTS.map(e=>`<button class="element-portrait" data-team="${safe(e.id)}" style="--tile:${e.tone}"><span class="element-portrait-glow"></span><span class="element-big-symbol">${e.symbol}</span><span class="element-details"><strong>${safe(e.id)}</strong><small>EXPLORE ELEMENT ${icon('arrow',14)}</small></span></button>`).join('')}</div></section><section class="experience-section spotlight-section"><div class="experience-heading"><div><span class="section-kicker">STRATEGY SPOTLIGHT</span><h2>Squads worth <em>discovering.</em></h2><p>Source-attributed compositions. No claims of universally perfect damage or rankings.</p></div>${button('Open team lab','teams','btn outline')}</div><div class="spotlight-grid">${picks.map(teamPreview).join('')}</div></section><section class="experience-cta"><div><span class="section-kicker">YOUR ADVENTURE, YOUR WAY</span><h2>Make every upgrade <em>count.</em></h2><p>Track your collection on this device. No sign-up, no cloud account, no invented stats.</p></div><div><button class="btn primary" data-nav="collection">Open my collection ${icon('arrow',17)}</button><button class="btn outline" data-nav="planner">Build a team ${icon('arrow',17)}</button></div></section>`}
+
 function teamsPage(){const current=TEAMS.find(t=>t.element===state.target)||TEAMS[0];const e=getElement(current.element);const line=current.lineup;const own=line.filter(r=>owned(r[0])).length;return `${title('TEAM ARCHITECT / 002','Elemental <em>team lab.</em>','Explore nine researched compositions, role coverage, substitutions, and proven rotation ideas.',button('Build custom squad','planner','btn primary'))}<div class="filter-head"><div class="filter-label">SELECT YOUR ELEMENT <span>09 TYPES</span></div><div class="elements-strip">${ELEMENTS.map(ele=>`<button data-team="${ele.id}" class="element-switch ${current.element===ele.id?'chosen':''}" style="--tile:${ele.tone}"><span>${ele.symbol}</span>${ele.id}</button>`).join('')}</div></div><div class="team-detail" style="--team-tone:${e.tone}"><div class="detail-background"></div><div class="detail-main"><div class="detail-overline">${elBadge(e.id)} <span>• ${safe(current.tag)}</span></div><h2>${safe(current.name)}</h2><p class="team-summary">${safe(current.summary)}</p><div class="team-measures"><span>${icon('team',16)} 4-MEMBER SQUAD</span><span>${icon('check',16)} ${own}/4 IN COLLECTION</span><span>${icon('book',16)} SOURCE: GAMEWITH</span></div><div class="team-row">${line.map(([name,role,form])=>unitCard(name,role,form)).join('')}</div><div class="team-detail-actions"><button class="btn primary" data-load-team="${current.element}">${icon('layers',17)} Load in planner</button><button class="btn secondary" data-team-owned="${current.element}">${icon('plus',17)} Mark lineup owned</button><a class="btn ghost-link" target="_blank" rel="noopener noreferrer" href="https://gamewith.ai/aniimo/en/articles/best-team-comps">Original guide ${icon('external',16)}</a></div></div><aside class="detail-why"><div class="detail-aside-title">WHY IT WORKS</div>${current.strength.map((x,i)=>`<div class="plus-row"><span class="small-plus">0${i+1}</span><span>${safe(x)}</span></div>`).join('')}<div class="tactical-callout"><span>TACTICAL CONSIDERATION</span><p>${safe(current.risk)}</p></div><div class="owned-bar"><div><span>ROSTER READINESS</span><strong>${Math.round(own/4*100)}%</strong></div><div class="progress"><i style="width:${own/4*100}%"></i></div><small>${own} of 4 team members owned</small></div></aside></div><div class="secondary-grid"><section class="content-card"><div class="card-head"><span class="section-kicker">COMBAT FLOW</span><h3>Suggested rotation</h3></div><div class="rotation-list">${current.rotation.map((s,i)=>`<div class="rotation-step"><span>${String(i+1).padStart(2,'0')}</span><p>${safe(s)}</p></div>`).join('')}</div><div class="hint-block">${icon('spark',18)} <span>${safe(current.tip)}</span></div></section><section class="content-card"><div class="card-head"><span class="section-kicker">ADAPT YOUR SQUAD</span><h3>Recommended alternatives</h3></div><div class="alternatives">${current.alternatives.map(alt=>`<div class="alternative"><div class="alt-compare">${avatar(getAniimo(alt.out),'sm')}<span>${safe(alt.out)}</span>${icon('arrow',17)}${avatar(getAniimo(alt.in),'sm')}<strong>${safe(alt.in)}</strong></div><p>${safe(alt.why)}</p><button data-swap="${safe(current.element)}|${safe(alt.out)}|${safe(alt.in)}|${safe(alt.form)}" class="text-action">Load alternative ${icon('arrow',14)}</button></div>`).join('')}</div><div class="subnote">These recommendations are situation-dependent, not universally strongest.</div></section></div>`}
 function isPrismana(a){return a.official?.forms?.some(f=>/prismana/i.test(f.name))}
 function variants(a){return a.official?.forms || []}
@@ -380,7 +935,7 @@ function library(){const units=filterAniimo();const formCount=catalog.items.redu
  <section class="dex-status content-card"><div><div class="section-kicker">PUBLIC ANIIDEX DATASET</div><div class="dex-status-main">${catalogNotice()}<p>Provided by <a href="${ANIIMO_PUBLIC_INFO}" target="_blank" rel="noopener noreferrer">Aniimo Tools</a> (wiki-derived, unofficial API). Official images remain hosted on the game’s CDN. No login or API key.</p></div>${catalog.error?`<small class="dex-error">${safe(catalog.error)} · ${catalog.items.length?'Using last saved catalog.':'Showing the curated starter list.'}</small>`:''}</div><div class="dex-metrics"><div><strong>${catalog.items.length||ANIIMO.length}</strong><span>Species available</span></div><div><strong>${formCount||'—'}</strong><span>Documented forms</span></div><div><strong>${prismana||'—'}</strong><span>Prismana entries</span></div></div></section>
  <section class="library-toolbar live-toolbar"><label class="search-wrap">${icon('search',19)}<input id="roster-search" type="search" placeholder="Name, number, form or habitat..." value="${safe(state.rosterQuery)}" aria-label="Search Aniimo"></label><label class="select-wrap">ELEMENT <select id="roster-element"><option value="All">All elements</option>${ELEMENTS.map(e=>`<option value="${e.id}" ${state.rosterFilter===e.id?'selected':''}>${e.id}</option>`).join('')}</select></label><label class="select-wrap">FORM <select id="roster-form"><option value="All" ${state.formFilter==='All'?'selected':''}>Any form</option><option value="Prismana" ${state.formFilter==='Prismana'?'selected':''}>Has Prismana</option><option value="Multiple" ${state.formFilter==='Multiple'?'selected':''}>Multiple forms</option><option value="Basic" ${state.formFilter==='Basic'?'selected':''}>Single form</option></select></label><button class="toggle-filter ${state.rosterOwned?'on':''}" data-toggle="roster-owned">${icon('check',16)} Owned only</button></section>
  <div class="library-summary"><span><b>${units.length}</b> of ${ANIIMO.length} Aniimo shown</span><span><b>${Object.keys(BUILDS).length}</b> researched build profiles</span><span>${catalog.mode==='loading'?'Loading creature forms...':'Form selection and full official details available on species profiles'}</span></div>
- <div class="library-grid dex-grid">${units.map(a=>{const b=getBuild(a),forms=variants(a);return `<article class="library-card dex-card"><button class="library-open" data-open="${safe(a.name)}" aria-label="Open ${safe(a.name)}"><span class="lib-rune-bg">${getElement(a.element).symbol}</span>${avatar(a,'lg')}<div class="lib-title"><strong>${safe(a.name)}</strong><span>${safe(a.role)}</span></div></button><div class="dex-card-info">${a.official?`<span class="dex-number">#${safe(a.official.id)}</span>`:'<span class="dex-number">CURATED</span>'}<span class="dex-form-count">${forms.length?`${forms.length} ${forms.length===1?'form':'forms'}`:'Forms awaiting API'}</span>${isPrismana(a)?'<span class="dex-prismana">✦ PRISMANA</span>':''}</div><div class="lib-meta">${elBadge(a.element,true)}<span class="tag-quality ${b.quality.startsWith('Role')?'soft':''}">${b.quality.startsWith('Role')?'ROLE TEMPLATE':'GUIDED BUILD'}</span></div><div class="lib-footer"><button class="icon-button ${owned(a.name)?'owned':''}" data-owned="${safe(a.name)}" title="${owned(a.name)?'Remove from collection':'Add to collection'}">${icon(owned(a.name)?'check':'plus',17)}</button><button data-open="${safe(a.name)}" class="library-detail-link">${a.official?'Forms & stats':'Build details'} ${icon('arrow',15)}</button></div></article>`}).join('')}</div>${!units.length?`<div class="empty-state">${icon('search',27)}<h3>No Aniimo found</h3><p>Try another form or element filter.</p><button class="btn secondary" data-clear="filters">Reset filters</button></div>`:''}`}
+ <div class="library-grid dex-grid">${units.map(a=>{const b=getBuild(a),forms=variants(a),e=getElement(a.element);return `<article class="library-card dex-card" style="--card-element:${e.tone}"><button class="library-open" data-open="${safe(a.name)}" aria-label="Explore ${safe(a.name)} forms and abilities"><span class="dex-card-wash"></span><span class="card-topline"><span>${a.official?`NO. ${safe(a.official.id)}`:'FIELD FILE'}</span>${isPrismana(a)?'<span class="dex-prismana">✦ PRISMANA</span>':''}</span><span class="dex-art-wrap">${avatar(a,'lg')}</span><span class="dex-card-title"><span class="dex-card-element">${elBadge(a.element,true)}</span><strong>${safe(a.name)}</strong><small>${safe(a.role)} · ${forms.length?`${forms.length} ${forms.length===1?'form':'forms'}`:'Forms unverified'}</small></span></button><div class="dex-card-bottom"><span>${b.quality.startsWith('Role')?'FIELD GUIDE':'BUILD RESEARCHED'}</span><button class="dex-card-open" data-open="${safe(a.name)}" aria-label="Open ${safe(a.name)} details">${icon('arrow',18)}</button></div></article>`}).join('')}</div>`;}
 
 function itemsPage(){return `${title('EQUIPMENT CODEX / 004','Held item <em>lab.</em>','Compare published item effects and role fit. BIS recommendations require checking each Aniimo\'s actual kit.',button('Open build library','aniidex','btn primary'))}<div class="gear-callout">${icon('info',20)}<div><strong>15 documented items, not 15 universal best-in-slot answers.</strong><p>Effects are summarized from the GameWith item index. Candidate uses are role-based interpretations unless an individual build source names the item.</p></div><a href="https://gamewith.ai/aniimo/en/held-items" target="_blank" rel="noopener noreferrer">Source ${icon('external',15)}</a></div><div class="item-grid">${ITEMS.map((item,i)=>`<article class="item-card"><div class="item-icon">${icon(item.main==='BREAK'?'shield':item.main==='HP'?'heart':item.main==='REGEN'?'refresh':'spark',25)}</div><span class="item-index">GEAR / ${String(i+1).padStart(2,'0')}</span><h3>${safe(item.name)}</h3><span class="item-main">${safe(item.main)}</span><p>${safe(item.effect)}</p><div class="item-roles"><small>BEST-FIT ROLE</small><strong>${safe(item.focus)}</strong></div><div class="item-rec">${icon('info',14)} ${safe(item.recommend)}</div></article>`).join('')}</div><section class="content-card item-guidance"><div><span class="section-kicker">EQUIPMENT STRATEGY</span><h3>How to pick the real best item</h3></div><p>Compare three factors: whether its passive triggers with your equipped skills, whether its stat scales your actual role, and whether it helps the full four-member rotation. A +15 passive may change the ranking. Equip your selected item in My Collection to record your setup.</p>${button('Open collection','collection','btn secondary')}</section>`}
 function progression(){if(!state.selected||!getAniimo(state.selected)){return `${title('ASCENSION PATH / 005','Upgrade <em>roadmap.</em>','Select any Aniimo to review role priorities, build-specific advice, stat breakpoints, and Star Up planning.',button('Explore build library','aniidex','btn secondary'))}<div class="roadmap-top"><div><span class="section-kicker">CHOOSE YOUR TARGET</span><h2>Which Aniimo are you upgrading?</h2></div><label class="select-wrap large">SELECT ANIIMO<select id="progress-select"><option value="" selected>Choose an Aniimo...</option>${ANIIMO.map(u=>`<option value="${safe(u.name)}">${safe(u.name)}${owned(u.name)?' ✓':''}</option>`).join('')}</select></label></div><div class="empty-state upgrade-empty">${icon('spark',32)}<h3>Your next upgrade starts here</h3><p>Pick any entry in the selector above. No Aniimo or stats are preselected — your own roster stays yours.</p><button class="btn primary" data-nav="aniidex">${icon('book',16)} Browse Aniimo builds</button></div><div class="field-note">${icon('info',20)}<p>General stat priorities are starting points, not guarantees. Verify each creature’s actual skill scaling and current patch before spending rare awakening resources.</p></div>`;}const name=state.selected;const a=getAniimo(name),b=getBuild(a),role=ROLE_PRIORITIES[a.role],r=state.collection[name],lv=r?.level||0,star=r?.star||0,budget=r?.budget||0,spent=r?.spent||0,avail=Math.max(0,budget-spent);const major=b.stats.filter(x=>STAT_NAMES.includes(x));const next=major.find(x=>(r?.awaken?.[x]??0)<20);const nextVal=next?(r?.awaken?.[next]??0):null;const milestone=nextVal!==null?[4,8,12,16,20].find(v=>v>nextVal):null;return `${title('ASCENSION PATH / 005','Upgrade <em>roadmap.</em>','Prioritize irreversible awakenings, plan star-up gates and avoid investing materials based on unverified assumptions.',button('Open full profile','aniidex','btn secondary'))}<div class="roadmap-top"><div><span class="section-kicker">TARGET ANIIMO</span><h2>Ascension planning</h2></div><label class="select-wrap large">SELECT PROFILE<select id="progress-select">${ANIIMO.map(u=>`<option value="${safe(u.name)}" ${name===u.name?'selected':''}>${safe(u.name)}${owned(u.name)?' ✓':''}</option>`).join('')}</select></label></div><div class="progression-intro" style="--progress-tone:${getElement(a.element).tone}">${avatar(a,'xl')}<div class="progress-intro-copy"><div>${elBadge(a.element)} <span class="role-badge">${safe(a.role)}</span></div><h2>${safe(name)}</h2><p>${safe(b.notes)}</p><button class="text-action" data-open="${safe(name)}">View source-backed build & edit stats ${icon('arrow',16)}</button></div><div class="budget-figure"><span>AWAKENINGS AVAILABLE</span><strong>${owned(name)?avail:'—'}</strong><small>${owned(name)?`${spent} used / ${budget} budget`:'Add to your collection to personalize'}</small></div></div><div class="roadmap-grid"><section class="content-card"><span class="section-kicker">INVESTMENT QUEUE</span><h3>Prioritize these attributes</h3><div class="stat-priority-stack">${b.stats.map((st,i)=>`<div class="priority-point"><span>${String(i+1).padStart(2,'0')}</span><div><strong>${safe(st)}</strong><p>${i===0?'Primary role scaling':i===1?'Secondary role efficiency':'Individual trait-dependent choice'}</p></div><span>${STAT_NAMES.includes(st)&&owned(name)?safe(String(r.awaken?.[st]??0))+'/20':'CHECK KIT'}</span></div>`).join('')}</div><div class="hint-block">${icon('info',17)}<span>${safe(b.third)} ${safe(role.avoid)}</span></div>${owned(name)?`<div class="planned-next"><span class="section-kicker">NEXT INVESTMENT</span><p>${next&&milestone?`Consider ${safe(next)} toward total Potential ${milestone}. Confirm star bonuses and actual in-game point cost.`:'Primary documented priorities are complete. Preserve remaining points until a specific encounter or trait justifies a third stat.'}</p></div>`:''}</section><section class="content-card"><span class="section-kicker">STAR UP CHECKLIST</span><h3>Verify each unlock per Aniimo</h3><div class="star-track">${[{label:'CURRENT STAR',desc:'Record your actual Star Up level.',value:owned(name)?String(star):'—'},{label:'LEVEL REQUIREMENT',desc:'Check the next Star Up level gate in game.',value:'CHECK'},{label:'MATERIAL REQUIREMENTS',desc:'Check the required items and quantities in game.',value:'CHECK'},{label:'AWAKENING CAPACITY',desc:'Record the new cap after Star Up in your profile.',value:owned(name)?String(budget):'—'}].map(x=>`<div class="star-milestone"><span>${icon('spark',17)}</span><div><strong>${x.label}</strong><small>${x.desc}</small></div><b>${x.value}</b></div>`).join('')}</div><div class="tiny-advisory">${icon('alert',17)} The cited tests report that awakening resets are unavailable above level 60. Verify the latest rules before leveling past this point.</div></section></div><section class="content-card breakpoint-card"><span class="section-kicker">BREAKPOINT INTELLIGENCE</span><h3>Spend in meaningful steps</h3><p>Based on the cited test data, total Potential bonuses are larger at the fourth-point intervals. Star-up bonuses can shift the number of purchased points required. Always read the total displayed in game.</p><div class="breakpoint-row">${[4,8,12,16,20].map(x=>`<span>${x}<small> TOTAL</small></span>`).join('')}</div><div class="sources-foot">${sourceLinks(['guide-stats'])}</div></section>`}
@@ -404,7 +959,8 @@ function officialDetail(a) {
  <h3 class="sheet-section">Traits · ${f.traits.length}</h3>${f.traits.length?`<div class="dex-traits">${f.traits.map(t=>`<div><strong>${safe(t.name)}</strong>${t.description?`<p>${safe(t.description)}</p>`:''}</div>`).join('')}</div>`:'<p class="muted">No traits reported for this form.</p>'}
  <div class="dex-facts"><div><strong>HABITATS</strong><p>${safe(f.habitats.join(' · ')||'Not published')}</p></div><div><strong>EVOLUTION TARGETS</strong><p>${safe(o.evolution.join(' · ')||'Not published')}</p></div><div><strong>DATA UPDATE</strong><p>${safe(o.lastChanged||'Date not provided')}</p></div></div></section>`;
 }
-function buildDetail(name){const a=getAniimo(name);if(!a)return '';const b=getBuild(a),record=state.collection[name],r=ROLE_PRIORITIES[a.role]||ROLE_PRIORITIES.Support;return `<div class="build-overlay" data-close="modal"><section class="build-sheet" role="dialog" aria-modal="true" aria-label="${safe(name)} build"><div class="sheet-bar"><span>ANIIMO INTELLIGENCE / ${safe(a.name).toUpperCase()}</span><button class="close-btn" data-close="modal" aria-label="Close">${icon('x',21)}</button></div><div class="sheet-head" style="--sheet-tone:${getElement(a.element).tone}"><div class="sheet-glow"></div>${avatar(a,'xl')}<div class="sheet-info"><div>${elBadge(a.element)} <span class="role-badge">${safe(a.role)}</span></div><h2>${safe(a.name)}</h2><span class="quality-tag">${icon('info',15)} ${safe(b.quality)}</span></div></div><div class="sheet-scroll"><div class="sheet-action-line"><span>${record?.owned?'In your collection':'Not in your collection'}</span><button class="btn ${record?.owned?'secondary':'primary'}" data-owned="${safe(name)}">${icon(record?.owned?'check':'plus',16)} ${record?.owned?'Remove from collection':'Add to collection'}</button></div>${officialDetail(a)}<h3 class="sheet-section">Build recommendations · Editorial</h3><p class="sheet-intro">${safe(b.notes)}</p><div class="build-facts"><div><small>HELD ITEM</small><strong>${safe(b.item)}</strong><span>Alternative: ${safe(b.altItem)}</span></div><div><small>AWAKENING ORDER</small><strong>${safe(b.stats.join(' → '))}</strong><span>${safe(b.third)}</span></div><div><small>PERSONALITY</small><strong>${safe(b.personality)}</strong><span>${safe(b.form)}</span></div><div><small>ACTIVE SKILLS</small><strong>${b.skills.length?b.skills.map(safe).join(' + '):'Not individually verified'}</strong><span>${b.innate?'Innate: '+safe(b.innate):'Check current in-game loadout'}</span></div></div><h3 class="sheet-section">Battle plan</h3><p class="detail-description">${safe(b.rotation)}</p><h3 class="sheet-section">Role investment policy</h3><div class="policy-line">${icon('chart',18)}<p>${safe(r.explain)} <strong>${safe(r.avoid)}</strong></p></div><h3 class="sheet-section">References & confidence</h3>${sourceLinks(b.sources)}${personalPanel(name)}</div></section></div>`}
+function buildDetail(name){const a=getAniimo(name);if(!a)return '';const b=getBuild(a),record=state.collection[name],r=ROLE_PRIORITIES[a.role]||ROLE_PRIORITIES.Support;const count=a.official?.forms?.length||0;return `<div class="build-overlay" data-close="modal"><section class="build-sheet" role="dialog" aria-modal="true" aria-label="${safe(name)} field guide"><div class="sheet-bar"><span><span class="modal-serial">ANIIMO CENTER</span> / FIELD GUIDE / ${safe(a.name).toUpperCase()}</span><button class="close-btn" data-close="modal" aria-label="Close Aniimo details">${icon('x',22)}</button></div><div class="dossier-layout"><aside class="dossier-poster" style="--sheet-tone:${getElement(a.element).tone}"><div class="poster-halo"></div><div class="poster-orbit"></div><span class="poster-overline">CREATURE DOSSIER <span>/${safe(a.official?.id||'—')}</span></span><div class="poster-art">${avatar(a,'xl')}</div><div class="poster-caption">${elBadge(a.element)} <span>${safe(a.role)}</span></div><h2>${safe(a.name)}</h2><p>${count?`${count} documented ${count===1?'form':'forms'} · `:''}${safe(b.quality)}</p><button class="btn ${record?.owned?'outline':'primary'}" data-owned="${safe(name)}">${icon(record?.owned?'check':'plus',16)} ${record?.owned?'In my collection · Remove':'Add to my collection'}</button><small class="poster-legal">Art and reference data via Aniimo Tools API · Independent fan tool</small></aside><div class="sheet-scroll"><div class="dossier-intro"><span class="section-kicker">THE ANIIDEX / FORM INTELLIGENCE</span><h3>Explore every <em>side.</em></h3><p>Form-specific skills, traits, elements, stats and habitats are wiki-derived. Build recommendations below are editorial and clearly labeled.</p></div>${officialDetail(a)}<section class="dossier-build"><span class="section-kicker">TACTICAL RESEARCH</span><h3 class="sheet-section">Recommended <em>build direction.</em></h3><p class="sheet-intro">${safe(b.notes)}</p><div class="build-facts"><div><small>HELD ITEM</small><strong>${safe(b.item)}</strong><span>Alternative: ${safe(b.altItem)}</span></div><div><small>AWAKENING ORDER</small><strong>${safe(b.stats.join(' → '))}</strong><span>${safe(b.third)}</span></div><div><small>PERSONALITY</small><strong>${safe(b.personality)}</strong><span>${safe(b.form)}</span></div><div><small>ACTIVE SKILLS</small><strong>${b.skills.length?b.skills.map(safe).join(' + '):'Not individually verified'}</strong><span>${b.innate?'Innate: '+safe(b.innate):'Check current in-game loadout'}</span></div></div><h3 class="sheet-section">Battle plan</h3><p class="detail-description">${safe(b.rotation)}</p><h3 class="sheet-section">Investment priorities</h3><div class="policy-line">${icon('chart',18)}<p>${safe(r.explain)} <strong>${safe(r.avoid)}</strong></p></div><h3 class="sheet-section">References</h3>${sourceLinks(b.sources)}</section>${personalPanel(name)}</div></div></section></div>`}
+
 // Transparency-focused checklist; it is not a computed DPS, win rate, or performance prediction.
 function gradeTeam(names){const selected=names.map(getAniimo).filter(Boolean);const ref=TEAMS.find(t=>t.element===state.target);const roles=selected.map(a=>ref?.lineup.find(([name])=>name===a.name)?.[1]||a.role);const uniq=new Set(selected.map(a=>a.name));let issues=[];let pts=0;if(roles.includes('DPS'))pts+=20;else issues.push('No primary DPS');if(roles.includes('Break'))pts+=20;else issues.push('No dedicated breaker (some supports can BREAK)');if(roles.includes('Regen'))pts+=20;else issues.push('No REGEN role');if(roles.includes('Heal'))pts+=15;else issues.push('No dedicated healer');if(roles.includes('Support'))pts+=10;else issues.push('No explicit support role');pts+=Math.round(selected.length/4*10);if(uniq.size!==selected.length){issues.push('Duplicate Aniimo selected');pts=Math.max(0,pts-15)}let own=selected.filter(a=>owned(a.name)).length;pts+=Math.round(own/4*5);return {pts:Math.min(100,pts),issues,selected,own}}
 function planner(){let lineup=state.teamNames.map(n=>n||'');let current=gradeTeam(lineup);const rec=TEAMS.find(t=>t.element===state.target)||TEAMS[0];return `${title('BUILD ENGINE / 004','Squad <em>optimizer.</em>','Plan a four-Aniimo composition, check roles and ownership, then compare it with research-backed team templates.',button('Browse sources','sources','btn subtle','external'))}<div class="planner-head"><div><span class="section-kicker">SQUAD BUILDER</span><h2>Forge your four-member team</h2><p>Composition health scores reflect roles and collection readiness — not predicted combat damage.</p></div><div class="select-wrap large"><label for="team-preset">TEAM PRESET</label><select id="team-preset">${TEAMS.map(t=>`<option value="${t.element}" ${t.element===state.target?'selected':''}>${t.element} · ${t.name}</option>`).join('')}</select></div></div><div class="planner-layout"><div><section class="planner-canvas"><div class="planner-top"><span>ACTIVE SQUAD <i>4 SLOTS</i></span><button class="mini-link" data-load-team="${state.target}">${icon('refresh',15)} Load ${safe(state.target)} recommendation</button></div><div class="planner-slots">${[0,1,2,3].map((i)=>{const name=lineup[i],a=getAniimo(name),el=a?getElement(a.element):null;return `<div class="planner-slot"><div class="slot-top"><span>0${i+1} / ${['CARRY','SUPPORT','UTILITY','FLEX'][i]}</span>${name&&owned(name)?'<span class="slot-owned">OWNED</span>':''}</div><div class="slot-avatar">${a?avatar(a,'lg'):`<span class="slot-empty">${icon('plus',30)}</span>`}</div><select class="slot-select" data-slot="${i}" aria-label="Select team slot ${i+1}"><option value="">Select Aniimo...</option>${ANIIMO.map(u=>`<option value="${safe(u.name)}" ${name===u.name?'selected':''}>${safe(u.name)}${owned(u.name)?' ✓':''}</option>`).join('')}</select>${a?`<div class="slot-roles">${elBadge(a.element,true)} <span>${safe(a.role)}</span></div>`:`<div class="slot-roles">OPEN SLOT</div>`}</div>`}).join('')}</div><div class="planner-actions"><button class="btn primary" data-analyze="team">${icon('chart',17)} Analyze composition</button><button class="btn secondary" data-clear="team">${icon('refresh',16)} Reset squad</button></div></section><section class="content-card tactical-panel"><span class="section-kicker">RESEARCH TEMPLATE</span><h3>${safe(rec.name)}</h3><p>${safe(rec.summary)}</p><div class="horizontal-members">${rec.lineup.map(([name,role])=>`<div>${avatar(getAniimo(name),'sm')}<span><strong>${safe(name)}</strong><small>${safe(role)}</small></span></div>`).join('')}</div><button class="text-action" data-team="${safe(rec.element)}">See full ${safe(rec.element)} strategy ${icon('arrow',15)}</button></section></div><div><div class="analysis-card"><div class="analysis-head"><span class="section-kicker">COMPOSITION CHECKLIST</span><span class="heuristic-badge">HEURISTIC</span></div><div class="analysis-score"><div class="score-ring" style="--score:${current.pts}"><div><strong>${current.pts}</strong><span>/100</span></div></div><div><h3>${current.pts>=80?'Well-rounded roles':current.pts>=55?'Some role gaps':'Needs revision'}</h3><p>Role coverage + owned readiness</p></div></div><div class="analysis-divider"></div><div class="analysis-row"><span>DPS carry</span><strong class="${current.selected.some(a=>a.role==='DPS')?'positive':'negative'}">${current.selected.some(a=>a.role==='DPS')?'COVERED':'MISSING'}</strong></div><div class="analysis-row"><span>BREAK</span><strong class="${current.selected.some(a=>a.role==='Break')?'positive':'negative'}">${current.selected.some(a=>a.role==='Break')?'COVERED':'REVIEW'}</strong></div><div class="analysis-row"><span>Energy / REGEN</span><strong class="${current.selected.some(a=>a.role==='Regen')?'positive':'negative'}">${current.selected.some(a=>a.role==='Regen')?'COVERED':'MISSING'}</strong></div><div class="analysis-row"><span>Healing</span><strong class="${current.selected.some(a=>a.role==='Heal')?'positive':'negative'}">${current.selected.some(a=>a.role==='Heal')?'COVERED':'OPTIONAL'}</strong></div><div class="analysis-row"><span>Owned members</span><strong>${current.own} / 4</strong></div><div class="analysis-alert">${icon('alert',18)}<span>${current.issues.length?safe(current.issues[0]):'All major checklist criteria covered. Confirm elemental weaknesses manually.'}</span></div><p class="analysis-disclaimer">This is a transparent composition checklist, not a DPS simulator. Team forms can change combat roles and elemental coverage.</p></div><div class="content-card about-awakening"><span class="section-kicker">UPGRADE INTELLIGENCE</span><h3>Maximize your resources</h3><p>Role-first investment, then specific skill scaling. Stat breakpoints commonly occur at total Potential 4, 8, 12, 16 and 20.</p><div class="priority-list">${[['DPS','ATK → REGEN'],['BREAK','BREAK → REGEN'],['REGEN','REGEN'],['HEAL','HP'],['SUPPORT','Trait-dependent']].map(([role,prio])=>`<div><span>${role}</span><strong>${prio}</strong></div>`).join('')}</div><div class="tiny-advisory">${icon('info',17)} Reset restrictions above Lv. 60 are reported in current guide data; check in game before spending.</div></div></div></div>`}
@@ -421,7 +977,7 @@ function swapTeam(value){const [element,outN,inN,form]=value.split('|');const t=
 function downloadBackup(){const obj={format:'aniimo-center',version:1,exportedAt:new Date().toISOString(),collection:state.collection,favorite:state.favorite};const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);let a=document.createElement('a');a.href=url;a.download='aniimo-center-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);flash('Backup exported successfully.')}
 function importBackup(file){if(!file)return;const reader=new FileReader();reader.onload=()=>{try{if(file.size>2500000)throw new Error('File is too large');const b=JSON.parse(String(reader.result));if(b.format!=='aniimo-center'||b.version!==1||!b.collection||typeof b.collection!=='object'||Array.isArray(b.collection))throw new Error('Not a valid ANIIMO CENTER backup');const cleaned={};Object.entries(b.collection).forEach(([name,p])=>{if(typeof name!=='string'||!name.trim()||name.length>100||!p||typeof p!=='object'||Array.isArray(p))return;cleaned[name]={...clone(DEFAULT_PROFILE),owned:true,level:n(p.level,1,100,1),cp:n(p.cp,0,999999,0),star:n(p.star,0,12,0),spent:n(p.spent,0,200,0),budget:n(p.budget,0,200,5),potential:String(p.potential||'Unknown').slice(0,50),held:String(p.held||'').slice(0,120),notes:String(p.notes||'').slice(0,400),form:String(p.form||'Basic').slice(0,120),awaken:Object.fromEntries(STAT_NAMES.map(st=>[st,n(p.awaken?.[st],0,20,0)]))}});state.collection=cleaned;persist();render(true);flash(`Imported ${Object.keys(cleaned).length} owned Aniimo.`)}catch(err){flash('Import failed: '+err.message,'warn')}};reader.readAsText(file)}
 const uploader=document.createElement('input');uploader.type='file';uploader.accept='application/json,.json';uploader.hidden=true;document.body.appendChild(uploader);uploader.addEventListener('change',e=>{importBackup(e.target.files[0]);uploader.value=''})
-document.addEventListener('click',e=>{const target=e.target.closest('button,a,[data-close],[data-toggle]');if(!target)return;if(target.dataset.formName){activeFormByName.set(target.dataset.formName,target.dataset.formId);render(true);return}if(target.dataset.action==='refresh-dex'){refreshCatalog(true);return}if(target.dataset.close){if(e.target===target||target.tagName==='BUTTON')closeBuild();return}if(target.dataset.toggle==='menu'){document.body.classList.toggle('menu-open');return}if(target.dataset.toggle==='roster-owned'){state.rosterOwned=!state.rosterOwned;render(true);return}if(target.dataset.nav){navigate(target.dataset.nav);return}if(target.dataset.open){openBuild(target.dataset.open);return}if(target.dataset.team){state.target=target.dataset.team;navigate('teams');return}if(target.dataset.owned){toggleOwned(target.dataset.owned);return}if(target.dataset.loadTeam){loadTeam(target.dataset.loadTeam);return}if(target.dataset.swap){swapTeam(target.dataset.swap);return}if(target.dataset.teamOwned){const t=TEAMS.find(x=>x.element===target.dataset.teamOwned);let count=0;t?.lineup.forEach(([name])=>{if(!owned(name)){state.collection[name]=clone(DEFAULT_PROFILE);count++}});persist();render(true);flash(count?`${count} Aniimo added to collection.`:'All team members already owned.');return}if(target.dataset.saveProfile){saveProfile(target.dataset.saveProfile);return}if(target.dataset.analyze){flash('Role checklist updated from your selected lineup.');return}if(target.dataset.clear==='team'){state.teamNames=['','','',''];persist();render(true);return}if(target.dataset.clear==='filters'){state.rosterQuery='';state.rosterFilter='All';state.rosterOwned=false;state.formFilter='All';render(true);return}if(target.dataset.action==='export'){downloadBackup();return}if(target.dataset.action==='import'){uploader.click();return}if(target.dataset.action==='reset'){if(window.confirm('Clear the entire ANIIMO collection stored in this browser? Export a backup first.')){state.collection={};persist();render();flash('Collection reset.')}}});
+document.addEventListener('click',e=>{const target=e.target.closest('button,a,[data-close],[data-toggle]');if(!target)return;if(target.dataset.formName){activeFormByName.set(target.dataset.formName,target.dataset.formId);render(true);return}if(target.dataset.action==='refresh-dex'){refreshCatalog(true);return}if(target.dataset.close){if(e.target===target||target.tagName==='BUTTON')closeBuild();return}if(target.dataset.toggle==='menu'){const open=document.body.classList.toggle('menu-open');document.querySelector('.menu-trigger')?.setAttribute('aria-expanded',String(open));return}if(target.dataset.toggle==='roster-owned'){state.rosterOwned=!state.rosterOwned;render(true);return}if(target.dataset.nav){navigate(target.dataset.nav);return}if(target.dataset.open){openBuild(target.dataset.open);return}if(target.dataset.team){state.target=target.dataset.team;navigate('teams');return}if(target.dataset.owned){toggleOwned(target.dataset.owned);return}if(target.dataset.loadTeam){loadTeam(target.dataset.loadTeam);return}if(target.dataset.swap){swapTeam(target.dataset.swap);return}if(target.dataset.teamOwned){const t=TEAMS.find(x=>x.element===target.dataset.teamOwned);let count=0;t?.lineup.forEach(([name])=>{if(!owned(name)){state.collection[name]=clone(DEFAULT_PROFILE);count++}});persist();render(true);flash(count?`${count} Aniimo added to collection.`:'All team members already owned.');return}if(target.dataset.saveProfile){saveProfile(target.dataset.saveProfile);return}if(target.dataset.analyze){flash('Role checklist updated from your selected lineup.');return}if(target.dataset.clear==='team'){state.teamNames=['','','',''];persist();render(true);return}if(target.dataset.clear==='filters'){state.rosterQuery='';state.rosterFilter='All';state.rosterOwned=false;state.formFilter='All';render(true);return}if(target.dataset.action==='export'){downloadBackup();return}if(target.dataset.action==='import'){uploader.click();return}if(target.dataset.action==='reset'){if(window.confirm('Clear the entire ANIIMO collection stored in this browser? Export a backup first.')){state.collection={};persist();render();flash('Collection reset.')}}});
 document.addEventListener('change',e=>{const t=e.target;if(t.id==='roster-element'){state.rosterFilter=t.value;render(true)}if(t.id==='roster-form'){state.formFilter=t.value;render(true)}if(t.id==='progress-select'){state.selected=t.value;persist();render(true)}if(t.id==='team-preset'){state.target=t.value;state.teamNames=(TEAMS.find(a=>a.element===t.value)||TEAMS[0]).lineup.map(x=>x[0]);persist();render(true)}if(t.dataset.slot!==undefined){state.teamNames[Number(t.dataset.slot)]=t.value;persist();render(true)}});
 document.addEventListener('input',e=>{if(e.target.id==='roster-search'){let active=e.target,idx=active.selectionStart;state.rosterQuery=active.value;const grid=document.querySelector('.library-grid');const summary=document.querySelector('.library-summary');if(!grid)return;let filtered=filterAniimo();grid.querySelectorAll('.library-card').forEach(card=>{const name=card.querySelector('[data-open]')?.dataset.open;card.style.display=filtered.some(a=>a.name===name)?'':'none'});if(summary)summary.querySelector('b').textContent=filtered.length;const emp=document.querySelector('.library-empty-search');if(emp)emp.remove();if(!filtered.length)grid.insertAdjacentHTML('afterend','<p class="library-empty-search muted">No matching Aniimo. Try a different search.</p>')}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modal)closeBuild();document.body.classList.remove('menu-open')}});

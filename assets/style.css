@@ -527,3 +527,102 @@ body .stat-track i,body .mini-track i{background:linear-gradient(90deg,#ff748b,#
 body .source-links a:hover,body .inline-link:hover{color:#ffe4ed}
 @media(max-width:800px){.stage-creature .avatar.xl:not(.has-art) .avatar-rune{font-size:95px}.poster-art .avatar.xl:not(.has-art) .avatar-rune{font-size:125px}}
 @media(max-width:520px){.stage-creature .avatar.xl:not(.has-art) .avatar-rune{font-size:77px}.poster-art .avatar.xl:not(.has-art) .avatar-rune{font-size:105px}}
+
+/* v1.3.1 | ARTWORK PRESENTATION: source artwork sometimes ships with hard square edges.
+   Present the full asset inside a deliberate frame instead of letting cut-offs float
+   against the hero / field dossier. All effects are CSS-only, no new image fetches. */
+.stage-creature{overflow:visible}
+.stage-art{
+ position:relative;isolation:isolate;overflow:hidden;flex:1 1 auto;min-height:0;
+ display:grid;place-items:center;
+ width:100%;height:auto;padding:clamp(7px,1.2vw,16px);
+ border:1px solid color-mix(in srgb,var(--figure-tone) 37%,#ffffff28);
+ border-radius:clamp(14px,2vw,26px);
+ background:
+  radial-gradient(ellipse at 50% 37%,color-mix(in srgb,var(--figure-tone) 23%,transparent),transparent 74%),
+  linear-gradient(160deg,#ffffff0b,#0e101d6c 65%,#080a13ba);
+ box-shadow:inset 0 1px 0 #ffffff20,inset 0 -33px 42px #0004,0 18px 40px #0005;
+ filter:none;
+ transition:border-color .22s ease,box-shadow .22s ease;
+}
+.stage-art::before{content:"";position:absolute;inset:11px;border:1px solid #ffffff1b;border-radius:clamp(9px,1.3vw,17px);pointer-events:none;z-index:2}
+.stage-art::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:linear-gradient(0deg,#0b0b19ab,transparent 19%,transparent 82%,#ffffff06)}
+.stage-creature:hover .stage-art,.stage-creature:focus-visible .stage-art{border-color:color-mix(in srgb,var(--figure-tone) 72%,white);box-shadow:inset 0 1px 0 #ffffff36,0 20px 49px #0008,0 0 26px color-mix(in srgb,var(--figure-tone) 25%,transparent)}
+.stage-creature .stage-art .avatar.xl{
+ position:relative;display:grid;place-items:center;width:100%;height:100%;max-width:none;max-height:none;
+ border-radius:0;overflow:hidden;
+}
+.stage-creature .stage-art .avatar.xl img{
+ position:relative;inset:auto;display:block;width:100%;height:100%;object-fit:contain;
+ object-position:center center;
+ -webkit-mask-image:radial-gradient(ellipse 78% 79% at 50% 49%,#000 50%,#000d 63%,#0007 80%,transparent 100%);
+ mask-image:radial-gradient(ellipse 78% 79% at 50% 49%,#000 50%,#000d 63%,#0007 80%,transparent 100%);
+ filter:drop-shadow(0 12px 14px #0007);transition:transform .35s ease;
+}
+.stage-creature:hover .stage-art .avatar.xl img{transform:scale(1.035)}
+.stage-creature .stage-label{position:relative;z-index:4;margin-top:-13px;flex:0 0 auto;border-color:#ffffff34;background:#171522f0;box-shadow:0 9px 27px #0009}
+.stage-creature.figure-1{z-index:4}
+.stage-creature.figure-1 .stage-art{border-color:#ffffff40}
+.stage-creature.figure-2 .stage-art,.stage-creature.figure-3 .stage-art{border-radius:19px}
+
+/* Dossier art is a framed specimen portrait with an inner illuminated mat. */
+.dossier-poster .poster-art{
+ position:relative;isolation:isolate;flex-shrink:1;
+ height:43%;min-height:190px;width:100%;
+ margin:20px 0 15px;padding:15px;overflow:hidden;
+ border:1px solid color-mix(in srgb,var(--sheet-tone) 44%,#ffffff2b);
+ border-radius:22px;background:
+ radial-gradient(ellipse at 50% 42%,color-mix(in srgb,var(--sheet-tone) 30%,transparent),transparent 70%),
+ linear-gradient(155deg,#ffffff10,#10101bbd 67%,#090a12d9);
+ box-shadow:0 22px 38px #0004,inset 0 1px 0 #ffffff23,inset 0 -35px 45px #0005;
+ filter:none;
+}
+.dossier-poster .poster-art::before{content:"";position:absolute;inset:11px;border:1px solid #ffffff1e;border-radius:13px;pointer-events:none;z-index:3}
+.dossier-poster .poster-art::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#100e19b0,transparent 20%);pointer-events:none;z-index:2}
+.dossier-poster .poster-art .avatar.xl{position:relative;display:grid;place-items:center;width:100%;height:100%;max-width:none;min-height:0;overflow:hidden}
+.dossier-poster .poster-art .avatar.xl img{
+ position:relative;inset:auto;display:block;width:100%;height:100%;object-fit:contain;object-position:center;
+ -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 49%,#000 50%,#000d 63%,#0007 82%,transparent 100%);
+ mask-image:radial-gradient(ellipse 80% 80% at 50% 49%,#000 50%,#000d 63%,#0007 82%,transparent 100%);
+ filter:drop-shadow(0 16px 13px #0008)
+}
+/* The form image should remain complete within its own framed reference tile. */
+body .dex-form-portrait{overflow:hidden;position:relative;border-radius:15px;padding:16px 12px 28px;background:radial-gradient(ellipse at 50% 40%,#694e613d,#191b2a 78%)}
+body .dex-form-portrait img{display:block;margin:auto;width:100%;height:175px;max-width:100%;object-fit:contain;object-position:center;
+ -webkit-mask-image:radial-gradient(ellipse 84% 81% at 50% 48%,#000 53%,#000b 72%,transparent 100%);
+ mask-image:radial-gradient(ellipse 84% 81% at 50% 48%,#000 53%,#000b 72%,transparent 100%)}
+
+@media(max-width:800px){
+ .stage-art{padding:7px;border-radius:13px}
+ .stage-art::before{inset:5px;border-radius:9px}
+ .stage-creature.figure-2 .stage-art,.stage-creature.figure-3 .stage-art{border-radius:12px}
+ .stage-creature .stage-label{margin-top:-7px}
+ .dossier-poster .poster-art{grid-row:2/6;grid-column:1;margin:5px 0;height:175px;min-height:0;padding:7px;border-radius:16px}
+ .dossier-poster .poster-art::before{inset:6px;border-radius:10px}
+ .dossier-poster .poster-art .avatar.xl{height:100%;max-width:none}
+}
+@media(max-width:520px){
+ .stage-art{padding:5px}
+ .stage-art::before{inset:4px}
+ .dossier-poster .poster-art{height:128px;min-height:0}
+ .dossier-poster .poster-art .avatar.xl{height:100%}
+ body .dex-form-portrait img{height:190px}
+}
+@media(prefers-reduced-motion:reduce){.stage-creature .stage-art .avatar.xl img,.stage-art{transition:none}}
+
+/* Balanced gallery composition: frames are sized and spaced instead of floating over copy. */
+@media(min-width:801px){
+ .stage-creature.figure-1{top:10%;left:28%;width:45%;height:57%;z-index:4}
+ .stage-creature.figure-2{top:49%;left:1%;width:34%;height:35%;z-index:3}
+ .stage-creature.figure-3{top:51%;right:1%;width:34%;height:35%;z-index:3}
+}
+@media(max-width:800px){
+ .stage-creature.figure-1{top:-11%;left:36%;width:32%;height:77%}
+ .stage-creature.figure-2{top:33%;left:6%;width:32%;height:60%}
+ .stage-creature.figure-3{top:34%;right:6%;width:32%;height:60%}
+}
+@media(max-width:520px){
+ .stage-creature.figure-1{top:-8%;left:35%;width:34%;height:73%}
+ .stage-creature.figure-2{top:36%;left:4%;width:34%;height:59%}
+ .stage-creature.figure-3{top:36%;right:4%;width:34%;height:59%}
+}

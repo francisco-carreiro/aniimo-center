@@ -143,3 +143,11 @@ python -m http.server 8000
 Alternatively open `ANIIMO-CENTER-standalone.html`. It includes the app scripts
 and styles but still needs an internet connection for up-to-date catalog and
 publisher-hosted art. Source API availability and CORS are external dependencies.
+
+
+## v1.3.1 — Creature artwork framing
+
+- Hero images now sit inside responsive illuminated specimen frames, with better spacing across desktop and mobile.
+- The dossier portrait and form thumbnails use matching frames, subtle borders, and edge blending; images retain their original proportions with `object-fit: contain`.
+- Frame treatment reduces sharp rectangular crop edges in upstream art, but cannot restore artwork missing from its original source.
+- CSS-only change; no API changes, extra assets, JavaScript, account features, or collection migrations. The standalone HTML is regenerated with the same styling.
